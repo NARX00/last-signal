@@ -15,6 +15,10 @@ header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content:
 h1 { margin: 0; font-size: 22px; color: var(--white); letter-spacing: .04em; }
 h2 { margin: 28px 0 10px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); font-weight: normal; }
 .status { font-size: 12px; color: var(--dim); }
+.clock { display: flex; flex-wrap: wrap; gap: 8px 22px; background: var(--panel); border: 1px solid var(--edge); border-radius: 10px; padding: 10px 14px; margin-bottom: 4px; font-size: 13px; }
+.clock span { color: var(--dim); }
+.clock b { color: var(--white); font-weight: normal; font-variant-numeric: tabular-nums; }
+td .utc { display: block; color: var(--dim); font-size: 11px; }
 .status .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--dim); margin-right: 6px; vertical-align: 1px; }
 .status.live .dot { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
 .status.err .dot { background: var(--hot); }
@@ -46,6 +50,7 @@ code { color: var(--cyan); }
     <h1>Last Signal · Monitor</h1>
     <span class="status" id="status"><span class="dot"></span><span id="statusText">Connecting…</span></span>
   </header>
+  <div class="clock" id="clock"></div>
   <div id="app"></div>
 </main>
 <script>
@@ -57,6 +62,21 @@ const beat = Math.max(15, CONFIG.heartbeat_seconds || 30);
 const app = document.getElementById('app');
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
 const dayKey = d => d.toISOString().slice(0, 10);
+const TZ = (() => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || 'local'; } catch (_) { return 'local'; } })();
+const tLocal = (d, sec) => d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: sec ? '2-digit' : undefined });
+const tUTC = (d, sec) => d.toISOString().slice(11, sec ? 19 : 16);
+// the stats day follows UTC; show when it rolls over on the viewer's clock
+function utcDayEnd() { const n = new Date(); return new Date(Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate() + 1)); }
+function renderClock() {
+  const c = document.getElementById('clock'); if (!c) return;
+  const now = new Date(), end = utcDayEnd(), left = Math.max(0, end - now), h = Math.floor(left / 36e5), m = Math.floor(left % 36e5 / 6e4);
+  c.textContent = '';
+  const item = (label, value) => { const s = el('span', null, label + ' '); s.append(el('b', null, value)); c.append(s); };
+  item('Local', `${tLocal(now, true)} (${TZ})`);
+  item('UTC', tUTC(now, true));
+  item('Stats day (UTC)', `${dayKey(now)} · rolls over at ${tLocal(end)} local, in ${h}h ${String(m).padStart(2, '0')}m`);
+}
+renderClock(); setInterval(renderClock, 1000);
 const fmtDur = s => { s = Math.round(s); return s >= 60 ? `${Math.floor(s / 60)}m ${String(s % 60).padStart(2, '0')}s` : `${s}s`; };
 const get = path => fetch(`${base}/${path}.json`, { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(r.status === 401 ? 'The database refused the read. Check the rules were published.' : 'HTTP ' + r.status); return r.json(); });
 function status(kind, text) { const s = document.getElementById('status'); s.className = 'status ' + kind; document.getElementById('statusText').textContent = text; }
@@ -109,13 +129,13 @@ async function refresh() {
     const tiles = el('div', 'tiles');
     const tile = (k, v, s, cls) => { const t = el('div', 'tile' + (cls ? ' ' + cls : '')); t.append(el('div', 'k', k), el('div', 'v', String(v))); if (s) t.append(el('div', 's', s)); tiles.append(t); };
     tile('Online now', live.length, `${playing} in a run · ${live.length - playing} in menus · ${tg} in Telegram`, 'big');
-    tile('Players today', devices, 'unique devices (UTC day)');
+    tile('Players today', devices, `unique devices · UTC day ${today}`);
     tile('Runs today', T.runs || 0, `${T.finished || 0} finished · ${T.wins || 0} won`);
     tile('Average run', T.finished ? fmtDur((T.secs || 0) / T.finished) : '–', 'finished runs today');
     tile('Errors today', T.errors || 0, T.errors ? 'see below' : 'all clear');
     app.append(el('h2', null, 'Now'), tiles);
 
-    app.append(el('h2', null, 'Last 14 days'));
+    app.append(el('h2', null, 'Last 14 days (UTC days)'));
     const ch = el('div', 'chart'); ch.append(bars(history));
     const lg = el('div', 'legend'); const a = el('span'); const ai = el('i'); ai.style.background = '#61f5c0'; a.append(ai, 'Players'); const b = el('span'); const bi = el('i'); bi.style.background = '#ffb000'; b.append(bi, 'Runs'); lg.append(a, b); ch.append(lg);
     app.append(ch);
@@ -131,11 +151,11 @@ async function refresh() {
     const errs = Object.values(errors || {}).sort((x, y) => (y.t || 0) - (x.t || 0)).slice(0, 20);
     if (!errs.length) app.append(el('div', 'empty', 'No errors reported today.'));
     else {
-      const t = el('table'); const hr = el('tr'); hr.append(el('th', null, 'Time'), el('th', null, 'Error'), el('th', null, 'Device'), el('th', null, 'Version')); t.append(hr);
-      for (const e of errs) { const r = el('tr'); r.append(el('td', null, e.t ? new Date(e.t).toLocaleTimeString() : ''), el('td', null, e.m || ''), el('td', null, e.ua || ''), el('td', null, e.v || '')); t.append(r); }
+      const t = el('table'); const hr = el('tr'); hr.append(el('th', null, 'Time (local / UTC)'), el('th', null, 'Error'), el('th', null, 'Device'), el('th', null, 'Version')); t.append(hr);
+      for (const e of errs) { const r = el('tr'); const tc = el('td', null, e.t ? tLocal(new Date(e.t), true) : ''); if (e.t) tc.append(el('span', 'utc', tUTC(new Date(e.t), true) + ' UTC')); r.append(tc, el('td', null, e.m || ''), el('td', null, e.ua || ''), el('td', null, e.v || '')); t.append(r); }
       app.append(t);
     }
-    status('live', 'Live · updated ' + new Date().toLocaleTimeString());
+    { const n = new Date(); status('live', `Live · updated ${tLocal(n, true)} local · ${tUTC(n, true)} UTC`); }
     // tidy: presence entries older than a day belong to closed apps that never said goodbye
     for (const [id, p] of Object.entries(presence || {})) if (!p || now - (p.t || 0) > 864e5) fetch(`${base}/presence/${id}.json`, { method: 'DELETE' }).catch(() => {});
   } catch (e) {
