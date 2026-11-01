@@ -1,3 +1,5 @@
+<img src="assets/brand/icon-192.png" width="96" alt="" align="right">
+
 # Last Signal
 
 A survival game in the code rain. You are the last process the system couldn't erase:
@@ -12,6 +14,7 @@ outrun the swarm, build impossible weapons, and take down the Root Process.
   built from trigger, condition and effect pieces in an in-game editor.
 - Operators, powers, a Kernel of permanent upgrades, a Code library, specializations,
   mutations, routes and a Nemesis rival.
+- A shared leaderboard and daily challenge board.
 - Keyboard, mouse or touch. In Telegram, progress is saved to your Telegram account.
 
 ## Controls
@@ -33,6 +36,7 @@ The game is JavaScript and ships as a single `index.html`. Python tools build an
 - `data/` editable tables: enemies, weapons, systems, bosses, texts
 - `assets/` optional sprites, icons and music
 - `docs/CONTENT.md` how to add enemies, art, icons and music
-- `docs/MONITORING.md` live player count and stats (`monitor.html`)
+- `docs/MONITORING.md` live player count, stats (`monitor.html`) and the leaderboard
+- `assets/brand/` the game icon (`icon.svg`; `python tools/render_icon.py` renders the PNGs)
 
 Pushing to `main` checks, builds and publishes the site through GitHub Actions.

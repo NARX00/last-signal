@@ -7,12 +7,24 @@
       "$device": {
         ".write": "$device.length >= 8 && $device.length <= 40",
         ".validate": "newData.hasChild('t') && newData.child('t').isNumber() && newData.child('t').val() <= now + 60000",
-        "t": { ".validate": "newData.isNumber()" },
-        "s": { ".validate": "newData.isString() && (newData.val() === 'play' || newData.val() === 'menu')" },
-        "m": { ".validate": "newData.isString() && newData.val().length <= 12" },
-        "v": { ".validate": "newData.isString() && newData.val().length <= 16" },
-        "tg": { ".validate": "newData.isBoolean()" },
-        "$other": { ".validate": false }
+        "t": {
+          ".validate": "newData.isNumber()"
+        },
+        "s": {
+          ".validate": "newData.isString() && (newData.val() === 'play' || newData.val() === 'menu')"
+        },
+        "m": {
+          ".validate": "newData.isString() && newData.val().length <= 12"
+        },
+        "v": {
+          ".validate": "newData.isString() && newData.val().length <= 16"
+        },
+        "tg": {
+          ".validate": "newData.isBoolean()"
+        },
+        "$other": {
+          ".validate": false
+        }
       }
     },
     "stats": {
@@ -38,11 +50,95 @@
         "$error": {
           ".write": "!data.exists()",
           ".validate": "newData.hasChildren(['m', 't']) && newData.child('m').isString() && newData.child('m').val().length <= 260",
-          "m": { ".validate": "newData.isString()" },
-          "t": { ".validate": "newData.isNumber()" },
-          "v": { ".validate": "newData.isString() && newData.val().length <= 16" },
-          "ua": { ".validate": "newData.isString() && newData.val().length <= 12" },
-          "$other": { ".validate": false }
+          "m": {
+            ".validate": "newData.isString()"
+          },
+          "t": {
+            ".validate": "newData.isNumber()"
+          },
+          "v": {
+            ".validate": "newData.isString() && newData.val().length <= 16"
+          },
+          "ua": {
+            ".validate": "newData.isString() && newData.val().length <= 12"
+          },
+          "$other": {
+            ".validate": false
+          }
+        }
+      }
+    },
+    "scores": {
+      ".read": true,
+      ".indexOn": [
+        "score"
+      ],
+      "$device": {
+        ".write": "$device.length >= 8 && $device.length <= 40",
+        ".validate": "newData.hasChildren(['name', 'score', 'secs', 'kills', 'at']) && newData.child('score').isNumber() && newData.child('score').val() >= 0 && newData.child('score').val() <= 6000000000",
+        "name": {
+          ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 16"
+        },
+        "score": {
+          ".validate": "newData.isNumber()"
+        },
+        "secs": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1300"
+        },
+        "kills": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 500000"
+        },
+        "won": {
+          ".validate": "newData.isBoolean()"
+        },
+        "at": {
+          ".validate": "newData.isNumber() && newData.val() <= now + 60000"
+        },
+        "level": {
+          ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 500"
+        },
+        "proto": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 5"
+        },
+        "prog": {
+          ".validate": "newData.isString() && newData.val().length <= 160"
+        },
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    "daily": {
+      ".read": true,
+      "$day": {
+        ".indexOn": [
+          "score"
+        ],
+        ".validate": "$day.matches(/^20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]$/)",
+        "$device": {
+          ".write": "$device.length >= 8 && $device.length <= 40",
+          ".validate": "newData.hasChildren(['name', 'score', 'secs', 'kills', 'at']) && newData.child('score').isNumber() && newData.child('score').val() >= 0 && newData.child('score').val() <= 6000000000",
+          "name": {
+            ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 16"
+          },
+          "score": {
+            ".validate": "newData.isNumber()"
+          },
+          "secs": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1300"
+          },
+          "kills": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 500000"
+          },
+          "won": {
+            ".validate": "newData.isBoolean()"
+          },
+          "at": {
+            ".validate": "newData.isNumber() && newData.val() <= now + 60000"
+          },
+          "$other": {
+            ".validate": false
+          }
         }
       }
     }

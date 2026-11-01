@@ -35,6 +35,7 @@ const TELE = (() => {
     req('POST', `errors/${day()}`, { m: m + where, v: BUILD.version, t: { '.sv': 'timestamp' }, ua: /iPhone|iPad/.test(navigator.userAgent) ? 'ios' : /Android/.test(navigator.userAgent) ? 'android' : 'desktop' });
   });
   return {
+    id,
     start,
     run() { inc('runs'); beat(); },
     end(won, secs) { inc('finished'); if (won) inc('wins'); if (secs > 0) inc('secs', Math.min(1200, Math.round(secs))); beat(); },

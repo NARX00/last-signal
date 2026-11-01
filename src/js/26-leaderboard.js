@@ -3,13 +3,65 @@ const NET = { db: null, uid: null, user: null, board: [], myScore: 0 };
 let localBest = load('last-signal-best', { score: 0, secs: 0, kills: 0, proto: 0 });
 function renderLocal() { $('localBest').textContent = localBest.secs ? `Your best on this device: ${fmt(localBest.secs)} on Protocol ${localBest.proto || 0}, ${localBest.kills} purged.` : ''; }
 renderLocal();
+// ---- shared board on the Firebase database (GitHub Pages and Telegram; the Claude artifact keeps its own) ----
+const FBB = { base: String((BUILD.data.telemetry || {}).database_url || '').replace(/\/+$/, ''), timer: 0 };
+FBB.on = () => !!FBB.base && !window.claude;
+const fbReq = (method, path, body, query = '') => fetch(`${FBB.base}/${path}.json${query}`, { method, cache: 'no-store', headers: { 'Content-Type': 'application/json' }, body: body === undefined ? undefined : JSON.stringify(body) }).then(r => r.ok ? r.json() : null).catch(() => null);
+const topQ = n => `?orderBy=${encodeURIComponent('"score"')}&limitToLast=${n}`;
+const fbRows = o => Object.entries(o || {}).map(([id, v]) => Object.assign({ id }, v)).filter(r => typeof r.score === 'number').sort((a, b) => b.score - a.score);
+const cleanName = s => String(s || '').replace(/[\u0000-\u001f\u007f<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 16);
+function lbName() {
+  const own = cleanName(SET.lbName); if (own) return own;
+  try { const u = TG && TG.initDataUnsafe && TG.initDataUnsafe.user; const n = cleanName(u && u.first_name); if (n) return n; } catch (_) {}
+  return 'Player ' + TELE.id.slice(-4).toUpperCase();
+}
+async function fbLoad() {
+  const [all, day, mine] = await Promise.all([fbReq('GET', 'scores', undefined, topQ(10)), fbReq('GET', `daily/${dayKey()}`, undefined, topQ(5)), fbReq('GET', `scores/${NET.uid}`)]);
+  NET.board = fbRows(all); renderBoard();
+  NET.daily = fbRows(day); renderDailyBoard();
+  NET.myScore = mine && typeof mine.score === 'number' ? mine.score : 0;
+}
+async function fbSubmit(score, secs, kills, level, won, proto) {
+  if (SET.lbShow === false) return { note: 'Saved. You chose not to appear on the leaderboard (Settings).' };
+  if (score <= NET.myScore) { const i = NET.board.findIndex(r => r.id === NET.uid); return { rank: i >= 0 ? i + 1 : 0, note: 'Your leaderboard best still stands.' }; }
+  const ok = await fbReq('PUT', `scores/${NET.uid}`, { name: lbName(), score, secs, kills, level, won: !!won, proto, prog: progText(true), at: { '.sv': 'timestamp' } });
+  if (!ok) return { note: "Saved on this device. The leaderboard couldn't be reached right now." };
+  await fbLoad();
+  const i = NET.board.findIndex(r => r.id === NET.uid);
+  return { rank: i >= 0 ? i + 1 : 0, note: i >= 0 ? `Posted to the leaderboard as ${lbName()}.` : 'Posted. Not in the top 10 yet.' };
+}
+async function fbSubmitDaily(key, score, secs, kills, won) {
+  if (SET.lbShow === false) return 'Daily result saved. You chose not to appear on the leaderboard (Settings).';
+  const cur = await fbReq('GET', `daily/${key}/${NET.uid}`);
+  if (cur && cur.score >= score) return 'Your best today still stands on the daily board.';
+  const ok = await fbReq('PUT', `daily/${key}/${NET.uid}`, { name: lbName(), score, secs, kills, won: !!won, at: { '.sv': 'timestamp' } });
+  if (!ok) return "Daily result saved on this device. The daily board couldn't be reached right now.";
+  await fbLoad(); return `Posted to today's daily board as ${lbName()}.`;
+}
+async function fbRename() {   // keep the posted name in step with the setting
+  if (!NET.fb || SET.lbShow === false) return;
+  if (NET.myScore) await fbReq('PATCH', `scores/${NET.uid}`, { name: lbName() });
+  const d = await fbReq('GET', `daily/${dayKey()}/${NET.uid}`); if (d) await fbReq('PATCH', `daily/${dayKey()}/${NET.uid}`, { name: lbName() });
+  fbLoad();
+}
+async function fbHide() {
+  if (!NET.fb) return;
+  await Promise.all([fbReq('DELETE', `scores/${NET.uid}`), fbReq('DELETE', `daily/${dayKey()}/${NET.uid}`)]);
+  NET.myScore = 0; fbLoad();
+}
 async function initBoard() {
   const [db, u] = await Promise.all([use('db'), use('user')]);
   const uid = u ? await u.id().catch(() => null) : null;
   if (!db || !uid) {
     NET.sync = false; syncLabel(); $('board').hidden = true;
-    $('boardEmpty').textContent = TG ? 'The shared leaderboard comes to Telegram in a later update. Your best run is kept on this device.' : 'The shared leaderboard appears when you open this page signed in to Claude. Your best run is still kept on this device.';
     if (TGC.ok) tgSyncLoad();
+    if (FBB.on()) {
+      NET.fb = true; NET.uid = TELE.id; $('board').hidden = false;
+      $('boardEmpty').textContent = 'No runs on the board yet. Survive as long as you can and yours will be the first.';
+      fbLoad(); clearInterval(FBB.timer); FBB.timer = setInterval(() => { if (state === 'title' || state === 'over') fbLoad(); }, 60000);
+      return;
+    }
+    $('boardEmpty').textContent = TG ? 'The shared leaderboard isn\'t available here yet. Your best run is kept on this device.' : 'The shared leaderboard appears when you open this page signed in to Claude. Your best run is still kept on this device.';
     return;
   }
   Object.assign(NET, { db, uid, user: u });
@@ -29,8 +81,8 @@ async function renderBoard() {
   NET.board.forEach((r, i) => {
     const li = document.createElement('li'); if (r.id === NET.uid) li.className = 'me';
     const rk = document.createElement('span'); rk.className = 'rk'; rk.textContent = i + 1;
-    const img = document.createElement('img'); img.alt = ''; if (ps[r.id]) img.src = ps[r.id].avatarUrl;
-    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = ((ps[r.id] && ps[r.id].name) || 'Someone') + (r.id === NET.uid ? ' (you)' : '');
+    const img = document.createElement('img'); img.alt = ''; if (ps[r.id] && ps[r.id].avatarUrl) img.src = ps[r.id].avatarUrl; else img.style.visibility = 'hidden';
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = ((ps[r.id] && ps[r.id].name) || cleanName(r.name) || 'Someone') + (r.id === NET.uid ? ' (you)' : '');
     const pr = document.createElement('span'); pr.className = 'pr' + ((r.proto || 0) >= 3 ? ' hot' : ''); pr.textContent = 'P' + (r.proto || 0);
     const tm = document.createElement('span'); tm.className = 'tm' + (r.won ? ' won' : ''); tm.textContent = fmt(r.secs || 0);
     const kl = document.createElement('span'); kl.className = 'kl'; kl.textContent = (r.kills || 0) + ' ✕';
@@ -45,8 +97,8 @@ async function renderDailyBoard() {
   rows.forEach((r, i) => {
     const li = document.createElement('li'); if (r.id === NET.uid) li.className = 'me';
     const rk = document.createElement('span'); rk.className = 'rk'; rk.textContent = i + 1;
-    const img = document.createElement('img'); img.alt = ''; if (ps[r.id]) img.src = ps[r.id].avatarUrl;
-    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = ((ps[r.id] && ps[r.id].name) || 'Someone') + (r.id === NET.uid ? ' (you)' : '');
+    const img = document.createElement('img'); img.alt = ''; if (ps[r.id] && ps[r.id].avatarUrl) img.src = ps[r.id].avatarUrl; else img.style.visibility = 'hidden';
+    const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = ((ps[r.id] && ps[r.id].name) || cleanName(r.name) || 'Someone') + (r.id === NET.uid ? ' (you)' : '');
     const pr = document.createElement('span'); pr.className = 'pr'; pr.textContent = 'D';
     const tm = document.createElement('span'); tm.className = 'tm' + (r.won ? ' won' : ''); tm.textContent = fmt(r.secs || 0);
     const kl = document.createElement('span'); kl.className = 'kl'; kl.textContent = (r.kills || 0) + ' ✕';
@@ -59,6 +111,7 @@ async function submitDaily(score, secs, kills, won) {
   const key = G.daily.key; META.dailyBest = META.dailyBest || {};
   const prev = META.dailyBest[key];
   if (!prev || score > prev.score) { META.dailyBest[key] = { score, secs, kills }; for (const k of Object.keys(META.dailyBest).sort().slice(0, -14)) delete META.dailyBest[k]; saveMeta(); }
+  if (NET.fb) return fbSubmitDaily(key, score, secs, kills, won);
   if (!NET.db || !NET.uid) return TG ? 'Daily result saved. The daily board arrives in a later update.' : 'Daily result saved on this device. The daily board needs you signed in.';
   try {
     const ref = NET.db.doc('daily/' + NET.uid), cur = await ref.get();
@@ -118,6 +171,7 @@ function logRun(won, frag) {
   if (NET.db && NET.uid) NET.db.doc(`data/users/${NET.uid}/run-${Date.now()}`).set(rec).catch(() => {});
 }
 async function submitScore(score, secs, kills, level, won, proto) {
+  if (NET.fb) return fbSubmit(score, secs, kills, level, won, proto);
   if (!NET.db || !NET.uid) return { note: TG ? 'Saved. The shared leaderboard arrives in a later update.' : 'Saved on this device. The shared leaderboard needs you signed in.' };
   if (score <= NET.myScore) { const i = NET.board.findIndex(r => r.id === NET.uid); return { rank: i >= 0 ? i + 1 : 0, note: 'Your leaderboard best still stands.' }; }
   try {
@@ -128,5 +182,13 @@ async function submitScore(score, secs, kills, level, won, proto) {
     return { rank: i >= 0 ? i + 1 : 0, note: i >= 0 ? 'Posted to the leaderboard.' : 'Saved. Not in the top 10 yet.' };
   } catch (_) { return { note: "Your run couldn't be posted. You may only have view access to this page." }; }
 }
+// leaderboard settings (Firebase board only)
+$('lbNameRow').hidden = $('lbShowRow').hidden = !FBB.on();
+$('lbNameIn').value = lbName();
+$('lbNameIn').addEventListener('change', () => { const n = cleanName($('lbNameIn').value); SET.lbName = n; save('last-signal-settings', SET); $('lbNameIn').value = lbName(); $('lbNameNote').textContent = 'Saved.'; setTimeout(() => $('lbNameNote').textContent = '', 1800); fbRename(); });
+$('lbNameIn').addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Enter') $('lbNameIn').blur(); });
+const syncLbShow = () => { $('lbShowT').textContent = SET.lbShow === false ? 'Off' : 'On'; $('lbShowT').setAttribute('aria-pressed', SET.lbShow !== false); };
+$('lbShowT').addEventListener('click', () => { SET.lbShow = SET.lbShow === false; save('last-signal-settings', SET); syncLbShow(); if (SET.lbShow === false) fbHide(); else fbLoad(); });
+syncLbShow();
 initBoard();
 

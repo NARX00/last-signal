@@ -24,10 +24,20 @@ SRC, DATA, ASSETS, DIST = ROOT / 'src', ROOT / 'data', ROOT / 'assets', ROOT / '
 
 TITLE = 'Last Signal: Rewrite'
 FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap">'
+SITE_URL = 'https://narx00.github.io/last-signal/'
+ICONS = (
+    '<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/icon-32.png">'
+    '<link rel="icon" type="image/png" sizes="192x192" href="assets/brand/icon-192.png">'
+    '<link rel="apple-touch-icon" href="assets/brand/icon-180.png">'
+    '<meta name="theme-color" content="#030b12">'
+    '<meta property="og:title" content="Last Signal">'
+    '<meta property="og:description" content="A survival game in the code rain. Program your weapons, outlast the swarm, delete the Root Process.">'
+    f'<meta property="og:image" content="{SITE_URL}assets/brand/banner-640x360.png">'
+)
 TELEGRAM_HEAD = (
     '<!doctype html><html lang="en"><head><meta charset="utf-8">'
     '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">'
-    '<meta name="color-scheme" content="dark"><style>body{margin:0}[hidden]{display:none!important}</style>'
+    '<meta name="color-scheme" content="dark">' + ICONS + '<style>body{margin:0}[hidden]{display:none!important}</style>'
     '<script src="https://telegram.org/js/telegram-web-app.js"></script></head><body>\n'
 )
 TELEGRAM_TAIL = '</body></html>\n'
@@ -91,6 +101,9 @@ def write_site(site):
         if p.suffix.lower() in AUDIO_EXT:
             shutil.copy2(p, out / 'assets' / 'music' / p.name)
     (out / '.nojekyll').write_text('')
+    (out / 'assets' / 'brand').mkdir(parents=True)
+    for p in sorted((ASSETS / 'brand').glob('*.png')):
+        shutil.copy2(p, out / 'assets' / 'brand' / p.name)
     (out / 'monitor.html').write_text(build_monitor(), encoding='utf-8')
 
 

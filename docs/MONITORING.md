@@ -1,4 +1,8 @@
-# Monitoring: who's playing
+# Monitoring and leaderboard
+
+The same free Firebase Realtime Database powers two things: the live monitoring page and the shared leaderboard.
+
+## Monitoring: who's playing
 
 The game can report anonymous play stats to a free Firebase Realtime Database. The monitoring page then shows:
 
@@ -10,7 +14,7 @@ The game can report anonymous play stats to a free Firebase Realtime Database. T
 
 Page: `https://narx00.github.io/last-signal/monitor.html`. It refreshes itself every 15 seconds.
 
-## What is sent
+### What is sent for monitoring
 
 A random device id made on first launch, the game version, whether a run is in progress, the mode, and whether it's
 running in Telegram. At the end of a run: that it finished, its length, and whether it was won. Script errors:
@@ -20,6 +24,18 @@ Players can switch it off in Settings → Anonymous play stats. It's always off 
 The data in this database is readable by anyone who has its address, like the monitoring page itself; it contains
 nothing personal, only the counts and errors above.
 
+## Leaderboard
+
+Everyone playing on GitHub Pages or in Telegram shares two boards on the title screen:
+
+- **Leaderboard**: each player's best Full-mode run (Protocol first, then time survived, then kills), top 10
+- **Daily challenge**: today's best daily runs, top 5
+
+Each entry shows the player's name, time, kills, Protocol and the top lines of their code program.
+The name defaults to the Telegram first name (or "Player XXXX" in a browser) and can be changed in
+**Settings → Leaderboard name**. **Settings → Show me on the leaderboard** turns it off and removes the player's entries.
+Leaderboard names are visible to anyone who opens the game. The Claude version keeps its own separate board.
+
 ## One-time setup (about 10 minutes)
 
 1. Go to https://console.firebase.google.com and sign in with a Google account.
@@ -27,6 +43,7 @@ nothing personal, only the counts and errors above.
 3. In the project, open **Build → Realtime Database** and click **Create Database**.
    Pick a location near your players and choose **Start in locked mode**.
 4. Open the **Rules** tab, replace everything with the contents of `firebase/database.rules.json`, and click **Publish**.
+   Do this again whenever that file changes (it gained the `scores` and `daily` sections for the leaderboard).
 5. On the **Data** tab, copy the database address shown at the top. It looks like
    `https://last-signal-xxxxx-default-rtdb.firebaseio.com` (some locations use `….firebasedatabase.app`).
 6. Put it in `data/telemetry.json`:
