@@ -49,7 +49,7 @@ code { color: var(--cyan); }
   <div id="app"></div>
 </main>
 <script>
-const CONFIG = {"database_url": "", "heartbeat_seconds": 30};
+const CONFIG = {"database_url": "https://lastsignal-173b0-default-rtdb.firebaseio.com", "heartbeat_seconds": 30};
 (() => {
 'use strict';
 const base = String(CONFIG.database_url || '').replace(/\/+$/, '');

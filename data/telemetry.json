@@ -1,4 +1,4 @@
 {
-  "database_url": "",
+  "database_url": "https://lastsignal-173b0-default-rtdb.firebaseio.com",
   "heartbeat_seconds": 30
 }
