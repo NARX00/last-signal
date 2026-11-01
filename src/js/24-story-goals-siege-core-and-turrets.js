@@ -79,6 +79,10 @@ $('againBtn').addEventListener('click', () => { if (RUN_DAILY) RUN_DAILY = daily
 $('menuBtn').addEventListener('click', toTitle);
 $('pauseBtn').addEventListener('click', pauseGame);
 $('resumeBtn').addEventListener('click', resume);
+$('statsRow').hidden = !(BUILD.data.telemetry && BUILD.data.telemetry.database_url) || !!window.claude;
+const syncStats = () => { $('statsT').textContent = SET.stats === false ? 'Off' : 'On'; $('statsT').setAttribute('aria-pressed', SET.stats !== false); };
+$('statsT').addEventListener('click', () => { SET.stats = SET.stats === false; save('last-signal-settings', SET); syncStats(); TELE.toggle(SET.stats !== false); });
+syncStats();
 $('exportBtn').addEventListener('click', async () => {
   const code = exportCode(); let ok = false;
   try { await navigator.clipboard.writeText(code); ok = true; } catch (_) {}

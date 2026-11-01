@@ -33,5 +33,6 @@ The game is JavaScript and ships as a single `index.html`. Python tools build an
 - `data/` editable tables: enemies, weapons, systems, bosses, texts
 - `assets/` optional sprites, icons and music
 - `docs/CONTENT.md` how to add enemies, art, icons and music
+- `docs/MONITORING.md` live player count and stats (`monitor.html`)
 
 Pushing to `main` checks, builds and publishes the site through GitHub Actions.

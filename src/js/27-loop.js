@@ -29,4 +29,5 @@ setTimeout(metaAch, 1500);
 renderTitle();
 requestAnimationFrame(frame);
 setTimeout(() => $('startBtn').focus({ preventScroll: true }), 50);
+TELE.start();
 })();

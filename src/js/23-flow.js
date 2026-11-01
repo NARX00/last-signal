@@ -25,6 +25,7 @@ function renderExitFx() {
   ctx.globalAlpha = 1; ctx.textAlign = 'left';
 }
 function beginPlay() {
+  if (G && !G.training) TELE.run();
   state = 'play'; $('hud').hidden = false; last = performance.now();
   banner(G.daily ? `Daily · ${G.daily.mods.map(m => DAILY_MODS[m].split(':')[0]).join(' · ')}` : `Protocol ${G.proto} · ${OPS[G.op].name}`, 'Hold the signal');
   relayStop(); setTimeout(() => { if (state === 'play') relay(pickL(RELAY.start)); }, 1200);
@@ -86,6 +87,7 @@ function resume() { if (state !== 'pause') return; $('pause').hidden = true; sta
 async function endRun(won) {
   if (state === 'over' || !G) return;
   state = 'over'; sfx.hum(false); won ? sfx.win() : sfx.lose();
+  if (!G.training) TELE.end(won, G.t);
   stick.on = false; mouseHold.on = false; keys.clear();
   $('sectorChoice').hidden=true; $('discoveryChoice').hidden=true;
   settleContract();

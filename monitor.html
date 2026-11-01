@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<title>Last Signal Monitor</title>
+<style>
+:root { --bg: #030b12; --panel: #0a1a26; --edge: rgba(113,217,214,.22); --ink: #c3dce2; --dim: #7f9ea6; --white: #f0fbff; --accent: #61f5c0; --amber: #ffb000; --hot: #ff3b5c; --cyan: #7ff7ff; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.5 ui-monospace, Menlo, Consolas, monospace; }
+main { max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 20px; }
+h1 { margin: 0; font-size: 22px; color: var(--white); letter-spacing: .04em; }
+h2 { margin: 28px 0 10px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); font-weight: normal; }
+.status { font-size: 12px; color: var(--dim); }
+.status .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--dim); margin-right: 6px; vertical-align: 1px; }
+.status.live .dot { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+.status.err .dot { background: var(--hot); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.tile { background: var(--panel); border: 1px solid var(--edge); border-radius: 10px; padding: 14px; }
+.tile .k { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+.tile .v { font-size: 30px; color: var(--white); font-variant-numeric: tabular-nums; line-height: 1.2; margin-top: 4px; }
+.tile .s { font-size: 12px; color: var(--dim); }
+.tile.big { grid-column: span 2; border-color: rgba(97,245,192,.45); }
+.tile.big .v { font-size: 48px; color: var(--accent); }
+.chart { background: var(--panel); border: 1px solid var(--edge); border-radius: 10px; padding: 14px; }
+.chart svg { width: 100%; height: auto; display: block; }
+.legend { display: flex; gap: 16px; font-size: 12px; color: var(--dim); margin-top: 6px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--edge); border-radius: 10px; overflow: hidden; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid rgba(113,217,214,.1); font-size: 13px; vertical-align: top; }
+th { color: var(--dim); font-weight: normal; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+td.n { text-align: right; font-variant-numeric: tabular-nums; }
+.empty { background: var(--panel); border: 1px dashed var(--edge); border-radius: 10px; padding: 16px; color: var(--dim); }
+.setup { background: var(--panel); border: 1px solid rgba(255,176,0,.4); border-radius: 10px; padding: 18px; }
+.setup b { color: var(--amber); font-weight: normal; }
+code { color: var(--cyan); }
+@media (max-width: 520px) { .tile.big { grid-column: span 1; } .tile.big .v { font-size: 40px; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Last Signal · Monitor</h1>
+    <span class="status" id="status"><span class="dot"></span><span id="statusText">Connecting…</span></span>
+  </header>
+  <div id="app"></div>
+</main>
+<script>
+const CONFIG = {"database_url": "", "heartbeat_seconds": 30};
+(() => {
+'use strict';
+const base = String(CONFIG.database_url || '').replace(/\/+$/, '');
+const beat = Math.max(15, CONFIG.heartbeat_seconds || 30);
+const app = document.getElementById('app');
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const dayKey = d => d.toISOString().slice(0, 10);
+const fmtDur = s => { s = Math.round(s); return s >= 60 ? `${Math.floor(s / 60)}m ${String(s % 60).padStart(2, '0')}s` : `${s}s`; };
+const get = path => fetch(`${base}/${path}.json`, { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(r.status === 401 ? 'The database refused the read. Check the rules were published.' : 'HTTP ' + r.status); return r.json(); });
+function status(kind, text) { const s = document.getElementById('status'); s.className = 'status ' + kind; document.getElementById('statusText').textContent = text; }
+
+if (!base) {
+  status('', 'Not set up');
+  const box = el('div', 'setup');
+  box.append(el('p', null, 'Telemetry is off: the game has no database address yet.'));
+  const p = el('p'); p.append('Create the free Firebase database described in '); const c = el('code', null, 'docs/MONITORING.md'); p.append(c, ', put its address in '); p.append(el('code', null, 'data/telemetry.json'), ', then rebuild and push.'); box.append(p);
+  app.append(box);
+  return;
+}
+
+let history = [], lastHistory = 0;
+async function loadHistory() {
+  const days = []; for (let i = 13; i >= 0; i--) { const d = new Date(Date.now() - i * 864e5); days.push(dayKey(d)); }
+  const rows = await Promise.all(days.map(d => get(`stats/${d}`).then(v => [d, v || {}])));
+  history = rows; lastHistory = Date.now();
+}
+
+function bars(rows) {
+  const W = Math.round(Math.max(300, Math.min(900, app.clientWidth - 30))), H = 180, pad = 26, n = rows.length, bw = (W - pad) / n, every = W < 480 ? 3 : 2;
+  const devices = rows.map(([, v]) => Object.keys(v.devices || {}).length), runs = rows.map(([, v]) => v.runs || 0);
+  const max = Math.max(2, Math.ceil(Math.max(...devices, ...runs) / 2) * 2);
+  const ns = 'http://www.w3.org/2000/svg', svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'Players and runs per day, last 14 days');
+  const add = (t, a) => { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; };
+  for (let g = 0; g <= 2; g++) { const y = H - 20 - (H - 34) * g / 2; add('line', { x1: pad, x2: W, y1: y, y2: y, stroke: 'rgba(113,217,214,.12)' }); add('text', { x: 0, y: y + 4, fill: '#7f9ea6', 'font-size': 11 }).textContent = Math.round(max * g / 2); }
+  rows.forEach(([d], i) => {
+    const x = pad + i * bw, h1 = (H - 34) * devices[i] / max, h2 = (H - 34) * runs[i] / max;
+    add('rect', { x: x + bw * .14, y: H - 20 - h1, width: bw * .34, height: h1, fill: '#61f5c0', rx: 2 }).appendChild(document.createElementNS(ns, 'title')).textContent = `${d}: ${devices[i]} players`;
+    add('rect', { x: x + bw * .52, y: H - 20 - h2, width: bw * .34, height: h2, fill: '#ffb000', rx: 2 }).appendChild(document.createElementNS(ns, 'title')).textContent = `${d}: ${runs[i]} runs`;
+    if ((n - 1 - i) % every === 0) add('text', { x: i === n - 1 ? W - 2 : x + bw / 2, y: H - 4, fill: '#7f9ea6', 'font-size': 11, 'text-anchor': i === n - 1 ? 'end' : 'middle' }).textContent = d.slice(5);
+  });
+  return svg;
+}
+
+async function refresh() {
+  try {
+    if (Date.now() - lastHistory > 60000 || !history.length) await loadHistory();
+    const today = dayKey(new Date());
+    const [presence, todayStats, errors] = await Promise.all([get('presence'), get(`stats/${today}`), get(`errors/${today}`)]);
+    history[history.length - 1] = [today, todayStats || {}];
+    const now = Date.now(), live = Object.entries(presence || {}).filter(([, p]) => p && now - (p.t || 0) < beat * 3000);
+    const playing = live.filter(([, p]) => p.s === 'play').length, tg = live.filter(([, p]) => p.tg).length;
+    const versions = {}; for (const [, p] of live) versions[p.v || '?'] = (versions[p.v || '?'] || 0) + 1;
+    const T = todayStats || {}, devices = Object.keys(T.devices || {}).length;
+
+    app.textContent = '';
+    const tiles = el('div', 'tiles');
+    const tile = (k, v, s, cls) => { const t = el('div', 'tile' + (cls ? ' ' + cls : '')); t.append(el('div', 'k', k), el('div', 'v', String(v))); if (s) t.append(el('div', 's', s)); tiles.append(t); };
+    tile('Online now', live.length, `${playing} in a run · ${live.length - playing} in menus · ${tg} in Telegram`, 'big');
+    tile('Players today', devices, 'unique devices (UTC day)');
+    tile('Runs today', T.runs || 0, `${T.finished || 0} finished · ${T.wins || 0} won`);
+    tile('Average run', T.finished ? fmtDur((T.secs || 0) / T.finished) : '–', 'finished runs today');
+    tile('Errors today', T.errors || 0, T.errors ? 'see below' : 'all clear');
+    app.append(el('h2', null, 'Now'), tiles);
+
+    app.append(el('h2', null, 'Last 14 days'));
+    const ch = el('div', 'chart'); ch.append(bars(history));
+    const lg = el('div', 'legend'); const a = el('span'); const ai = el('i'); ai.style.background = '#61f5c0'; a.append(ai, 'Players'); const b = el('span'); const bi = el('i'); bi.style.background = '#ffb000'; b.append(bi, 'Runs'); lg.append(a, b); ch.append(lg);
+    app.append(ch);
+
+    if (live.length) {
+      app.append(el('h2', null, 'Versions online'));
+      const t = el('table'); const hr = el('tr'); hr.append(el('th', null, 'Version'), el('th', null, 'Players')); t.append(hr);
+      for (const [v, n] of Object.entries(versions).sort((x, y) => y[1] - x[1])) { const r = el('tr'); r.append(el('td', null, v)); const c = el('td', 'n', String(n)); r.append(c); t.append(r); }
+      app.append(t);
+    }
+
+    app.append(el('h2', null, 'Errors today'));
+    const errs = Object.values(errors || {}).sort((x, y) => (y.t || 0) - (x.t || 0)).slice(0, 20);
+    if (!errs.length) app.append(el('div', 'empty', 'No errors reported today.'));
+    else {
+      const t = el('table'); const hr = el('tr'); hr.append(el('th', null, 'Time'), el('th', null, 'Error'), el('th', null, 'Device'), el('th', null, 'Version')); t.append(hr);
+      for (const e of errs) { const r = el('tr'); r.append(el('td', null, e.t ? new Date(e.t).toLocaleTimeString() : ''), el('td', null, e.m || ''), el('td', null, e.ua || ''), el('td', null, e.v || '')); t.append(r); }
+      app.append(t);
+    }
+    status('live', 'Live · updated ' + new Date().toLocaleTimeString());
+    // tidy: presence entries older than a day belong to closed apps that never said goodbye
+    for (const [id, p] of Object.entries(presence || {})) if (!p || now - (p.t || 0) > 864e5) fetch(`${base}/presence/${id}.json`, { method: 'DELETE' }).catch(() => {});
+  } catch (e) {
+    status('err', String(e.message || e));
+  }
+}
+refresh(); setInterval(refresh, 15000);
+})();
+</script>
+</body>
+</html>

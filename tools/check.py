@@ -105,6 +105,16 @@ def main():
         if wid not in evolutions:
             warn(f'weapons.{wid}: has no evolution in data/evolutions.json')
 
+    # telemetry
+    tele = json.loads((DATA / 'telemetry.json').read_text(encoding='utf-8')) if (DATA / 'telemetry.json').exists() else {}
+    url = tele.get('database_url', '')
+    if url and not (url.startswith('https://') and ('.firebaseio.com' in url or '.firebasedatabase.app' in url)):
+        err('telemetry.database_url: expected a Firebase Realtime Database address like https://<name>-default-rtdb.firebaseio.com')
+    if url.endswith('.json') or '?' in url:
+        err('telemetry.database_url: use the bare database address, without a path, ".json" or "?"')
+    if 'heartbeat_seconds' in tele and not (num(tele['heartbeat_seconds']) and 15 <= tele['heartbeat_seconds'] <= 300):
+        err('telemetry.heartbeat_seconds: use a number between 15 and 300')
+
     # assets
     ids_icons = set(weapons) | set(systems) | set(powers.get('powers', {}))
     sprite_ids = set()

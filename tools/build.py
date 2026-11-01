@@ -12,6 +12,7 @@ Images are embedded in the page; music stays as files in assets/music/ next to i
 """
 import argparse
 import base64
+import hashlib
 import json
 import mimetypes
 import pathlib
@@ -65,7 +66,11 @@ def build_game(with_music=True, sim_hook=''):
     css = read_parts(SRC / 'styles', '*.css')
     markup = (SRC / 'body.html').read_text(encoding='utf-8')
     js = read_parts(SRC / 'js', '*.js')
-    payload = json.dumps({'data': load_data(), 'assets': load_assets(with_music)}, ensure_ascii=False, separators=(',', ':'))
+    data = load_data()
+    if not with_music:   # the Claude artifact: no files next to it, and no telemetry
+        data['telemetry'] = {}
+    version = hashlib.sha256((css + markup + js + json.dumps(data, sort_keys=True)).encode()).hexdigest()[:8]
+    payload = json.dumps({'data': data, 'assets': load_assets(with_music), 'version': version}, ensure_ascii=False, separators=(',', ':'))
     if js.count(MARKER) != 1:
         raise SystemExit(f'src/js must contain {MARKER} exactly once (it sits in 00-prelude.js)')
     js = js.replace(MARKER, f'const BUILD = {payload};', 1)
@@ -86,6 +91,14 @@ def write_site(site):
         if p.suffix.lower() in AUDIO_EXT:
             shutil.copy2(p, out / 'assets' / 'music' / p.name)
     (out / '.nojekyll').write_text('')
+    (out / 'monitor.html').write_text(build_monitor(), encoding='utf-8')
+
+
+def build_monitor():
+    """monitor.html: the live dashboard, reading the same database the game reports to."""
+    tele = load_data().get('telemetry', {})
+    page = (SRC / 'monitor.html').read_text(encoding='utf-8')
+    return page.replace('/*@@MONITOR_CONFIG@@*/', 'const CONFIG = ' + json.dumps(tele) + ';', 1)
 
 
 def main():
@@ -96,18 +109,21 @@ def main():
     site = TELEGRAM_HEAD + build_game() + TELEGRAM_TAIL
     if args.check:
         current = (ROOT / 'index.html').read_text(encoding='utf-8') if (ROOT / 'index.html').exists() else ''
-        if current != site:
-            print('index.html is out of date: run  python tools/build.py  and commit the result.')
+        mon = (ROOT / 'monitor.html').read_text(encoding='utf-8') if (ROOT / 'monitor.html').exists() else ''
+        if current != site or mon != build_monitor():
+            print('index.html or monitor.html is out of date: run  python tools/build.py  and commit the result.')
             return 1
         print('index.html is up to date.')
         return 0
     (ROOT / 'index.html').write_text(site, encoding='utf-8')
+    (ROOT / 'monitor.html').write_text(build_monitor(), encoding='utf-8')
     DIST.mkdir(exist_ok=True)
     write_site(site)
     # the Claude artifact can't load files next to it, so it keeps the generated music
     artifact = build_game(with_music=False)
     (DIST / 'claude-artifact.html').write_text(artifact, encoding='utf-8')
     print(f'index.html                 {len(site.encode()) / 1024:6.0f} KB  GitHub Pages / Telegram')
+    print(f'monitor.html                          live monitoring page')
     print(f'dist/site/                            the same, with assets/music, for GitHub Actions')
     print(f'dist/claude-artifact.html  {len(artifact.encode()) / 1024:6.0f} KB  Claude artifact')
     if args.sim:
