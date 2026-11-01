@@ -1,0 +1,17 @@
+{
+  "info": {
+    "auditor": { "name": "The Auditor", "sub": "It marks where you stand" },
+    "boss": { "name": "The Agent", "sub": "Enforcer of the purge" },
+    "collector": { "name": "The Collector", "sub": "It eats what you leave behind" },
+    "mirror": { "name": "The Mirror", "sub": "Your weapons, turned on you" },
+    "phantom": { "name": "The Phantom", "sub": "Only solid for a moment" },
+    "root": { "name": "The Root Process", "sub": "Delete it to win" }
+  },
+  "schedule": [
+    [180, "auditor"],
+    [300, "boss"],
+    [450, "collector"],
+    [600, "mirror"],
+    [750, "phantom"]
+  ]
+}

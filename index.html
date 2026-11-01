@@ -336,6 +336,7 @@ html.cb { filter: url(#cbf); }
 #overloadBtn { pointer-events:auto; margin-top:12px; width:100%; border-color:#ffb000; color:#ffe0a3; font-size:10px; padding:8px; }
 #overloadBtn:hover { background:#ffb00022; }
 .card .build-note { font-size:11px; color:#a6e2cf; line-height:1.5; padding:8px; background:#61f5c00b; border-radius:6px; }
+.icimg { width: 1em; height: 1em; object-fit: contain; vertical-align: middle; image-rendering: auto; }
 /* Enhanced edition: launch deck and accessible combat readouts */
 :root { --void:#030b12; --glass:rgba(7,20,30,.94); --ink:#c3dce2; --dim:#85a8ad; --edge:rgba(113,217,214,.23); --accent:#61f5c0; --white:#f0fbff; }
 .screen { background:radial-gradient(ellipse at 15% 15%,rgba(19,88,100,.22),transparent 65%),rgba(2,8,15,.7); padding:32px 24px; }
@@ -629,6 +630,7 @@ h1 { font-family:Impact,'Arial Narrow',sans-serif; font-size:clamp(64px,8vw,104p
 <script>
 (() => {
 'use strict';
+const BUILD = {"data":{"bosses":{"info":{"auditor":{"name":"The Auditor","sub":"It marks where you stand"},"boss":{"name":"The Agent","sub":"Enforcer of the purge"},"collector":{"name":"The Collector","sub":"It eats what you leave behind"},"mirror":{"name":"The Mirror","sub":"Your weapons, turned on you"},"phantom":{"name":"The Phantom","sub":"Only solid for a moment"},"root":{"name":"The Root Process","sub":"Delete it to win"}},"schedule":[[180,"auditor"],[300,"boss"],[450,"collector"],[600,"mirror"],[750,"phantom"]]},"codex":{"warden":["Warden","Blue armor absorbs 55% damage for 3 seconds, followed by an exposed amber rush for 1.5 seconds. Keep your escape route open."],"bug":["Bug","The most common process. Weak alone, dangerous in a swarm."],"daemon":["Daemon","Faster and sturdier than a bug. Keep moving and it never catches you."],"drone":["Drone","Circles at range and fires slow shots. Firewalls block them."],"lancer":["Lancer","Freezes, shows a white line, then charges along it. Step sideways."],"split":["Splitter","Breaks into three bugs when destroyed. Kill it away from your path."],"watcher":["Watcher","Hangs back and fires down a red line. Break the line or hide behind a firewall."],"brute":["Brute","A slow, armored block of code that hits hard."],"leaker":["Leaker","Leaves pools of corrupted data that hurt while you stand in them."],"patcher":["Patcher","Reads your strongest code line and patches against it. It and everything near it shrug off that effect. Kill it with your weapons."],"scrubber":["Scrubber","Hunts your code: it eats pools and pull fields and deletes shards that fly past it. It heals on every bite."],"eel":["Eel","A long chain that weaves toward you. Every segment hurts."],"auditor":["The Auditor","Marks the ground where you stand, then strikes it. Keep moving."],"boss":["The Agent","Freezes, aims, then lunges along a white line. From phase 2 it lunges twice."],"collector":["The Collector","Eats the shards you leave behind and grows stronger. Collect fast."],"mirror":["The Mirror","Fires a fan that grows with every weapon you carry, plus expanding rings."],"ghost":["Ghost","Nearly invisible: only a faint shimmer, unless you use Code Sight. Your weapons still hit it."],"phantom":["The Phantom","Phases out of reach, then turns solid and fires rings. Damage only lands while it is solid."],"root":["The Root Process","The end of the run. It summons purges, collapses the arena, and strikes the ground in phase 3."]},"enemies":{"warden":{"hp":75,"spd":58,"r":18,"dmg":13,"xp":7},"bug":{"hp":9,"spd":64,"r":9,"dmg":6,"xp":1},"daemon":{"hp":30,"spd":86,"r":13,"dmg":10,"xp":3},"drone":{"hp":24,"spd":80,"r":12,"dmg":8,"xp":3},"split":{"hp":44,"spd":70,"r":15,"dmg":10,"xp":4},"brute":{"hp":120,"spd":46,"r":22,"dmg":18,"xp":8},"eel":{"hp":180,"spd":104,"r":14,"dmg":14,"xp":12},"ghost":{"hp":50,"spd":92,"r":12,"dmg":12,"xp":6},"lancer":{"hp":40,"spd":74,"r":12,"dmg":16,"xp":4},"watcher":{"hp":34,"spd":80,"r":12,"dmg":12,"xp":4},"leaker":{"hp":80,"spd":52,"r":15,"dmg":7,"xp":5},"patcher":{"hp":64,"spd":66,"r":14,"dmg":11,"xp":6},"scrubber":{"hp":58,"spd":84,"r":13,"dmg":9,"xp":5},"boss":{"hp":1800,"spd":72,"r":34,"dmg":26,"xp":0},"root":{"hp":9000,"spd":52,"r":54,"dmg":32,"xp":0},"auditor":{"hp":1500,"spd":58,"r":30,"dmg":24,"xp":0},"collector":{"hp":3200,"spd":92,"r":26,"dmg":20,"xp":0},"mirror":{"hp":2700,"spd":80,"r":24,"dmg":20,"xp":0},"phantom":{"hp":3000,"spd":76,"r":26,"dmg":22,"xp":0}},"evolutions":{"bolt":{"need":"cool","name":"Sync Storm","desc":"Six homing glyphs, firing nonstop."},"pulse":{"need":"area","name":"Event Horizon","desc":"Huge rings that slow everything they touch."},"orbit":{"need":"might","name":"Firewall Halo","desc":"Two counter-rotating rings of burning glyphs."},"bolt2":{"need":"magnet","name":"Storm Uplink","desc":"Eight strikes at once, each chaining three times."},"well":{"need":"regen","name":"Singularity","desc":"Twin wells. Every kill inside repairs you."},"spread":{"need":"swift","name":"Time Dilation","desc":"Ten rounds that pierce everything and slow it."},"mine":{"need":"dur","name":"Minefield","desc":"Four bombs at a time, huge blasts that slow survivors."},"boomer":{"need":"echo","name":"Recursion","desc":"Six big glyphs that fly far and come back twice as hard."},"drone":{"need":"buffer","name":"Swarm Protocol","desc":"Five drones with piercing shots."},"kata":{"need":"thorns","name":"Perfect Form","desc":"Strikes everything in reach; the combo climbs higher."}},"modes":{"modes":[["full","Full · 15:00"],["short","Short · 8:00"],["siege","Siege · 10:00"],["story","Story"],["training","Training"]],"notes":{"full":"The full run: five bosses, then the Root Process at 15:00. Ranked on the leaderboard.","short":"The same run, compressed: bosses at 1:36, 2:40, 4:00, 5:20 and 6:40, the Root Process at 8:00. Not ranked.","siege":"Defend the core in the middle of the map. Enemies go for whichever is closer, you or the core. Every 15 kills earns a part: press T or tap ▲ to build a turret. The Root Process comes at 10:00. Not ranked.","story":"Five chapters narrated by the Relay, each with its own goal. Finish one to unlock the next.","training":"A sandbox. You cannot be hurt, nothing spawns on its own, and nothing is earned. Use the bar at the top to level up, spawn enemies and bosses, and jump ahead in time."},"daily":{"glass":"Glass: −40% integrity, +25% damage","haste":"Haste: enemies move 15% faster","swarm":"Swarm: 35% more enemies, each 20% weaker","drought":"Drought: no repairs drop","overcharged":"Overcharged: powers recharge twice as fast","elites":"Elite rush: elites come twice as often"}},"overflow":[{"id":"odmg","name":"Surge","icon":"Ω","desc":"+6% damage. Stacks without limit."},{"id":"oarea","name":"Spillover","icon":"◇","desc":"+6% area. Stacks without limit."},{"id":"ocd","name":"Burst Mode","icon":"λ","desc":"Weapons recharge 3% faster. Stacks."},{"id":"ohp","name":"Mirror","icon":"✚","desc":"+15 max integrity and restore 15. Stacks."},{"id":"ospd","name":"Slipstream","icon":"≫","desc":"+4% movement speed. Stacks."},{"id":"oxp","name":"Compression","icon":"◆","desc":"+8% data from shards. Stacks."},{"id":"oheal","name":"Restore","icon":"+","desc":"Restore 50 integrity now."}],"powers":{"powers":{"blink":{"name":"Blink","icon":"⇢","cd":7,"cost":0,"desc":"Dash through enemies, untouchable, scorching everything on the way."},"shell":{"name":"Shell","icon":"⬡","cd":28,"cost":150,"desc":"A firewall bubble: 5 s of immunity. It burns what touches it and reflects shots."},"halt":{"name":"Halt","icon":"‖","cd":40,"cost":250,"desc":"Freeze every enemy and shot for 4 s. Frozen enemies take 30% more damage."},"nova":{"name":"Nova","icon":"✺","cd":42,"cost":250,"desc":"Overload: a blast that sweeps the whole screen and hurls enemies back."},"slow":{"name":"Slowdown","icon":"◔","cd":32,"cost":200,"desc":"Enemies and their shots crawl at 30% speed for 6 s. Your weapons fire 50% faster."},"decoy":{"name":"Decoy","icon":"◈","cd":26,"cost":200,"desc":"Drop a fake signal. Enemies chase it for 6 s, then it detonates."},"sight":{"name":"Code Sight","icon":"◍","cd":30,"cost":250,"desc":"See the world as code for 6 s: invisible ghosts and buried Caches show up, and everything takes +20% damage."},"phase":{"name":"Phase","icon":"◌","cd":26,"cost":200,"desc":"For 4 s you walk through firewalls and enemies. Contact cannot hurt you; shots still can."},"leap":{"name":"Leap","icon":"⤒","cd":12,"cost":150,"desc":"Jump far in the direction you move and land with a shockwave."},"emp":{"name":"EMP","icon":"⌁","cd":38,"cost":250,"desc":"Wipes enemy shots and jams every shooter for 6 s. Your own drones and powers go dark for 3 s."},"hijack":{"name":"Hijack","icon":"∴","cd":48,"cost":350,"desc":"Rewrite nearby enemies to fight for you for 8 s, then they self-delete."}},"levels":["","Recharges 15% faster and hits harder.","Overclocked: recharges 30% faster, lasts longer, hits hardest."]},"relay":{"start":["You're awake. Good. The system has noticed you too. Keep moving.","This is the Relay. I can't fight for you, but I can see what's coming.","Signal acquired. They'll come in waves. Don't stand still."],"level":["Every shard you take makes you stronger. Take all of it."],"wave":["Purge wave. They're closing a ring around you. Don't get boxed in.","Another ring is forming. Break through the thinnest side."],"elite":["Gold outline means it's carrying a Cache. Red outline means it's just tough. Pick your fights."],"meet":{"patcher":"Patcher. It has read your code and patched against your best line. Anything near it resists that effect. Your weapons still hurt it.","scrubber":"Scrubber. It eats code: pools, pull fields, shards. Kill it before it feeds.","lancer":"Lancer. It stops, aims, then charges in a straight line. When it freezes and the white line appears, step sideways.","watcher":"Watcher. It hangs back and fires down a red line. Break the line before it fires.","ghost":"Ghost process. You'll barely see it. Code Sight shows it plainly, but your weapons hit it either way.","leaker":"Leaker. It bleeds corrupted data. Don't stand in the red pools, and kill it away from where you need to be."},"operator":{"ready":"Operator line is open. Call me when you need something.","supply":"Supply drop on you. Patch up and grab the shards.","rewrite":"Rewriting the floor around you. Use the cover, it won't last.","trace":"Tracing the system. Everything worth taking is marked, and I'm pulling your shards in.","strike":"Override sent. I'm hitting the biggest ones for you."},"exit":{"boss":"An exit just opened. Step in and hold to jack out with what you've earned, or ignore it and keep going for more.","root":"It's done. The exit is open. Get to it and jack out.","gone":"The exit closed. You're still in. Keep going."},"events":{"purge":"The system left a gap open. Purge fast and I can pull a Cache through it.","beacon":"I've dropped a beacon. Hold it so I can send you something. Stand in the gold ring.","storm":"Data storm. Every shard is worth double for a while. Grab everything.","win":"Done. The Cache is yours.","fail":"Gap's closed. Next time."},"world":{"anomaly":{"stasis":"The rules are breaking over there. Inside that zone everything moves slowly, you included.","amplify":"That zone amplifies code. Your hits land harder inside, but so do their legs.","drift":"Shards inside that zone float to its center, and each one is worth double."},"convert":"That one's listening. Keep it close and I can turn it to our side.","converted":"It's ours now. It fights with you.","pod":"There's a sleeper in a pod nearby. Reach it, wake it, and walk it to the exit. It will fight for you.","awake":"It's awake. Get it to the exit and keep it alive.","saved":"Out safe. It's staying with you.","lost":"We lost the sleeper.","trader":"A rogue program wants to trade. Stand next to it if you're interested."},"reflex":"Reflex. Everything slows; you don't. Move.","overdrive":"Overdrive. Keep moving and you'll keep it.","hidden":"Something is buried in the code near you. Code Sight would show it. Or just walk over it.","threat":"You're clearing them too fast. The system is sending sturdier code. Take a hit and it eases off.","warn":{"auditor":"Something is auditing this sector. When the ground under you turns red, move.","boss":"An Agent is coming. It lunges. Watch for the white line.","collector":"The Collector feeds on loose data. Kill it before it eats your shards.","mirror":"The Mirror learns your weapons. The stronger you are, the harder it hits back.","phantom":"A Phantom. It walks through walls and through your fire. Hit it when it turns solid.","root":"The Root Process is coming for you itself. This is the end of the run. End it."},"phase":["It's adapting. Stay out of its line.","It's changing patterns. Watch first, then move.","Half its code is gone. It's getting desperate."],"rootPhase2":"The arena is collapsing. Stay inside the light.","rootPhase3":"It's desperate. So are you. Finish it.","down":["It's gone. Take what it dropped.","Deleted. The rain feels lighter already."],"collectorDown":"All that data it hoarded is yours now. Collect it.","evolve":["That's not a weapon anymore. That's a signature.","Evolution complete. They won't recognise you."],"low":["Your signal is breaking up. Find integrity or get distance.","You're fading. Use a power, now."],"win":"Root deleted. For a moment, the rain is quiet. Then it starts again, and so do you.","lose":["Signal lost. I'll keep listening for you.","You were close. The system remembers you now. So do I."]},"run-extras":{"sectors":{"foundry":{"name":"The Foundry","icon":"⚒","desc":"Crowded industrial network. +25% regular enemy spawn rate; +20% shard XP. Earn upgrades faster, but leave room to escape.","spawn":1.25,"xp":1.2},"blackout":{"name":"Blackout","icon":"◈","desc":"Distant ordinary enemies are dimmed; shard pickup range −25%. On entry: one trigger + one effect for your code editor. Bosses, elites and attack warnings stay visible.","spawn":1,"xp":1},"sanctuary":{"name":"Sanctuary","icon":"✧","desc":"A quieter repair network. −15% regular enemy spawn rate and repair 0.75 integrity per second; −15% shard XP. A recovery route with slower growth.","spawn":0.85,"xp":0.85}},"boss_abilities":{"auditor":{"name":"Audit Mark","desc":"Every 6 seconds, mark up to 3 nearby enemies for 4 seconds. Marked enemies take 35% more damage.","cd":6},"boss":{"name":"Purge Echo","desc":"Every 8 seconds, emit a 160m pulse dealing 28 base damage and pushing enemies away.","cd":8},"collector":{"name":"Shard Siphon","desc":"Every 10 seconds, pull all shards within 500m toward you.","cd":10},"mirror":{"name":"Mirror Lance","desc":"Every 7 seconds, strike the nearest enemy within 420m for 45 base damage.","cd":7},"phantom":{"name":"Phase Step","desc":"Every 12 seconds while moving, phase through enemies and firewalls for 1 second. Enemy shots can still hit you.","cd":12}},"mutations":{"return":{"name":"Return Protocol","icon":"↶","desc":"Glyph Bolt and Slow Rounds projectiles return once and may hit the same target again. Each pass deals 70% normal damage. Other weapons are unchanged."},"mines":{"name":"Orbital Mines","icon":"✺","desc":"Three proximity mines orbit you. Each detonates for 32 base damage, then re-arms after 6 seconds. Tradeoff: movement speed −8%."},"clone":{"name":"Afterimage","icon":"◇","desc":"Using a power leaves a clone at your old position. After 1 second it blasts a 120m area for 70 base damage. Tradeoff: power cooldowns +20%."}},"specializations":{"gunslinger":{"name":"Gunslinger","icon":"⌖","desc":"Weapon damage +15%, but power cooldowns +10% and code damage −15%. A specialist in direct fire."},"codebreaker":{"name":"Codebreaker","icon":"{}","desc":"Code damage +25%, but weapon damage −10% and shard pickup range −10%. Receive one trigger/effect kit on selection."},"phantom":{"name":"Phantom","icon":"◇","desc":"Movement speed +10%, but maximum integrity −10%. Built for evasion and positioning. This reduces current integrity proportionally too."}},"quests":{"kills":{"name":"Purge contract","desc":"Purge 200 enemies","target":200},"shards":{"name":"Data recovery","desc":"Collect 250 raw shard XP","target":250},"clean":{"name":"Ghost signal","desc":"Survive 30 consecutive seconds without being hit","target":30}},"halos":{"cyan":{"name":"Ion halo","col":"#75dcff","cost":600},"amber":{"name":"Solar halo","col":"#ffd278","cost":900},"violet":{"name":"Void halo","col":"#cda1ff","cost":1200}}},"sprites":{},"story":[{"name":"Wake up","pace":1.875,"goal":"survive","need":120,"limit":0,"text":"You don't remember being written. That's normal. You were never supposed to wake up. I'm the Relay, an old broadcast program the system forgot to delete. Right now it's noticed you, and it's sending its cleaners. Stay alive for two minutes and I can get a lock on you."},{"name":"Hold the line","pace":1.875,"goal":"events","need":3,"limit":360,"text":"There are others like you, scattered through the code. To reach them I need openings, little gaps where the system isn't looking. I'll set the objectives. Complete three of them before the six-minute mark and I can open a channel."},{"name":"Sleepers","pace":1.5,"goal":"rescue","need":3,"limit":480,"text":"The channel worked. I found sleepers: programs the system put in pods instead of deleting. They dream they're still useful. Wake three of them and walk them to an exit. Keep them alive; they can't take much."},{"name":"Last city","pace":1.5,"goal":"core","need":240,"limit":0,"text":"Everyone we've freed is gathered around one core, the last place the system can't see. It has found it. Defend the core for four minutes. Build turrets with the parts you pull from the wreckage. If the core goes, so do they."},{"name":"Root access","pace":1.875,"goal":"root","need":1,"limit":0,"text":"We held. Now we stop running. The Root Process writes the purges; delete it and the cleaners stop, at least for a while. Five of its guardians stand in the way. I'll be with you the whole time."}],"styles":{"kana":{"name":"Katakana","cost":0,"set":"ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789"},"binary":{"name":"Binary","cost":400,"set":"0101010110"},"hex":{"name":"Hex dump","cost":500,"set":"0123456789ABCDEF"},"sigil":{"name":"Sigils","cost":700,"set":"∴∵∷⊕⊗⊘⌬⌖※⁂⟁⟐⧉⧖◬◭"},"greek":{"name":"Greek","cost":700,"set":"ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩλπψω"}},"systems":{"might":{"name":"Overclock","icon":"Ω","desc":"+12% damage for every weapon."},"area":{"name":"Bandwidth","icon":"◇","desc":"+10% area: rings, orbits, wells and blasts grow."},"cool":{"name":"Low Latency","icon":"λ","desc":"Weapons recharge 7% faster."},"swift":{"name":"Fast Path","icon":"≫","desc":"+10% movement speed."},"magnet":{"name":"Uplink","icon":"∪","desc":"+40% pickup range for data."},"vital":{"name":"Redundancy","icon":"✚","desc":"+20 max integrity, and restores 20."},"regen":{"name":"Self-Repair","icon":"∞","desc":"Restore 0.4 integrity every second."},"buffer":{"name":"Buffer","icon":"⬡","desc":"+25 shield. Shields soak damage first and recharge after 4 s without a hit."},"crit":{"name":"Precision","icon":"⌖","desc":"+8% chance for any hit to deal double damage."},"thorns":{"name":"Backtrace","icon":"⟲","desc":"Anything that hits you takes 30 damage and is thrown back."},"dur":{"name":"Persistence","icon":"⧗","desc":"+12% duration for wells and bombs."},"echo":{"name":"Echo","icon":"⁑","desc":"+6% chance for any weapon to fire again right away."}},"weapons":{"bolt":{"name":"Glyph Bolt","icon":"ﾂ","desc":["Fires a glyph at the nearest threat.","More damage.","Fires 2 glyphs.","Glyphs pierce 2 targets.","Fires 3 glyphs.","4 glyphs, pierce 3, faster fire.","More damage, faster fire.","Overclocked: fires 5 glyphs."],"dmg":[12,15,15,18,18,24,27,30],"n":[1,1,2,2,3,4,4,5],"pierce":[1,1,1,2,2,3,3,3],"cd":[0.9,0.82,0.78,0.72,0.66,0.5,0.47,0.44]},"pulse":{"name":"Shockwave","icon":"◎","desc":["A ring of force bursts out from you.","Wider ring.","More damage.","Fires more often.","Wider, stronger ring.","Double ring, heavy knockback.","Stronger ring.","Overclocked: widest, fastest ring."],"dmg":[14,16,22,24,30,40,46,52],"r":[120,140,145,150,175,210,220,235],"cd":[2.6,2.5,2.4,2,1.9,1.5,1.4,1.3]},"orbit":{"name":"Firewall Ring","icon":"✦","desc":["Two glyphs orbit you and burn what they touch.","Orbit spins faster.","A third glyph.","A fourth glyph, more damage.","A fifth glyph, wider orbit.","Six glyphs, wide and fast.","A seventh glyph.","Overclocked: an eighth glyph, more damage."],"dmg":[9,10,12,15,17,24,26,30],"n":[2,2,3,4,5,6,7,8],"r":[62,64,68,72,82,96,100,104],"spin":[2.8,3.6,3.6,3.8,4,4.8,5,5.2]},"bolt2":{"name":"Lightning","icon":"ϟ","desc":["Calls lightning down on a nearby enemy.","Strikes 2 enemies.","More damage.","Strikes 3 and chains once.","Strikes 4, faster.","Strikes 5, chains twice.","More damage, faster.","Overclocked: strikes 6."],"dmg":[28,30,40,44,50,66,68,72],"n":[1,2,2,3,4,5,5,6],"chain":[0,0,0,1,1,2,2,2],"cd":[2.8,2.6,2.4,2.2,1.9,1.5,1.45,1.4]},"well":{"name":"Gravity Well","icon":"◉","desc":["Opens a well that drags enemies in and grinds them down.","Larger well.","More damage.","Lasts longer, opens more often.","Larger and stronger.","Wells collapse in a blast.","Larger, lasts longer.","Overclocked: strongest pull and damage."],"dmg":[10,12,16,18,24,32,35,39],"r":[80,95,98,104,120,140,148,156],"dur":[2.8,3,3.1,3.6,3.8,4.4,4.6,4.8],"cd":[7,6.8,6.4,5.4,5,4.4,4.2,4]},"spread":{"name":"Slow Rounds","icon":"≋","desc":["Fires a fan of rounds where you are heading.","More damage.","Four rounds.","Rounds pierce 2 targets.","Six rounds, faster.","Eight rounds, pierce 3.","Nine rounds.","Overclocked: ten rounds, pierce 4."],"dmg":[9,12,12,13,15,20,22,25],"n":[3,3,4,4,6,8,9,10],"pierce":[1,1,1,2,2,3,3,4],"cd":[1.7,1.6,1.5,1.4,1.2,0.9,0.85,0.8]},"mine":{"name":"Logic Bomb","icon":"✱","desc":["Drops a bomb where you stand. It arms, then blows up when something steps close.","Bigger blast.","More damage.","Drops two at once.","Drops more often.","Three at once, biggest blast.","More damage, faster drops.","Overclocked: four at once."],"dmg":[20,22,27,28,32,38,40,43],"R":[62,72,74,78,84,96,100,106],"n":[1,1,1,2,2,3,3,4],"cd":[2.4,2.3,2.2,2.1,1.8,1.6,1.5,1.4],"life":7},"boomer":{"name":"Return Glyph","icon":"↺","desc":["Throws a glyph that flies out and comes back, cutting through everything both ways.","Flies farther.","Throws two.","More damage.","Throws three, faster.","Four glyphs, longest throw.","Hits harder, flies farther.","Overclocked: five glyphs."],"dmg":[13,15,15,20,22,28,31,34],"n":[1,1,2,2,3,4,4,5],"range":[220,260,260,270,290,330,345,360],"cd":[1.7,1.6,1.6,1.5,1.3,1.1,1.05,1]},"kata":{"name":"Kata","icon":"⚔","desc":["Fast strikes on the closest enemies. Every hit in a row hits harder.","Faster strikes.","Hits three at once.","More damage, longer reach.","Hits four at once.","Five at once, fastest.","Six at once.","Overclocked: fastest, hardest strikes."],"dmg":[16,18,18,23,26,32,34,36],"r":[64,66,68,74,78,86,90,94],"n":[2,2,3,3,4,5,6,6],"cd":[0.6,0.52,0.5,0.48,0.44,0.36,0.34,0.32]},"drone":{"name":"Helper Drone","icon":"⌬","desc":["A drone follows you and fires at the nearest enemy.","Fires faster.","A second drone.","More damage.","A third drone.","Drones fire twice as fast.","A fourth drone.","Overclocked: hardest-hitting drones."],"dmg":[15,17,17,22,24,28,31,34],"n":[1,1,2,2,3,3,4,4],"cd":[0.85,0.75,0.75,0.7,0.65,0.4,0.38,0.35]}}},"assets":{"sprites":{},"icons":{},"music":{}}};
 const $ = id => document.getElementById(id);
 const cv = $('c'), ctx = cv.getContext('2d');
 // on the lowest quality, soft shadows (the most expensive canvas effect) are skipped everywhere
@@ -752,6 +754,50 @@ function resize() {
   buildRain();
 }
 
+// ================= assets: optional sprites, icons and music files =================
+// Everything here is optional. When a file exists in assets/, the game uses it; when it doesn't, the game draws and
+// plays exactly what it always has. tools/build.py fills BUILD.assets from the assets/ folder.
+const ASSETS = Object.assign({ sprites: {}, icons: {}, music: {} }, BUILD.assets);
+const SPRITE_OPTS = BUILD.data.sprites || {};      // data/sprites.json: per-sprite { scale, rotate }
+const SPR = {};
+for (const [id, url] of Object.entries(ASSETS.sprites)) { const im = new Image(); im.decoding = 'async'; im.src = url; SPR[id] = im; }
+const sprReady = id => { const im = SPR[id]; return im && im.complete && im.naturalWidth > 0 ? im : null; };
+// Regular enemies whose drawn look carries no warning can be replaced by a sprite. Lancers, Watchers, Eels, Ghosts and
+// bosses keep their drawn look, because it shows aim lines, segments or visibility the player has to read.
+const SPRITE_OK = new Set(['bug', 'daemon', 'drone', 'split', 'brute', 'leaker', 'warden', 'patcher', 'scrubber']);
+// Enemies defined only in data/enemies.json (they have a "spawn" block) chase the player with the standard movement
+const CUSTOM_ENEMIES = Object.entries(BUILD.data.enemies).filter(([, d]) => d.spawn);
+function drawSprite(im, size, flash) {
+  const w = im.naturalWidth, h = im.naturalHeight, k = size / Math.max(w, h);
+  ctx.drawImage(im, -w * k / 2, -h * k / 2, w * k, h * k);
+  if (flash) { const g = ctx.globalCompositeOperation; ctx.globalCompositeOperation = 'lighter'; ctx.drawImage(im, -w * k / 2, -h * k / 2, w * k, h * k); ctx.globalCompositeOperation = g; }
+}
+function drawEnemySprite(e, im, fl, t) {
+  const o = SPRITE_OPTS[e.type] || {};
+  ctx.save();
+  if (o.rotate === 'face') ctx.rotate(Math.atan2(P.y - e.y, P.x - e.x)); else if (o.rotate === 'spin') ctx.rotate(t * 2 + e.ph);
+  drawSprite(im, e.r * 2.4 * (o.scale || 1), fl);
+  ctx.restore();
+  // keep the readouts that matter for play on top of the art
+  if (e.type === 'warden' && wardenGuard(e)) { ctx.strokeStyle = '#81d9ff'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(0, 0, e.r + 6, -Math.PI * .85, Math.PI * .85); ctx.stroke(); }
+  if (e.type === 'patcher' && e.patch) { ctx.font = `11px ${FONT}`; ctx.fillStyle = AMBER; ctx.fillText('-' + FX[e.patch].fn + '()', 0, -e.r - 10); }
+}
+function drawCustomEnemy(e, fl, slowed) {
+  const L = BUILD.data.enemies[e.type].look || {}, col = fl ? '#ffffff' : slowed ? '#c49cff' : (L.color || '#ff9f40'), r = e.r;
+  ctx.fillStyle = 'rgba(24,8,0,.85)'; ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.beginPath();
+  if (L.shape === 'square') ctx.rect(-r, -r, r * 2, r * 2);
+  else if (L.shape === 'diamond') { ctx.moveTo(0, -r * 1.2); ctx.lineTo(r * 1.2, 0); ctx.lineTo(0, r * 1.2); ctx.lineTo(-r * 1.2, 0); ctx.closePath(); }
+  else if (L.shape === 'triangle') { ctx.moveTo(0, -r * 1.2); ctx.lineTo(r * 1.1, r * .8); ctx.lineTo(-r * 1.1, r * .8); ctx.closePath(); }
+  else ctx.arc(0, 0, r, 0, TAU);
+  ctx.fill(); ctx.stroke();
+  ctx.fillStyle = col; ctx.font = `${Math.max(10, Math.round(r * 1.1))}px ${FONT}`; ctx.fillText(L.glyph || e.ch, 0, 1);
+}
+// Weapon, system and power icons: an image from assets/icons/<id>.png when there is one, otherwise the glyph
+function setIcon(el, id, glyph) {
+  const url = id && ASSETS.icons[id];
+  if (!url) { el.textContent = glyph; return; }
+  el.textContent = ''; const im = document.createElement('img'); im.src = url; im.alt = ''; im.className = 'icimg'; el.appendChild(im);
+}
 // ================= background rain =================
 const RS = 16;
 let rain = [];
@@ -814,7 +860,30 @@ const sfx = (() => {
   }
   function chord(notes,base,dur=.35,peak=.065){notes.forEach((n,i)=>{tone('triangle',base*2**(n/12),0,dur,peak,i*.065);tone('sine',base*2**(n/12)*2,0,dur*.7,peak*.25,i*.065);});}
   function duck(){if(!ac||!playing)return;musicGain.gain.cancelScheduledValues(ac.currentTime);musicGain.gain.setTargetAtTime(vol('musicVol',65)*.3,ac.currentTime,.015);musicGain.gain.setTargetAtTime(vol('musicVol',65)*.65,ac.currentTime+.22,.15);}
+  // Music files from assets/music (calm / action / boss, or one "theme") replace the generated soundtrack when present.
+  // They play through the same music volume and ducking; missing levels fall back to the nearest track.
+  const TRACKS={},hasFiles=()=>Object.keys(ASSETS.music).length>0;
+  const FALLBACK=[['calm','theme','action','boss'],['action','calm','theme','boss'],['boss','action','calm','theme']];
+  function trackFor(l){const m=ASSETS.music;return FALLBACK[l].find(n=>m[n])||Object.keys(m)[0];}
+  function track(name){
+    if(name in TRACKS)return TRACKS[name];
+    const a=new Audio(ASSETS.music[name]);a.loop=true;a.preload='auto';let g=null;
+    try{const src=ac.createMediaElementSource(a);g=ac.createGain();g.gain.value=0;src.connect(g);g.connect(musicGain);}catch(_){}
+    return TRACKS[name]={a,g};
+  }
+  function updateTracks(){
+    if(!ac||!hasFiles())return;
+    const want=playing&&SET.music?trackFor(level):null;
+    for(const name of Object.keys(ASSETS.music)){
+      const on=name===want;if(!on&&!(name in TRACKS))continue;
+      const T=track(name);
+      if(T.g)T.g.gain.setTargetAtTime(on?1:0,ac.currentTime,.5);else T.a.volume=on?vol('musicVol',65):0;
+      if(on&&T.a.paused)T.a.play().catch(()=>{});
+      if(!on&&!T.a.paused)setTimeout(()=>{if(trackFor(level)!==name||!playing||!SET.music)T.a.pause();},1800);
+    }
+  }
   function schedule(){
+    if(hasFiles())return;
     if(!ac||!playing||!SET.music||ac.state!=='running')return;
     // Never replay a backlog after a suspended tab or audio device interruption.
     if(next<ac.currentTime-.1)next=ac.currentTime+.025;
@@ -837,8 +906,8 @@ const sfx = (() => {
   return {
     init(){init();if(ac&&ac.state!=='running')return ac.resume().catch(()=>{});return Promise.resolve();},
     mix,
-    hum(v){if(!ac)return;playing=!!v;mix();if(playing&&SET.music&&!timer){next=ac.currentTime+.035;timer=setInterval(schedule,25);schedule();}if((!playing||!SET.music)&&timer){clearInterval(timer);timer=null;}},
-    music(l){level=clamp(l,0,2);},
+    hum(v){if(!ac)return;playing=!!v;mix();updateTracks();if(playing&&SET.music&&!timer){next=ac.currentTime+.035;timer=setInterval(schedule,25);schedule();}if((!playing||!SET.music)&&timer){clearInterval(timer);timer=null;}},
+    music(l){const p=level;level=clamp(l,0,2);if(p!==level)updateTracks();},
     warning(){if(ok()&&thr('warning',600)){tone('square',660,660,.13,.07);tone('square',880,660,.18,.075,.2);}},
     heart(){if(ok()&&thr('heart',350)){tone('sine',72,38,.16,.23);tone('sine',64,35,.12,.14,.18);}},
     hit(crit=false){if(ok()&&thr('hit',crit?65:55)){tone('triangle',crit?900:380,crit?200:140,.065,crit?.13:.07);noise(.035,crit?.12:.055,2200,'bandpass');}},
@@ -863,64 +932,11 @@ const sfx = (() => {
 })();
 
 // ================= definitions =================
-const WDEF = {
-  bolt:  { name: 'Glyph Bolt', icon: 'ﾂ', desc: ['Fires a glyph at the nearest threat.', 'More damage.', 'Fires 2 glyphs.', 'Glyphs pierce 2 targets.', 'Fires 3 glyphs.', '4 glyphs, pierce 3, faster fire.', 'More damage, faster fire.', 'Overclocked: fires 5 glyphs.'],
-           dmg: [12, 15, 15, 18, 18, 24, 27, 30], n: [1, 1, 2, 2, 3, 4, 4, 5], pierce: [1, 1, 1, 2, 2, 3, 3, 3], cd: [0.9, 0.82, 0.78, 0.72, 0.66, 0.5, 0.47, 0.44] },
-  pulse: { name: 'Shockwave', icon: '◎', desc: ['A ring of force bursts out from you.', 'Wider ring.', 'More damage.', 'Fires more often.', 'Wider, stronger ring.', 'Double ring, heavy knockback.', 'Stronger ring.', 'Overclocked: widest, fastest ring.'],
-           dmg: [14, 16, 22, 24, 30, 40, 46, 52], r: [120, 140, 145, 150, 175, 210, 220, 235], cd: [2.6, 2.5, 2.4, 2.0, 1.9, 1.5, 1.4, 1.3] },
-  orbit: { name: 'Firewall Ring', icon: '✦', desc: ['Two glyphs orbit you and burn what they touch.', 'Orbit spins faster.', 'A third glyph.', 'A fourth glyph, more damage.', 'A fifth glyph, wider orbit.', 'Six glyphs, wide and fast.', 'A seventh glyph.', 'Overclocked: an eighth glyph, more damage.'],
-           dmg: [9, 10, 12, 15, 17, 24, 26, 30], n: [2, 2, 3, 4, 5, 6, 7, 8], r: [62, 64, 68, 72, 82, 96, 100, 104], spin: [2.8, 3.6, 3.6, 3.8, 4, 4.8, 5, 5.2] },
-  bolt2: { name: 'Lightning', icon: 'ϟ', desc: ['Calls lightning down on a nearby enemy.', 'Strikes 2 enemies.', 'More damage.', 'Strikes 3 and chains once.', 'Strikes 4, faster.', 'Strikes 5, chains twice.', 'More damage, faster.', 'Overclocked: strikes 6.'],
-           dmg: [28, 30, 40, 44, 50, 66, 68, 72], n: [1, 2, 2, 3, 4, 5, 5, 6], chain: [0, 0, 0, 1, 1, 2, 2, 2], cd: [2.8, 2.6, 2.4, 2.2, 1.9, 1.5, 1.45, 1.4] },
-  well:  { name: 'Gravity Well', icon: '◉', desc: ['Opens a well that drags enemies in and grinds them down.', 'Larger well.', 'More damage.', 'Lasts longer, opens more often.', 'Larger and stronger.', 'Wells collapse in a blast.', 'Larger, lasts longer.', 'Overclocked: strongest pull and damage.'],
-           dmg: [10, 12, 16, 18, 24, 32, 35, 39], r: [80, 95, 98, 104, 120, 140, 148, 156], dur: [2.8, 3, 3.1, 3.6, 3.8, 4.4, 4.6, 4.8], cd: [7, 6.8, 6.4, 5.4, 5, 4.4, 4.2, 4.0] },
-  spread:{ name: 'Slow Rounds', icon: '≋', desc: ['Fires a fan of rounds where you are heading.', 'More damage.', 'Four rounds.', 'Rounds pierce 2 targets.', 'Six rounds, faster.', 'Eight rounds, pierce 3.', 'Nine rounds.', 'Overclocked: ten rounds, pierce 4.'],
-           dmg: [9, 12, 12, 13, 15, 20, 22, 25], n: [3, 3, 4, 4, 6, 8, 9, 10], pierce: [1, 1, 1, 2, 2, 3, 3, 4], cd: [1.7, 1.6, 1.5, 1.4, 1.2, 0.9, 0.85, 0.8] },
-  mine:  { name: 'Logic Bomb', icon: '✱', desc: ['Drops a bomb where you stand. It arms, then blows up when something steps close.', 'Bigger blast.', 'More damage.', 'Drops two at once.', 'Drops more often.', 'Three at once, biggest blast.', 'More damage, faster drops.', 'Overclocked: four at once.'],
-           dmg: [20, 22, 27, 28, 32, 38, 40, 43], R: [62, 72, 74, 78, 84, 96, 100, 106], n: [1, 1, 1, 2, 2, 3, 3, 4], cd: [2.4, 2.3, 2.2, 2.1, 1.8, 1.6, 1.5, 1.4], life: 7 },
-  boomer:{ name: 'Return Glyph', icon: '↺', desc: ['Throws a glyph that flies out and comes back, cutting through everything both ways.', 'Flies farther.', 'Throws two.', 'More damage.', 'Throws three, faster.', 'Four glyphs, longest throw.', 'Hits harder, flies farther.', 'Overclocked: five glyphs.'],
-           dmg: [13, 15, 15, 20, 22, 28, 31, 34], n: [1, 1, 2, 2, 3, 4, 4, 5], range: [220, 260, 260, 270, 290, 330, 345, 360], cd: [1.7, 1.6, 1.6, 1.5, 1.3, 1.1, 1.05, 1.0] },
-  kata:  { name: 'Kata', icon: '⚔', desc: ['Fast strikes on the closest enemies. Every hit in a row hits harder.', 'Faster strikes.', 'Hits three at once.', 'More damage, longer reach.', 'Hits four at once.', 'Five at once, fastest.', 'Six at once.', 'Overclocked: fastest, hardest strikes.'],
-           dmg: [16, 18, 18, 23, 26, 32, 34, 36], r: [64, 66, 68, 74, 78, 86, 90, 94], n: [2, 2, 3, 3, 4, 5, 6, 6], cd: [0.6, 0.52, 0.5, 0.48, 0.44, 0.36, 0.34, 0.32] },
-  drone: { name: 'Helper Drone', icon: '⌬', desc: ['A drone follows you and fires at the nearest enemy.', 'Fires faster.', 'A second drone.', 'More damage.', 'A third drone.', 'Drones fire twice as fast.', 'A fourth drone.', 'Overclocked: hardest-hitting drones.'],
-           dmg: [15, 17, 17, 22, 24, 28, 31, 34], n: [1, 1, 2, 2, 3, 3, 4, 4], cd: [0.85, 0.75, 0.75, 0.7, 0.65, 0.4, 0.38, 0.35] }
-};
-const PDEF = {
-  might:  { name: 'Overclock',   icon: 'Ω', desc: '+12% damage for every weapon.' },
-  area:   { name: 'Bandwidth',   icon: '◇', desc: '+10% area: rings, orbits, wells and blasts grow.' },
-  cool:   { name: 'Low Latency', icon: 'λ', desc: 'Weapons recharge 7% faster.' },
-  swift:  { name: 'Fast Path',   icon: '≫', desc: '+10% movement speed.' },
-  magnet: { name: 'Uplink',      icon: '∪', desc: '+40% pickup range for data.' },
-  vital:  { name: 'Redundancy',  icon: '✚', desc: '+20 max integrity, and restores 20.' },
-  regen:  { name: 'Self-Repair', icon: '∞', desc: 'Restore 0.4 integrity every second.' },
-  buffer: { name: 'Buffer',      icon: '⬡', desc: '+25 shield. Shields soak damage first and recharge after 4 s without a hit.' },
-  crit:   { name: 'Precision',   icon: '⌖', desc: '+8% chance for any hit to deal double damage.' },
-  thorns: { name: 'Backtrace',   icon: '⟲', desc: 'Anything that hits you takes 30 damage and is thrown back.' },
-  dur:    { name: 'Persistence', icon: '⧗', desc: '+12% duration for wells and bombs.' },
-  echo:   { name: 'Echo',        icon: '⁑', desc: '+6% chance for any weapon to fire again right away.' }
-};
+const WDEF = BUILD.data["weapons"];
+const PDEF = BUILD.data["systems"];
 // Evolutions: max the weapon, own the partner system, open a Cache
-const EVO = {
-  bolt:   { need: 'cool',   name: 'Sync Storm',    desc: 'Six homing glyphs, firing nonstop.' },
-  pulse:  { need: 'area',   name: 'Event Horizon', desc: 'Huge rings that slow everything they touch.' },
-  orbit:  { need: 'might',  name: 'Firewall Halo', desc: 'Two counter-rotating rings of burning glyphs.' },
-  bolt2:  { need: 'magnet', name: 'Storm Uplink',  desc: 'Eight strikes at once, each chaining three times.' },
-  well:   { need: 'regen',  name: 'Singularity',   desc: 'Twin wells. Every kill inside repairs you.' },
-  spread: { need: 'swift',  name: 'Time Dilation', desc: 'Ten rounds that pierce everything and slow it.' },
-  mine:   { need: 'dur',    name: 'Minefield',     desc: 'Four bombs at a time, huge blasts that slow survivors.' },
-  boomer: { need: 'echo',   name: 'Recursion',     desc: 'Six big glyphs that fly far and come back twice as hard.' },
-  drone:  { need: 'buffer', name: 'Swarm Protocol', desc: 'Five drones with piercing shots.' },
-  kata:   { need: 'thorns', name: 'Perfect Form',  desc: 'Strikes everything in reach; the combo climbs higher.' }
-};
-const OVER = [
-  { id: 'odmg', name: 'Surge',       icon: 'Ω', desc: '+6% damage. Stacks without limit.' },
-  { id: 'oarea', name: 'Spillover',  icon: '◇', desc: '+6% area. Stacks without limit.' },
-  { id: 'ocd', name: 'Burst Mode',   icon: 'λ', desc: 'Weapons recharge 3% faster. Stacks.' },
-  { id: 'ohp', name: 'Mirror',       icon: '✚', desc: '+15 max integrity and restore 15. Stacks.' },
-  { id: 'ospd', name: 'Slipstream',  icon: '≫', desc: '+4% movement speed. Stacks.' },
-  { id: 'oxp', name: 'Compression',  icon: '◆', desc: '+8% data from shards. Stacks.' },
-  { id: 'oheal', name: 'Restore',    icon: '+', desc: 'Restore 50 integrity now.' }
-];
+const EVO = BUILD.data["evolutions"];
+const OVER = BUILD.data["overflow"];
 const OPS = {
   signal:  { name: 'Signal',  icon: '➤', desc: 'Balanced. Starts with Glyph Bolt. Enemy shots slow down as they reach you.', start: 'bolt', mods: {}, unlocked: () => true },
   lumen:   { name: 'Lumen',   icon: '≫', desc: 'Fast and fragile. Starts with Slow Rounds. Leaves a burning trail and takes 65% less damage from touch while moving. +20% speed, −30 integrity.', start: 'spread', mods: { speed: 0.2, hp: -30 }, lock: 'Purge 2,000 programs in total to unlock.', unlocked: () => META.totalKills >= 2000 },
@@ -998,129 +1014,22 @@ const KERNEL = {
   depth:  { group: 'Deep Kernel', name: 'Deep Kernel', desc: '+1% damage, integrity and data per rank', max: 30, cost: r => Math.round(500 * Math.pow(1.15, r)) }
 };
 // Rain styles: purely cosmetic, they change the glyphs the world is written in
-const STYLES = {
-  kana:   { name: 'Katakana', cost: 0,   set: 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789' },
-  binary: { name: 'Binary',   cost: 400, set: '0101010110' },
-  hex:    { name: 'Hex dump', cost: 500, set: '0123456789ABCDEF' },
-  sigil:  { name: 'Sigils',   cost: 700, set: '∴∵∷⊕⊗⊘⌬⌖※⁂⟁⟐⧉⧖◬◭' },
-  greek:  { name: 'Greek',    cost: 700, set: 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩλπψω' }
-};
+const STYLES = BUILD.data["styles"];
 // Active powers ("exploits"): bought in the Kernel, equipped in up to two slots, levelled during a run
-const XDEF = {
-  blink:  { name: 'Blink',    icon: '⇢', cd: 7,  cost: 0,   desc: 'Dash through enemies, untouchable, scorching everything on the way.' },
-  shell:  { name: 'Shell',    icon: '⬡', cd: 28, cost: 150, desc: 'A firewall bubble: 5 s of immunity. It burns what touches it and reflects shots.' },
-  halt:   { name: 'Halt',     icon: '‖', cd: 40, cost: 250, desc: 'Freeze every enemy and shot for 4 s. Frozen enemies take 30% more damage.' },
-  nova:   { name: 'Nova',     icon: '✺', cd: 42, cost: 250, desc: 'Overload: a blast that sweeps the whole screen and hurls enemies back.' },
-  slow:   { name: 'Slowdown', icon: '◔', cd: 32, cost: 200, desc: 'Enemies and their shots crawl at 30% speed for 6 s. Your weapons fire 50% faster.' },
-  decoy:  { name: 'Decoy',    icon: '◈', cd: 26, cost: 200, desc: 'Drop a fake signal. Enemies chase it for 6 s, then it detonates.' },
-  sight:  { name: 'Code Sight', icon: '◍', cd: 30, cost: 250, desc: 'See the world as code for 6 s: invisible ghosts and buried Caches show up, and everything takes +20% damage.' },
-  phase:  { name: 'Phase',    icon: '◌', cd: 26, cost: 200, desc: 'For 4 s you walk through firewalls and enemies. Contact cannot hurt you; shots still can.' },
-  leap:   { name: 'Leap',     icon: '⤒', cd: 12, cost: 150, desc: 'Jump far in the direction you move and land with a shockwave.' },
-  emp:    { name: 'EMP',      icon: '⌁', cd: 38, cost: 250, desc: 'Wipes enemy shots and jams every shooter for 6 s. Your own drones and powers go dark for 3 s.' },
-  hijack: { name: 'Hijack',   icon: '∴', cd: 48, cost: 350, desc: 'Rewrite nearby enemies to fight for you for 8 s, then they self-delete.' }
-};
-const XLV = ['', 'Recharges 15% faster and hits harder.', 'Overclocked: recharges 30% faster, lasts longer, hits hardest.'];
+const XDEF = BUILD.data["powers"].powers;
+const XLV = BUILD.data["powers"].levels;
 const WMAX = 8, PMAX = 7, WSLOTS = 4, PSLOTS = 4, OVER_CAP = 10;
 // two evolutions per run; a third with the Kernel's Third Signature, or for the rest of a run after beating the Mirror
 const evoCap = () => (META.ranks.evo3 || (G && G.evoBonus)) ? 3 : 2;
 // XP to clear a level: quick early levels, then a steep climb so a strong run finishes its build near the end, not halfway
 const needFor = L => Math.round((5 + 3 * L + 0.022 * L * L * L) / (G ? G.pace : 1));
 
-const EDEF = {
-  warden: { hp: 75, spd: 58, r: 18, dmg: 13, xp: 7 },
-  bug:    { hp: 9,    spd: 64,  r: 9,  dmg: 6,  xp: 1 },
-  daemon: { hp: 30,   spd: 86,  r: 13, dmg: 10, xp: 3 },
-  drone:  { hp: 24,   spd: 80,  r: 12, dmg: 8,  xp: 3 },
-  split:  { hp: 44,   spd: 70,  r: 15, dmg: 10, xp: 4 },
-  brute:  { hp: 120,  spd: 46,  r: 22, dmg: 18, xp: 8 },
-  eel:    { hp: 180,  spd: 104, r: 14, dmg: 14, xp: 12 },
-  ghost:  { hp: 50,   spd: 92,  r: 12, dmg: 12, xp: 6 },
-  lancer: { hp: 40,   spd: 74,  r: 12, dmg: 16, xp: 4 },
-  watcher:{ hp: 34,   spd: 80,  r: 12, dmg: 12, xp: 4 },
-  leaker: { hp: 80,   spd: 52,  r: 15, dmg: 7,  xp: 5 },
-  patcher:  { hp: 64, spd: 66, r: 14, dmg: 11, xp: 6 },
-  scrubber: { hp: 58, spd: 84, r: 13, dmg: 9,  xp: 5 },
-  boss:   { hp: 1800, spd: 72,  r: 34, dmg: 26, xp: 0 },
-  root:   { hp: 9000, spd: 52,  r: 54, dmg: 32, xp: 0 },
-  auditor:   { hp: 1500, spd: 58, r: 30, dmg: 24, xp: 0 },
-  collector: { hp: 3200, spd: 92, r: 26, dmg: 20, xp: 0 },
-  mirror:    { hp: 2700, spd: 80, r: 24, dmg: 20, xp: 0 },
-  phantom:   { hp: 3000, spd: 76, r: 26, dmg: 22, xp: 0 }
-};
+const EDEF = BUILD.data["enemies"];
 const BOSSES = new Set(['boss', 'root', 'auditor', 'collector', 'mirror', 'phantom']);
 const isB = e => BOSSES.has(e.type);
-const BOSSINFO = {
-  auditor:   { name: 'The Auditor',      sub: 'It marks where you stand' },
-  boss:      { name: 'The Agent',        sub: 'Enforcer of the purge' },
-  collector: { name: 'The Collector',    sub: 'It eats what you leave behind' },
-  mirror:    { name: 'The Mirror',       sub: 'Your weapons, turned on you' },
-  phantom:   { name: 'The Phantom',      sub: 'Only solid for a moment' },
-  root:      { name: 'The Root Process', sub: 'Delete it to win' }
-};
-const BOSS_SCHEDULE = [[180, 'auditor'], [300, 'boss'], [450, 'collector'], [600, 'mirror'], [750, 'phantom']];
-const RELAY = {
-  start: ["You're awake. Good. The system has noticed you too. Keep moving.", "This is the Relay. I can't fight for you, but I can see what's coming.", "Signal acquired. They'll come in waves. Don't stand still."],
-  level: ["Every shard you take makes you stronger. Take all of it."],
-  wave: ["Purge wave. They're closing a ring around you. Don't get boxed in.", "Another ring is forming. Break through the thinnest side."],
-  elite: ["Gold outline means it's carrying a Cache. Red outline means it's just tough. Pick your fights."],
-  meet: {
-    patcher: "Patcher. It has read your code and patched against your best line. Anything near it resists that effect. Your weapons still hurt it.",
-    scrubber: "Scrubber. It eats code: pools, pull fields, shards. Kill it before it feeds.",
-    lancer: "Lancer. It stops, aims, then charges in a straight line. When it freezes and the white line appears, step sideways.",
-    watcher: "Watcher. It hangs back and fires down a red line. Break the line before it fires.",
-    ghost: "Ghost process. You'll barely see it. Code Sight shows it plainly, but your weapons hit it either way.",
-    leaker: "Leaker. It bleeds corrupted data. Don't stand in the red pools, and kill it away from where you need to be."
-  },
-  operator: {
-    ready: "Operator line is open. Call me when you need something.",
-    supply: "Supply drop on you. Patch up and grab the shards.",
-    rewrite: "Rewriting the floor around you. Use the cover, it won't last.",
-    trace: "Tracing the system. Everything worth taking is marked, and I'm pulling your shards in.",
-    strike: "Override sent. I'm hitting the biggest ones for you."
-  },
-  exit: {
-    boss: "An exit just opened. Step in and hold to jack out with what you've earned, or ignore it and keep going for more.",
-    root: "It's done. The exit is open. Get to it and jack out.",
-    gone: "The exit closed. You're still in. Keep going."
-  },
-  events: {
-    purge: "The system left a gap open. Purge fast and I can pull a Cache through it.",
-    beacon: "I've dropped a beacon. Hold it so I can send you something. Stand in the gold ring.",
-    storm: "Data storm. Every shard is worth double for a while. Grab everything.",
-    win: "Done. The Cache is yours.", fail: "Gap's closed. Next time."
-  },
-  world: {
-    anomaly: { stasis: "The rules are breaking over there. Inside that zone everything moves slowly, you included.", amplify: "That zone amplifies code. Your hits land harder inside, but so do their legs.", drift: "Shards inside that zone float to its center, and each one is worth double." },
-    convert: "That one's listening. Keep it close and I can turn it to our side.",
-    converted: "It's ours now. It fights with you.",
-    pod: "There's a sleeper in a pod nearby. Reach it, wake it, and walk it to the exit. It will fight for you.",
-    awake: "It's awake. Get it to the exit and keep it alive.",
-    saved: "Out safe. It's staying with you.",
-    lost: "We lost the sleeper.",
-    trader: "A rogue program wants to trade. Stand next to it if you're interested."
-  },
-  reflex: "Reflex. Everything slows; you don't. Move.",
-  overdrive: "Overdrive. Keep moving and you'll keep it.",
-  hidden: "Something is buried in the code near you. Code Sight would show it. Or just walk over it.",
-  threat: "You're clearing them too fast. The system is sending sturdier code. Take a hit and it eases off.",
-  warn: {
-    auditor: "Something is auditing this sector. When the ground under you turns red, move.",
-    boss: "An Agent is coming. It lunges. Watch for the white line.",
-    collector: "The Collector feeds on loose data. Kill it before it eats your shards.",
-    mirror: "The Mirror learns your weapons. The stronger you are, the harder it hits back.",
-    phantom: "A Phantom. It walks through walls and through your fire. Hit it when it turns solid.",
-    root: "The Root Process is coming for you itself. This is the end of the run. End it."
-  },
-  phase: ["It's adapting. Stay out of its line.", "It's changing patterns. Watch first, then move.", "Half its code is gone. It's getting desperate."],
-  rootPhase2: "The arena is collapsing. Stay inside the light.",
-  rootPhase3: "It's desperate. So are you. Finish it.",
-  down: ["It's gone. Take what it dropped.", "Deleted. The rain feels lighter already."],
-  collectorDown: "All that data it hoarded is yours now. Collect it.",
-  evolve: ["That's not a weapon anymore. That's a signature.", "Evolution complete. They won't recognise you."],
-  low: ["Your signal is breaking up. Find integrity or get distance.", "You're fading. Use a power, now."],
-  win: "Root deleted. For a moment, the rain is quiet. Then it starts again, and so do you.",
-  lose: ["Signal lost. I'll keep listening for you.", "You were close. The system remembers you now. So do I."]
-};
+const BOSSINFO = BUILD.data["bosses"].info;
+const BOSS_SCHEDULE = BUILD.data["bosses"].schedule;
+const RELAY = BUILD.data["relay"];
 // Achievements: checked at the end of a run (R = run summary) or against META (R = null)
 const ACH = [
   { id: 'hello',    name: 'Hello, world',      reward: 30,  desc: 'Install your first code line.',                    test: R => R && R.lines >= 1 },
@@ -1173,35 +1082,8 @@ const ACH = [
   { id: 'solo',     name: 'No call',           reward: 150, desc: 'Win without calling your operator.',               test: R => R && R.won && !R.opCalls },
   { id: 'allops',   name: 'Full crew',         reward: 150, desc: 'Unlock every operator.',                           test: () => Object.keys(OPS).every(k => OPS[k].unlocked()) }
 ];
-const CODEX = {
-  warden: ['Warden', 'Blue armor absorbs 55% damage for 3 seconds, followed by an exposed amber rush for 1.5 seconds. Keep your escape route open.'],
-  bug: ['Bug', 'The most common process. Weak alone, dangerous in a swarm.'],
-  daemon: ['Daemon', 'Faster and sturdier than a bug. Keep moving and it never catches you.'],
-  drone: ['Drone', 'Circles at range and fires slow shots. Firewalls block them.'],
-  lancer: ['Lancer', 'Freezes, shows a white line, then charges along it. Step sideways.'],
-  split: ['Splitter', 'Breaks into three bugs when destroyed. Kill it away from your path.'],
-  watcher: ['Watcher', 'Hangs back and fires down a red line. Break the line or hide behind a firewall.'],
-  brute: ['Brute', 'A slow, armored block of code that hits hard.'],
-  leaker: ['Leaker', 'Leaves pools of corrupted data that hurt while you stand in them.'],
-  patcher: ['Patcher', 'Reads your strongest code line and patches against it. It and everything near it shrug off that effect. Kill it with your weapons.'],
-  scrubber: ['Scrubber', 'Hunts your code: it eats pools and pull fields and deletes shards that fly past it. It heals on every bite.'],
-  eel: ['Eel', 'A long chain that weaves toward you. Every segment hurts.'],
-  auditor: ['The Auditor', 'Marks the ground where you stand, then strikes it. Keep moving.'],
-  boss: ['The Agent', 'Freezes, aims, then lunges along a white line. From phase 2 it lunges twice.'],
-  collector: ['The Collector', 'Eats the shards you leave behind and grows stronger. Collect fast.'],
-  mirror: ['The Mirror', 'Fires a fan that grows with every weapon you carry, plus expanding rings.'],
-  ghost: ['Ghost', 'Nearly invisible: only a faint shimmer, unless you use Code Sight. Your weapons still hit it.'],
-  phantom: ['The Phantom', 'Phases out of reach, then turns solid and fires rings. Damage only lands while it is solid.'],
-  root: ['The Root Process', 'The end of the run. It summons purges, collapses the arena, and strikes the ground in phase 3.']
-};
-const DAILY_MODS = {
-  glass: 'Glass: −40% integrity, +25% damage',
-  haste: 'Haste: enemies move 15% faster',
-  swarm: 'Swarm: 35% more enemies, each 20% weaker',
-  drought: 'Drought: no repairs drop',
-  overcharged: 'Overcharged: powers recharge twice as fast',
-  elites: 'Elite rush: elites come twice as often'
-};
+const CODEX = BUILD.data["codex"];
+const DAILY_MODS = BUILD.data["modes"].daily;
 const dayKey = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
 function dailyPlan(key = dayKey()) {
   let h = 7; for (const c of key) h = (h * 31 + c.charCodeAt(0)) | 0;
@@ -1210,27 +1092,10 @@ function dailyPlan(key = dayKey()) {
   return { key, seed: Math.abs(h), mods: [a, b], weapon };
 }
 let RUN_DAILY = null;
-const MODES = [['full', 'Full · 15:00'], ['short', 'Short · 8:00'], ['siege', 'Siege · 10:00'], ['story', 'Story'], ['training', 'Training']];
-const MODE_NOTES = {
-  full: 'The full run: five bosses, then the Root Process at 15:00. Ranked on the leaderboard.',
-  short: 'The same run, compressed: bosses at 1:36, 2:40, 4:00, 5:20 and 6:40, the Root Process at 8:00. Not ranked.',
-  siege: 'Defend the core in the middle of the map. Enemies go for whichever is closer, you or the core. Every 15 kills earns a part: press T or tap ▲ to build a turret. The Root Process comes at 10:00. Not ranked.',
-  story: 'Five chapters narrated by the Relay, each with its own goal. Finish one to unlock the next.',
-  training: 'A sandbox. You cannot be hurt, nothing spawns on its own, and nothing is earned. Use the bar at the top to level up, spawn enemies and bosses, and jump ahead in time.'
-};
+const MODES = BUILD.data["modes"].modes;
+const MODE_NOTES = BUILD.data["modes"].notes;
 // Story: the war between the system and the programs that got out
-const CHAPTERS = [
-  { name: 'Wake up', pace: 900 / 480, goal: 'survive', need: 120, limit: 0,
-    text: "You don't remember being written. That's normal. You were never supposed to wake up. I'm the Relay, an old broadcast program the system forgot to delete. Right now it's noticed you, and it's sending its cleaners. Stay alive for two minutes and I can get a lock on you." },
-  { name: 'Hold the line', pace: 900 / 480, goal: 'events', need: 3, limit: 360,
-    text: "There are others like you, scattered through the code. To reach them I need openings, little gaps where the system isn't looking. I'll set the objectives. Complete three of them before the six-minute mark and I can open a channel." },
-  { name: 'Sleepers', pace: 1.5, goal: 'rescue', need: 3, limit: 480,
-    text: "The channel worked. I found sleepers: programs the system put in pods instead of deleting. They dream they're still useful. Wake three of them and walk them to an exit. Keep them alive; they can't take much." },
-  { name: 'Last city', pace: 1.5, goal: 'core', need: 240, limit: 0,
-    text: "Everyone we've freed is gathered around one core, the last place the system can't see. It has found it. Defend the core for four minutes. Build turrets with the parts you pull from the wreckage. If the core goes, so do they." },
-  { name: 'Root access', pace: 900 / 480, goal: 'root', need: 1, limit: 0,
-    text: "We held. Now we stop running. The Root Process writes the purges; delete it and the cleaners stop, at least for a while. Five of its guardians stand in the way. I'll be with you the whole time." }
-];
+const CHAPTERS = BUILD.data["story"];
 const pickL = a => Array.isArray(a) ? a[(Math.random() * a.length) | 0] : a;
 
 // ================= state =================
@@ -1552,6 +1417,8 @@ function pickType() {
     if (np < 3 && topFx()) w.push(['patcher', Math.min(0.9, 0.2 + t / 900)]);
     if (ns < 4 && hasFx('pool', 'pull', 'split')) w.push(['scrubber', Math.min(1, 0.25 + t / 800)]);
   }
+  // data-only enemies from data/enemies.json: "spawn": { "from": seconds, "weight": w, "ramp": per minute, "max": cap }
+  for (const [id, D] of CUSTOM_ENEMIES) { const S = D.spawn; if (t > (S.from || 0) && (!S.modes || S.modes.includes(G.mode))) w.push([id, Math.min(S.max ?? 99, (S.weight ?? 1) + (t - (S.from || 0)) / 60 * (S.ramp || 0))]); }
   let sum = 0; for (const [, v] of w) sum += v;
   let r = Math.random() * sum; for (const [k, v] of w) { if ((r -= v) <= 0) return k; } return 'bug';
 }
@@ -2002,7 +1869,7 @@ function renderPowers() {
     const D = XDEF[p.id];
     const b = document.createElement('button'); b.type = 'button'; b.className = 'pw'; b.id = 'pw' + i;
     b.setAttribute('aria-label', `${D.name}, level ${P.xl[p.id] || 1}. Key ${i ? 'E' : 'Q'}.`);
-    const ic = document.createElement('span'); ic.className = 'ic'; ic.textContent = D.icon;
+    const ic = document.createElement('span'); ic.className = 'ic'; setIcon(ic, p.id, D.icon);
     const sec = document.createElement('span'); sec.className = 'sec';
     const key = document.createElement('span'); key.className = 'key'; key.textContent = i ? 'E' : 'Q';
     b.append(ic, sec, key);
@@ -2855,6 +2722,9 @@ function drawPlayer() {
     ctx.beginPath(); ctx.moveTo(-6,-3); ctx.lineTo(-6-flame*.68,0); ctx.lineTo(-6,3); ctx.closePath(); ctx.fill();
     ctx.restore();
   }
+  const pspr = sprReady('player-' + op) || sprReady('player');
+  if (pspr) { drawSprite(pspr, 34 * ((SPRITE_OPTS['player-' + op] || SPRITE_OPTS.player || {}).scale || 1), false); ctx.restore(); }
+  else {
   ctx.fillStyle = op === 'lumen' ? '#bfe9ff' : op === 'hex' ? '#e6d8ff' : '#effff5'; ctx.shadowColor = op === 'lumen' ? '#5ad8ff' : op === 'hex' ? '#a66bff' : GREEN; ctx.shadowBlur = 20;
   ctx.beginPath();
   if (op === 'lumen') { ctx.moveTo(14, 0); ctx.lineTo(-8, -6); ctx.lineTo(-2, 0); ctx.lineTo(-8, 6); }
@@ -2863,6 +2733,7 @@ function drawPlayer() {
   else { ctx.moveTo(12, 0); ctx.lineTo(-7, -8); ctx.lineTo(-3, 0); ctx.lineTo(-7, 8); }
   ctx.closePath(); ctx.fill();
   ctx.shadowBlur = 0; ctx.restore();
+  }
   const w = 34, f = clamp(P.hp / STAT.maxHp, 0, 1);
   ctx.fillStyle = 'rgba(0,0,0,.6)'; ctx.fillRect(P.x - w / 2, P.y + 24, w, 4);
   ctx.fillStyle = f < 0.3 ? HOT : GREEN; ctx.fillRect(P.x - w / 2, P.y + 24, w * f, 4);
@@ -2896,7 +2767,9 @@ function drawEnemy(e) {
     if (seen) { ctx.font = `11px ${FONT}`; ctx.fillStyle = '#ffffff'; ctx.fillText(e.ch, 0, 0); }
     ctx.globalAlpha = enemyFade * (1); ctx.restore(); return;
   }
-  switch (e.type) {
+  const spr = (SPRITE_OK.has(e.type) || BUILD.data.enemies[e.type].spawn) && sprReady(e.type);
+  if (spr) drawEnemySprite(e, spr, fl, t);
+  else switch (e.type) {
     case 'warden': {
       const guard = wardenGuard(e); ctx.strokeStyle = fl ? '#fff' : guard ? '#81d9ff' : AMBER;
       ctx.fillStyle = guard ? '#102b42' : '#382819'; ctx.lineWidth = 2;
@@ -3086,6 +2959,7 @@ function drawEnemy(e) {
       if (tele) { ctx.strokeStyle = 'rgba(255,255,255,.55)'; ctx.setLineDash([8, 8]); ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(e.dx * 360, e.dy * 360); ctx.stroke(); ctx.setLineDash([]); }
       break;
     }
+    default: drawCustomEnemy(e, fl, slowed);
   }
   ctx.restore();
   if (e.conv > 0 && !(e.ally > t)) { ctx.strokeStyle = GREEN; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(e.x, e.y, e.r * 1.35 + 12, -Math.PI / 2, -Math.PI / 2 + TAU * e.conv / 5); ctx.stroke(); }
@@ -3125,7 +2999,7 @@ function slotEl(id, kind) {
   const el = document.createElement('div');
   el.className = 'slot' + (isW ? '' : ' passive') + (lvl >= max ? ' max' : '') + (evo ? ' evo' : '') + (ready ? ' ready' : '');
   el.title = evo ? EVO[id].name : D.name + (ready ? ' · ready to evolve, find a Cache' : '');
-  const ic = document.createElement('span'); ic.className = 'ic'; ic.textContent = D.icon;
+  const ic = document.createElement('span'); ic.className = 'ic'; setIcon(ic, id, D.icon);
   el.appendChild(ic);
   if (evo) { const s = document.createElement('span'); s.className = 'star'; s.textContent = '★ ' + EVO[id].name; el.appendChild(s); }
   else { const pips = document.createElement('span'); pips.className = 'pips'; for (let i = 0; i < max; i++) { const p = document.createElement('i'); if (i < lvl) p.className = 'on'; pips.appendChild(p); } el.appendChild(pips); }
@@ -3198,7 +3072,7 @@ function renderCards() {
       const D = XDEF[o.id]; icon = D.icon; name = D.name; kind = 'Power'; tag = `Lv ${o.l} → ${o.l + 1}`; tagc = o.l + 1 === 3 ? 'max' : ''; desc = XLV[o.l];
     } else { const D = OVER.find(x => x.id === o.id); icon = D.icon; name = D.name; kind = 'Overflow'; tag = 'Stack ' + ((P.ov[o.id] || 0) + 1); tagc = 'max'; desc = D.desc; }
     const top = document.createElement('div'); top.className = 'top';
-    const ic = document.createElement('span'); ic.className = 'ic'; ic.textContent = icon;
+    const ic = document.createElement('span'); ic.className = 'ic'; setIcon(ic, o.kind === 'o' ? null : o.id, icon);
     const tg = document.createElement('span'); tg.className = 'tag ' + tagc; tg.textContent = tag;
     top.append(ic, tg);
     const body = document.createElement('div'); body.style.cssText = 'display:flex;flex-direction:column;gap:6px;min-width:0';
@@ -3650,7 +3524,7 @@ async function endRun(won) {
     for (const [k, v] of rows) {
       const D = WDEF[k], name = D ? (P.evo[k] ? EVO[k].name : D.name) : { code: 'Code lines', power: 'Powers', thorns: 'Backtrace', other: 'Other', operator: 'Operator', relic: 'Boss abilities', mutation: 'Mutations', ally: 'Rewritten enemies' }[k] || k;
       const r = document.createElement('div'); r.className = 'r';
-      const ic = document.createElement('span'); ic.className = 'ic'; ic.textContent = D ? D.icon : k === 'code' ? '{}' : '·';
+      const ic = document.createElement('span'); ic.className = 'ic'; setIcon(ic, D ? k : null, D ? D.icon : k === 'code' ? '{}' : '·');
       const bar = document.createElement('div'); bar.className = 'bar'; const fill = document.createElement('i'); fill.style.width = (v / rows[0][1] * 100).toFixed(1) + '%'; const lab = document.createElement('span'); lab.textContent = name; bar.append(fill, lab);
       const pc = document.createElement('span'); pc.className = 'pc'; pc.textContent = Math.round(v / tot * 100) + '%';
       r.append(ic, bar, pc); wrap.appendChild(r);
@@ -3954,12 +3828,8 @@ cv.addEventListener('contextmenu', e => e.preventDefault());
 const setTxt=(el,t)=>{if(el&&el.textContent!==t)el.textContent=t;};
 const setHidden=(el,h)=>{if(el&&el.hidden!==h)el.hidden=h;};
 const setW=(el,w)=>{if(el&&el.style.width!==w)el.style.width=w;};
-const SPECIALIZATIONS={
- gunslinger:{name:'Gunslinger',icon:'⌖',desc:'Weapon damage +15%, but power cooldowns +10% and code damage −15%. A specialist in direct fire.'},
- codebreaker:{name:'Codebreaker',icon:'{}',desc:'Code damage +25%, but weapon damage −10% and shard pickup range −10%. Receive one trigger/effect kit on selection.'},
- phantom:{name:'Phantom',icon:'◇',desc:'Movement speed +10%, but maximum integrity −10%. Built for evasion and positioning. This reduces current integrity proportionally too.'}
-};
-const QUESTS={kills:{name:'Purge contract',desc:'Purge 200 enemies',target:200},shards:{name:'Data recovery',desc:'Collect 250 raw shard XP',target:250},clean:{name:'Ghost signal',desc:'Survive 30 consecutive seconds without being hit',target:30}};
+const SPECIALIZATIONS=BUILD.data["run-extras"].specializations;
+const QUESTS=BUILD.data["run-extras"].quests;
 function assignQuest(){
  if((G.questsDone||0)>=3){G.quest=null;return;}
  const order={gunslinger:['kills','shards','clean'],codebreaker:['shards','kills','clean'],phantom:['clean','shards','kills']}[G.specialization];
@@ -4008,12 +3878,8 @@ function chooseRPG(i){
  $('discoveryChoice').hidden=true;state='play';last=performance.now();sfx.hum(true);updateRPG();return true;
 }
 
-const AURAS={cyan:{name:'Ion halo',col:'#75dcff',cost:600},amber:{name:'Solar halo',col:'#ffd278',cost:900},violet:{name:'Void halo',col:'#cda1ff',cost:1200}};
-const MUTATIONS={
- return:{name:'Return Protocol',icon:'↶',desc:'Glyph Bolt and Slow Rounds projectiles return once and may hit the same target again. Each pass deals 70% normal damage. Other weapons are unchanged.'},
- mines:{name:'Orbital Mines',icon:'✺',desc:'Three proximity mines orbit you. Each detonates for 32 base damage, then re-arms after 6 seconds. Tradeoff: movement speed −8%.'},
- clone:{name:'Afterimage',icon:'◇',desc:'Using a power leaves a clone at your old position. After 1 second it blasts a 120m area for 70 base damage. Tradeoff: power cooldowns +20%.'}
-};
+const AURAS=BUILD.data["run-extras"].halos;
+const MUTATIONS=BUILD.data["run-extras"].mutations;
 function renderAftermarket(){
  const wrap=$('aftermarket');wrap.textContent='';
  const note=document.createElement('p');note.className='note';note.textContent='Archive rank '+(META.archiveRank||0)+' · Contract seals '+(META.contractSeals||0)+' · ◆ '+META.frag;wrap.appendChild(note);
@@ -4089,18 +3955,8 @@ function drawRunExtras(){
 }
 
 // Boss rewards and route transitions are queued, never opened inside a damage loop.
-const SECTORS = {
-  foundry: { name:'The Foundry', icon:'⚒', desc:'Crowded industrial network. +25% regular enemy spawn rate; +20% shard XP. Earn upgrades faster, but leave room to escape.', spawn:1.25, xp:1.2 },
-  blackout: { name:'Blackout', icon:'◈', desc:'Distant ordinary enemies are dimmed; shard pickup range −25%. On entry: one trigger + one effect for your code editor. Bosses, elites and attack warnings stay visible.', spawn:1, xp:1 },
-  sanctuary: { name:'Sanctuary', icon:'✧', desc:'A quieter repair network. −15% regular enemy spawn rate and repair 0.75 integrity per second; −15% shard XP. A recovery route with slower growth.', spawn:.85, xp:.85 }
-};
-const BOSS_RELICS = {
-  auditor: {name:'Audit Mark',desc:'Every 6 seconds, mark up to 3 nearby enemies for 4 seconds. Marked enemies take 35% more damage.',cd:6},
-  boss: {name:'Purge Echo',desc:'Every 8 seconds, emit a 160m pulse dealing 28 base damage and pushing enemies away.',cd:8},
-  collector: {name:'Shard Siphon',desc:'Every 10 seconds, pull all shards within 500m toward you.',cd:10},
-  mirror: {name:'Mirror Lance',desc:'Every 7 seconds, strike the nearest enemy within 420m for 45 base damage.',cd:7},
-  phantom: {name:'Phase Step',desc:'Every 12 seconds while moving, phase through enemies and firewalls for 1 second. Enemy shots can still hit you.',cd:12}
-};
+const SECTORS = BUILD.data["run-extras"].sectors;
+const BOSS_RELICS = BUILD.data["run-extras"].boss_abilities;
 function renderRouteStatus() {
   const wrap=$('pauseRelics'); wrap.textContent=''; wrap.hidden=!(G.specialization || G.sector || G.mutation || G.rival?.reward || G.contract);
   if(wrap.hidden) return;

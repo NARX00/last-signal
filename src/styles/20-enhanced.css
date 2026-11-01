@@ -1,0 +1,47 @@
+/* Enhanced edition: launch deck and accessible combat readouts */
+:root { --void:#030b12; --glass:rgba(7,20,30,.94); --ink:#c3dce2; --dim:#85a8ad; --edge:rgba(113,217,214,.23); --accent:#61f5c0; --white:#f0fbff; }
+.screen { background:radial-gradient(ellipse at 15% 15%,rgba(19,88,100,.22),transparent 65%),rgba(2,8,15,.7); padding:32px 24px; }
+.panel { border-radius:22px; padding:32px; background:linear-gradient(135deg,rgba(12,31,43,.96),rgba(4,14,23,.97)); box-shadow:0 30px 100px #0009; }
+#title>.panel { max-width:1180px; }
+.title-grid { grid-template-columns:1.05fr 1fr; gap:40px; }
+h1 { font-family:Impact,'Arial Narrow',sans-serif; font-size:clamp(64px,8vw,104px); letter-spacing:-.035em; text-transform:uppercase; text-shadow:none; line-height:.91; max-width:6ch; }
+.rw-sub { color:var(--accent); font:12px var(--mono); letter-spacing:.42em; margin:18px 0; text-shadow:none; text-transform:uppercase; }
+.eyebrow { color:#8cbdc6; font-size:10px; margin-bottom:18px; }
+.lede { font-size:13px; color:#a9c3ce; line-height:1.8; max-width:52ch; }
+.launch-actions { padding:20px 0 4px; }
+.btn { min-height:40px; border-radius:8px; letter-spacing:.08em; }
+.btn.primary { background:var(--accent); color:#042019; font-weight:bold; border:0; padding:16px 26px; box-shadow:0 5px 28px #61f5c02b; }
+.btn.primary:hover { background:#b1ffe1; color:#042019; transform:translateY(-1px); }
+.op { border-radius:12px; padding:14px; background:#091a26; transition:transform .18s,border-color .18s; }
+.op:hover:not(:disabled) { transform:translateY(-2px); border-color:#61f5c0; }
+.op[aria-pressed=true] { background:linear-gradient(135deg,#164038,#0c242e); }
+.op .nm { font-size:25px; }
+.op .ds { color:#9db9c1; }
+.signal-art { position:relative; height:300px; overflow:hidden; border:1px solid var(--edge); border-radius:16px; background:radial-gradient(ellipse at 50% 50%,#133948,#06121e 70%); }
+.signal-art svg { width:100%; height:100%; }
+.art-label { position:absolute; left:18px; top:18px; font-size:10px; letter-spacing:.14em; color:#85b9c1; }
+.art-bottom { position:absolute; bottom:17px; left:18px; right:18px; display:flex; justify-content:space-between; font-size:10px; letter-spacing:.1em; color:#a5d4d8; }
+.art-bottom b { color:#61f5c0; font-weight:normal; }
+.orbital { transform-origin:250px 145px; animation:orbit 42s linear infinite; }
+@keyframes orbit { to { transform:rotate(360deg); } }
+.tabs { gap:4px; border-bottom:1px solid var(--edge); padding-bottom:10px; }
+.tab { border-radius:6px; }
+.empty { background:#081824; padding:22px; color:#95b6bf; }
+.field-guide { border:1px solid var(--edge); border-radius:10px; padding:14px; }
+.field-guide summary { cursor:pointer; color:#9ed8d3; font-size:11px; letter-spacing:.08em; }
+.field-guide[open] summary { margin-bottom:18px; }
+.hud { padding:env(safe-area-inset-top,0px) 20px 0; }
+.hudrow { background:linear-gradient(90deg,#071722e8,#071722b8); border:1px solid var(--edge); border-radius:10px; padding:10px 14px; }
+.hud .timer { font-size:34px; text-shadow:none; }
+.scan { opacity:.17; }
+#signalStatus { position:static; align-self:flex-start; width:250px; background:#071722ed; border:1px solid var(--edge); padding:15px; border-radius:12px; pointer-events:none; }
+#signalStatus small { color:#88abb7; font-size:9px; letter-spacing:.15em; }
+#signalStatus strong { display:block; color:#e4fbff; font-size:12px; margin:8px 0; font-weight:normal; }
+#signalStatus p { font-size:10px; color:#99b7c1; margin:8px 0 0; line-height:1.5; }
+.signal-track { height:3px; background:#18303e; margin-top:10px; }
+.signal-track i { display:block; height:100%; background:var(--accent); width:0; }
+.vitality { position:absolute; right:20px; top:110px; width:140px; text-align:right; font-size:10px; color:#a6c5ce; }
+.vitality div { margin-top:6px; height:4px; background:#1a3038; }
+.vitality i { display:block; height:100%; background:var(--accent); }
+@media(max-width:760px) { .screen { padding:14px 10px; } .panel { padding:22px 18px; border-radius:16px; } .title-grid { grid-template-columns:1fr; gap:24px; } h1 { max-width:none; font-size:64px; } .signal-art { height:220px; } #signalStatus { width:210px; padding:8px 10px; } #signalStatus.idle { display:none; } #signalStatus p { margin-top:4px; } #sectorReadout, #questReadout { font-size:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:calc(100vw - 32px); margin:0; } .vitality { right:16px; top:105px; width:100px; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }

@@ -1,0 +1,241 @@
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="cbf" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0.45 0.55 0 0 0  -0.3 0.9 0.3 0 0  0 0 0 1 0"/></filter></svg>
+<canvas id="c" aria-label="Last Signal: Rewrite game"></canvas>
+<div class="hurtfx" id="hurtfx"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="scan"></div>
+<div class="banner" id="banner" aria-live="polite"><span class="k" id="bannerK"></span><span class="t" id="bannerT"></span></div>
+
+<div class="hud" id="hud" hidden>
+  <div id="signalStatus"><small>OPTIONAL / SIGNAL HUNT</small><strong id="huntTitle">Stay alive. Get stronger.</strong><div class="signal-track"><i id="huntFill"></i></div><p id="huntDesc">Move with WASD. Your weapons fire automatically.</p><button class="btn" id="overloadBtn" title="Commit this chain: elite pursuer, 35-second timers, 3-second holds. Finish all three for 2 caches + 15% repair." type="button" hidden>G · Overload for 2 caches<br><span style="display:block;font-size:9px;margin-top:5px;letter-spacing:0">Elite pursuer · 35s timers · 3s holds</span></button></div><div class="vitality"><span id="hpReadout">INTEGRITY 100%</span><div><i id="hpFill"></i></div></div>
+  <div class="xpbar"><i id="xpfill"></i></div>
+  <div class="hudrow">
+    <div class="lv">LV<b id="lv">1</b><span class="xpn" id="xpn">0 / 5</span></div>
+    <div class="mid"><div class="timer" id="timer">00:00</div><div class="threat" id="threat" hidden title="Adaptive threat: enemy integrity multiplier. Rises while you clear the screen easily, eases off when you take damage.">Threat ×1.0</div></div>
+    <div class="kills"><b id="kills">0</b><span class="kl">purged</span></div>
+  </div>
+  <div class="evt" id="evt" hidden></div>
+  <div class="slots" id="slots"></div><div class="note" id="sectorReadout"></div><div class="note" id="questReadout" role="status"></div>
+  <div class="bossbar" id="bossbar" hidden><span id="bossname">Agent</span><div><i id="bossfill"></i></div></div>
+  <button class="pausebtn" id="pauseBtn" type="button" aria-label="Pause">II</button>
+  <div class="powers" id="powers"></div>
+  <div class="trainbar" id="trainbar" hidden>
+    <button class="btn" type="button" data-tr="level">Level up</button><button class="btn" type="button" data-tr="evolve">Evolve</button><button class="btn" type="button" data-tr="crowd">Crowd</button><button class="btn" type="button" data-tr="elite">Elite</button><button class="btn" type="button" data-tr="boss">Boss</button><button class="btn" type="button" data-tr="time">+1 min</button><button class="btn" type="button" data-tr="clear">Clear</button><button class="btn" type="button" data-tr="end">End</button>
+  </div>
+</div>
+<div class="relay" id="relay" aria-live="polite"><span class="who">Relay</span><p id="relayText"></p></div>
+
+<!-- Title -->
+<section class="screen" id="discoveryChoice" role="dialog" aria-modal="true" aria-labelledby="discoveryHead" hidden><div class="panel lvl"><p class="eyebrow" id="discoveryEyebrow">Recovered experiment</p><h2 id="discoveryHead">Rewrite your approach</h2><p class="note" id="discoveryNote"></p><div class="cards" id="discoveryCards"></div></div></section>
+<section class="screen" id="sectorChoice" role="dialog" aria-modal="true" aria-labelledby="sectorHead" hidden><div class="panel lvl"><p class="eyebrow">Boss deleted / route unlocked</p><h2 id="sectorHead">Choose your next sector</h2><p class="lede" id="sectorReward" style="margin:16px auto"></p><p class="note">The world is paused. Route effects last until your next choice. Boss abilities stay for this run.</p><div class="cards" id="sectorCards"></div></div></section>
+<section class="screen" id="title">
+  <div class="panel">
+    <div class="title-grid">
+      <div>
+        <div>
+          <p class="eyebrow">A survival run in the code rain</p>
+          <h1>Last Signal</h1>
+          <p class="rw-sub">// rewrite</p>
+          <p class="lede">You are the last process the system couldn't erase. Outrun the swarm. Build impossible weapons. Rewrite the rules — then take down the Root Process.</p>
+          <p class="lede" style="color:#61f5c0;font-size:11px">AUTO-FIRE · EVOLVING BUILDS · FIVE BOSSES · ONE LAST SIGNAL</p>
+        </div>
+        <div>
+          <h3>Operator</h3>
+          <div class="ops" id="ops"></div>
+        </div>
+        <div>
+          <h3>Powers</h3>
+          <p class="loadout" id="loadout"></p>
+        </div>
+        <div>
+          <h3>Daily challenge</h3>
+          <p class="note" id="dailyMods"></p>
+          <div class="actions" style="margin-top:10px"><button class="btn" id="dailyBtn" type="button">Play today's challenge</button></div>
+          <ol class="board" id="dailyBoard" style="margin-top:10px"></ol>
+        </div>
+        <div>
+          <h3>Mode</h3>
+          <div class="protos" id="modes"></div>
+          <div class="protos" id="chapters" style="margin-top:8px" hidden></div>
+          <p class="note" id="modeNote" style="margin-top:8px"></p>
+        </div>
+        <div>
+          <h3>Protocol</h3>
+          <div class="protos" id="protos"></div>
+          <p class="note" id="protoNote" style="margin-top:8px"></p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="startBtn" type="button">Enter the system ↗</button>
+          <button class="btn" id="setBtn" type="button">Settings</button>
+        </div>
+        <details class="field-guide"><summary>FIELD MANUAL / controls &amp; advanced systems</summary><dl class="controls">
+          <dt>When systems arrive</dt><dd>Your first Full/Short runs introduce systems a few at a time: run 2 adds Signal Hunt and boss routes, run 3 adds Wardens, specializations and quests, run 4 adds mutations and the Nemesis. Daily, Story, Siege and Training always have everything.</dd><dt>Specialization</dt><dd>At level 5 in Full/Short runs, choose Gunslinger, Codebreaker or Phantom. Each has a benefit and a tradeoff for this run only. Three optional quests then offer repair, cache or code-kit rewards. Progress is shown in the HUD; Being hit resets the clean-survival quest, without other penalties.</dd><dt>Mutations</dt><dd>Full/Short runs offer one experiment around 95 seconds. Choose 1–3 or press 4 to keep your build. Each mutation has a tradeoff and lasts only this run.</dd><dt>Nemesis</dt><dd>A rival scouts you after a 3-second warning, then retreats. It returns with 35% resistance to your top weapon. Defeat it once to choose a signature ability, fragments, or repair plus a cache. It withdraws during boss fights.</dd><dt>Routes</dt><dd>In Full and Short runs, each boss grants a permanent run ability and pauses the world for a route choice. Use 1–3 or tap a route. Route tradeoffs last until your next choice; boss abilities stack for the run.</dd><dt>Wardens</dt><dd>Blue shields absorb 55% of incoming damage for 3 seconds. Amber means an exposed 1.5-second rush: dodge and attack.</dd><dt>Overload</dt><dd>Near a relay, press G or tap Overload to commit the current three-relay chain: an elite pursues you, holds take 3 seconds, and relay timers shorten. Finish all three for two caches instead of one.</dd><dt>Signal hunt</dt><dd>In full and short runs, follow the cyan marker to a relay. Stay inside its ring for 2 seconds. Recover 3 before their timers expire to earn a Cache and repair 15% integrity. Optional: ignore them when survival comes first.</dd>
+          <dt>Move</dt><dd>WASD or arrow keys. Hold the mouse to walk toward it. On a phone, drag anywhere.</dd>
+          <dt>Upgrade</dt><dd>Click a card, or press 1, 2 or 3. If you've bought them in the Kernel: R rerolls, B banishes, X skips.</dd>
+          <dt>Powers</dt><dd>Q or Space fires slot 1, E fires slot 2. On a phone, tap the round buttons.</dd>
+          <dt>Build</dt><dd>Four weapons and four systems per run. Choose what to give up.</dd>
+          <dt>Evolve</dt><dd>Max a weapon, own its partner system, then open a Cache dropped by elites and bosses. Two evolutions per run, so pick them well; a third after you break the Mirror, or always with the Kernel's Third Signature.</dd>
+          <dt>Pause</dt><dd>Esc or P</dd>
+          <dt>Reflex</dt><dd>Shots that pass close to you charge a ring around your ship. When it's full, time slows to 30% just before a hit lands (or press V). You keep full speed.</dd>
+          <dt>Overdrive</dt><dd>Keep moving at full speed for 10 s: +25% speed and damage until you stop or get hit.</dd>
+          <dt>Operator</dt><dd>The round ◬ button (F) charges over time and faster as you collect shards. Call for a supply drop, temporary walls, a trace, or an Override strike on the toughest enemies.</dd>
+          <dt>Exits</dt><dd>After each boss an exit opens for 20 s: stand in it to jack out early with +25% fragments, or stay for more. After the Root Process, jack out for +50%.</dd>
+          <dt>Daily</dt><dd>One fixed run per day for everyone: same map, same rules, its own leaderboard.</dd>
+          <dt>Anomalies</dt><dd>Violet zones where the rules break: Stasis slows everything inside, Amplify makes your hits land harder, Drift pulls shards to its center at double value.</dd>
+          <dt>Allies</dt><dd>Keep an elite within reach for 5 s to convert it (up to 2). Wake a sleeping program in its pod and walk it to the exit: it stays and fights. A rogue program offers one trade when you stand next to it.</dd>
+          <dt>Events</dt><dd>Between bosses the Relay sets short objectives: purge fast, hold a beacon, or grab shards during a data storm. Success drops a Cache.</dd>
+          <dt>Firewalls</dt><dd>Grey blocks stop you and most enemies, and soak enemy shots. Your weapons pass through. Use them as cover.</dd>
+          <dt>Enemies</dt><dd>White line: a Lancer is about to charge, so step sideways. Red line: a Watcher is about to fire. Red pools hurt while you stand in them.</dd>
+          <dt>Threat</dt><dd>A small safety net: if nothing reaches you for a while, new enemies get up to 50% sturdier. Taking damage eases it off.</dd>
+          <dt>Clarity</dt><dd>Fades your own effects and zooms out so enemies stay visible. On by default on phones.</dd>
+        </dl></details>
+      </div>
+      <div>
+        <div>
+          <div class="field-guide" style="margin-bottom:20px"><h3>Aftermarket / fragment exchange</h3><div id="aftermarket"></div><p class="note">Cosmetics and archive ranks grant no combat stats. Contracts are optional challenges; prices are fixed.</p></div>
+          <div class="tabs" role="tablist" aria-label="Title panels">
+            <button class="tab" role="tab" data-tab="board" aria-selected="true" type="button">Leaderboard</button>
+            <button class="tab" role="tab" data-tab="kernel" aria-selected="false" type="button">Kernel</button>
+            <button class="tab" role="tab" data-tab="exploits" aria-selected="false" type="button">Powers</button>
+            <button class="tab" role="tab" data-tab="codex" aria-selected="false" type="button">Codex</button>
+            <button class="tab" role="tab" data-tab="settings" aria-selected="false" type="button">Settings</button>
+            <span class="bal" id="fragBal">◆ 0</span>
+          </div>
+          <div data-panel="board" role="tabpanel">
+            <ol class="board" id="board"></ol>
+            <div class="empty" id="boardEmpty">No runs on the board yet. Survive as long as you can and yours will be the first.</div>
+            <p class="note" id="localBest" style="margin-top:8px"></p>
+          </div>
+          <div data-panel="kernel" role="tabpanel" hidden>
+            <div class="kernel" id="kernel"></div>
+            <p class="note" style="margin-top:8px">Every run earns fragments, more on higher protocols. Kernel upgrades are permanent. With progress sync on, they follow you to every device. Deep Kernel is the long climb: each rank costs more than the last.</p>
+          </div>
+          <div data-panel="codex" role="tabpanel" hidden>
+            <div class="kernel" id="codex"></div>
+          </div>
+          <div data-panel="settings" role="tabpanel" hidden>
+            <div class="setlist">
+              <div class="setrow"><span class="nm">Progress sync</span><span></span><span class="ds" id="syncNote">Checking…</span></div>
+              <div class="setrow tg-only"><span class="nm">Vibration</span><button class="btn" id="hapticT" type="button" aria-pressed="true">On</button><span class="ds">Short vibrations when you're hit, level up or delete a boss.</span></div>
+              <div class="setrow"><span class="nm">Progress code</span><button class="btn" id="exportBtn" type="button">Copy code</button><span class="ds">Copies your whole progress as a code. Paste it into another copy of the game to bring everything across.</span></div>
+              <div class="setrow"><span class="nm">Import progress</span><span></span><span class="ds"><textarea id="importCode" rows="2" placeholder="Paste a progress code (starts with LS1.)" style="width:100%;font:11px var(--mono);background:rgba(0,0,0,.4);color:var(--ink);border:1px solid var(--edge);border-radius:6px;padding:6px;user-select:text;-webkit-user-select:text;touch-action:auto"></textarea><button class="btn" id="importBtn" type="button" style="margin-top:6px">Import</button> <span id="importNote"></span></span></div>
+              <div class="setrow"><span class="nm">Sound effects</span><button class="btn" id="soundT" type="button" aria-pressed="true">Sound</button><span class="ds">Hits, pickups and alerts.</span></div>
+              <div class="setrow"><label class="nm" for="masterVol">Master volume</label><input id="masterVol" type="range" min="0" max="100" value="80" aria-label="Master volume"><span class="ds">Overall output level.</span></div>
+              <div class="setrow"><label class="nm" for="musicVol">Music volume</label><input id="musicVol" type="range" min="0" max="100" value="65" aria-label="Music volume"><span class="ds">Bass, drums, synth chords and adaptive lead.</span></div>
+              <div class="setrow"><label class="nm" for="effectsVol">Effects volume</label><input id="effectsVol" type="range" min="0" max="100" value="85" aria-label="Effects volume"><span class="ds">Weapons, impacts, warnings and rewards.</span></div>
+              <div class="actions"><button class="btn" id="audioPreview" type="button">Test weapon impact</button><button class="btn" id="musicPreview" type="button">Play / stop music preview</button><button class="btn" id="resetMix" type="button">Reset audio mix</button><button class="btn" id="restoreGraphics" type="button">Restore full graphics</button></div><p class="note" id="audioStatus" role="status">Audio not started — use a test button</p>
+              <div class="setrow"><span class="nm">Music</span><button class="btn" id="musicT" type="button" aria-pressed="true">Music</button><span class="ds">A generated soundtrack that builds during waves and boss fights.</span></div>
+              <div class="setrow"><span class="nm">Glow</span><button class="btn" id="glowT" type="button" aria-pressed="true">Glow</button><span class="ds">Bloom on bright things. Turn off if the game stutters.</span></div>
+              <div class="setrow"><span class="nm">Clarity</span><button class="btn" id="clarT" type="button">Clarity: Auto</button><span class="ds">Fades your own effects and zooms out so enemies stay visible. Auto turns it on for phones.</span></div>
+              <div class="setrow"><span class="nm">Quality</span><button class="btn" id="qualT" type="button">Auto</button><span class="ds">Auto lowers effects and enemy count when the frame rate drops, and raises them again when it recovers.</span></div>
+              <div class="setrow"><span class="nm">Colorblind colors</span><button class="btn" id="cbT" type="button" aria-pressed="false">Off</button><span class="ds">Turns red and green into orange and blue, for red-green colorblindness.</span></div>
+              <div class="setrow"><span class="nm">Power buttons</span><button class="btn" id="sideT" type="button">Right</button><span class="ds">Which side of the screen the round power buttons sit on.</span></div>
+              <div class="setrow"><span class="nm">Touch stick</span><button class="btn" id="stickT" type="button">Follow</button><span class="ds">Follow: the stick appears wherever you touch. Fixed: it stays in the bottom corner.</span></div>
+            </div>
+          </div>
+          <div data-panel="exploits" role="tabpanel" hidden>
+            <div class="kernel" id="exploits"></div>
+            <p class="note" style="margin-top:8px">Buy powers with fragments, then put them in your slots. A second slot is sold in the Kernel. Powers also level up during a run.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Level up -->
+<section class="screen" id="levelup" hidden>
+  <div class="lvl">
+    <p class="eyebrow" id="lvEyebrow">Signal strengthened</p>
+    <h2 id="lvHead">Level 2</h2>
+    <div class="cards" id="cards"></div>
+    <div class="actions"><button class="btn" id="rerollBtn" type="button">Reroll</button><button class="btn" id="banishBtn" type="button">Banish</button><button class="btn" id="skipBtn" type="button">Skip · +30</button></div>
+    <p class="note" id="banishNote" hidden style="margin-top:10px">Pick a card to banish. It won't be offered again this run.</p>
+  </div>
+</section>
+
+<!-- Code editor -->
+<section class="screen" id="editor" hidden>
+  <div class="lvl edwrap">
+    <p class="eyebrow">Code editor</p>
+    <h2>Program</h2>
+    <div id="edBody"></div>
+    <p class="note" id="edNote" style="margin-top:12px"></p>
+    <div class="actions"><button class="btn primary" id="edDone" type="button">Done</button></div>
+  </div>
+</section>
+
+<!-- Operator call -->
+<section class="screen" id="opcall" hidden>
+  <div class="lvl">
+    <p class="eyebrow">Operator line</p>
+    <h2>What do you need?</h2>
+    <div class="cards" id="opCards"></div>
+  </div>
+</section>
+
+<!-- Rogue trader -->
+<section class="screen" id="trade" hidden>
+  <div class="lvl">
+    <p class="eyebrow">Rogue program</p>
+    <h2>One trade. Choose.</h2>
+    <div class="cards" id="tradeCards"></div>
+  </div>
+</section>
+
+<!-- Story chapter intro -->
+<section class="screen" id="story" hidden>
+  <div class="panel summary">
+    <p class="eyebrow" id="storyEyebrow">Chapter 1</p>
+    <h2 id="storyTitle">Wake up</h2>
+    <p class="quote" id="storyText"></p>
+    <p class="note" id="storyGoal" style="margin-top:12px"></p>
+    <div class="actions"><button class="btn primary" id="storyGo" type="button">Begin</button><button class="btn" id="storyBack" type="button">Back</button></div>
+  </div>
+</section>
+
+<!-- Pause -->
+<section class="screen" id="pause" hidden>
+  <div class="panel summary">
+    <p class="eyebrow">Paused</p>
+    <h2 id="pauseTime">00:00</h2>
+    <div class="build" id="pauseBuild"></div>
+    <div class="pstats" id="pauseStats"></div>
+    <div class="prog" id="pauseCode"></div><div class="debrief" id="pauseRelics" hidden></div>
+    <p class="note" id="pauseHint"></p>
+    <div class="actions">
+      <button class="btn primary" id="resumeBtn" type="button">Resume</button>
+      <button class="btn" id="editBtn" type="button">Edit program</button>
+      <button class="btn" id="soundT2" type="button" aria-pressed="true">Sound</button>
+      <button class="btn" id="glowT2" type="button" aria-pressed="true">Glow</button>
+      <button class="btn" id="clarT2" type="button">Clarity: Auto</button>
+      <button class="btn" id="quitBtn" type="button">End run</button>
+    </div>
+  </div>
+</section>
+
+<!-- Run over -->
+<section class="screen" id="over" hidden>
+  <div class="panel summary">
+    <p class="eyebrow" id="overEyebrow">Run ended</p>
+    <h2 id="overTitle">Signal lost</h2>
+    <div class="big" id="overTime">00:00</div>
+    <div class="stats">
+      <div>Level<b id="oLevel">1</b></div>
+      <div>Purged<b id="oKills">0</b></div>
+      <div class="frag">Fragments<b id="oFrag">+0</b></div>
+      <div>Rank<b id="oRank">–</b></div>
+    </div>
+    <div class="dmgbars" id="dmgBars"></div>
+    <div class="prog" id="overCode"></div><div class="debrief" id="runDebrief"></div>
+    <p class="quote" id="overQuote"></p>
+    <div class="unlocks" id="unlocks"></div>
+    <p class="note" id="overNote"></p>
+    <div class="build" id="overBuild"></div>
+    <div class="actions">
+      <button class="btn primary" id="againBtn" type="button">Run again</button>
+      <button class="btn" id="menuBtn" type="button">Title and Kernel</button>
+    </div>
+  </div>
+</section>
+

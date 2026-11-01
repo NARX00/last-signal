@@ -1,0 +1,9 @@
+[
+  { "id": "odmg", "name": "Surge", "icon": "Ω", "desc": "+6% damage. Stacks without limit." },
+  { "id": "oarea", "name": "Spillover", "icon": "◇", "desc": "+6% area. Stacks without limit." },
+  { "id": "ocd", "name": "Burst Mode", "icon": "λ", "desc": "Weapons recharge 3% faster. Stacks." },
+  { "id": "ohp", "name": "Mirror", "icon": "✚", "desc": "+15 max integrity and restore 15. Stacks." },
+  { "id": "ospd", "name": "Slipstream", "icon": "≫", "desc": "+4% movement speed. Stacks." },
+  { "id": "oxp", "name": "Compression", "icon": "◆", "desc": "+8% data from shards. Stacks." },
+  { "id": "oheal", "name": "Restore", "icon": "+", "desc": "Restore 50 integrity now." }
+]

@@ -1,0 +1,76 @@
+{
+  "sectors": {
+    "foundry": {
+      "name": "The Foundry",
+      "icon": "⚒",
+      "desc": "Crowded industrial network. +25% regular enemy spawn rate; +20% shard XP. Earn upgrades faster, but leave room to escape.",
+      "spawn": 1.25,
+      "xp": 1.2
+    },
+    "blackout": {
+      "name": "Blackout",
+      "icon": "◈",
+      "desc": "Distant ordinary enemies are dimmed; shard pickup range −25%. On entry: one trigger + one effect for your code editor. Bosses, elites and attack warnings stay visible.",
+      "spawn": 1,
+      "xp": 1
+    },
+    "sanctuary": {
+      "name": "Sanctuary",
+      "icon": "✧",
+      "desc": "A quieter repair network. −15% regular enemy spawn rate and repair 0.75 integrity per second; −15% shard XP. A recovery route with slower growth.",
+      "spawn": 0.85,
+      "xp": 0.85
+    }
+  },
+  "boss_abilities": {
+    "auditor": { "name": "Audit Mark", "desc": "Every 6 seconds, mark up to 3 nearby enemies for 4 seconds. Marked enemies take 35% more damage.", "cd": 6 },
+    "boss": { "name": "Purge Echo", "desc": "Every 8 seconds, emit a 160m pulse dealing 28 base damage and pushing enemies away.", "cd": 8 },
+    "collector": { "name": "Shard Siphon", "desc": "Every 10 seconds, pull all shards within 500m toward you.", "cd": 10 },
+    "mirror": { "name": "Mirror Lance", "desc": "Every 7 seconds, strike the nearest enemy within 420m for 45 base damage.", "cd": 7 },
+    "phantom": {
+      "name": "Phase Step",
+      "desc": "Every 12 seconds while moving, phase through enemies and firewalls for 1 second. Enemy shots can still hit you.",
+      "cd": 12
+    }
+  },
+  "mutations": {
+    "return": {
+      "name": "Return Protocol",
+      "icon": "↶",
+      "desc": "Glyph Bolt and Slow Rounds projectiles return once and may hit the same target again. Each pass deals 70% normal damage. Other weapons are unchanged."
+    },
+    "mines": {
+      "name": "Orbital Mines",
+      "icon": "✺",
+      "desc": "Three proximity mines orbit you. Each detonates for 32 base damage, then re-arms after 6 seconds. Tradeoff: movement speed −8%."
+    },
+    "clone": {
+      "name": "Afterimage",
+      "icon": "◇",
+      "desc": "Using a power leaves a clone at your old position. After 1 second it blasts a 120m area for 70 base damage. Tradeoff: power cooldowns +20%."
+    }
+  },
+  "specializations": {
+    "gunslinger": { "name": "Gunslinger", "icon": "⌖", "desc": "Weapon damage +15%, but power cooldowns +10% and code damage −15%. A specialist in direct fire." },
+    "codebreaker": {
+      "name": "Codebreaker",
+      "icon": "{}",
+      "desc": "Code damage +25%, but weapon damage −10% and shard pickup range −10%. Receive one trigger/effect kit on selection."
+    },
+    "phantom": {
+      "name": "Phantom",
+      "icon": "◇",
+      "desc": "Movement speed +10%, but maximum integrity −10%. Built for evasion and positioning. This reduces current integrity proportionally too."
+    }
+  },
+  "quests": {
+    "kills": { "name": "Purge contract", "desc": "Purge 200 enemies", "target": 200 },
+    "shards": { "name": "Data recovery", "desc": "Collect 250 raw shard XP", "target": 250 },
+    "clean": { "name": "Ghost signal", "desc": "Survive 30 consecutive seconds without being hit", "target": 30 }
+  },
+  "halos": {
+    "cyan": { "name": "Ion halo", "col": "#75dcff", "cost": 600 },
+    "amber": { "name": "Solar halo", "col": "#ffd278", "cost": 900 },
+    "violet": { "name": "Void halo", "col": "#cda1ff", "cost": 1200 }
+  }
+}

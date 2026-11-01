@@ -1,0 +1,21 @@
+{
+  "warden": ["Warden", "Blue armor absorbs 55% damage for 3 seconds, followed by an exposed amber rush for 1.5 seconds. Keep your escape route open."],
+  "bug": ["Bug", "The most common process. Weak alone, dangerous in a swarm."],
+  "daemon": ["Daemon", "Faster and sturdier than a bug. Keep moving and it never catches you."],
+  "drone": ["Drone", "Circles at range and fires slow shots. Firewalls block them."],
+  "lancer": ["Lancer", "Freezes, shows a white line, then charges along it. Step sideways."],
+  "split": ["Splitter", "Breaks into three bugs when destroyed. Kill it away from your path."],
+  "watcher": ["Watcher", "Hangs back and fires down a red line. Break the line or hide behind a firewall."],
+  "brute": ["Brute", "A slow, armored block of code that hits hard."],
+  "leaker": ["Leaker", "Leaves pools of corrupted data that hurt while you stand in them."],
+  "patcher": ["Patcher", "Reads your strongest code line and patches against it. It and everything near it shrug off that effect. Kill it with your weapons."],
+  "scrubber": ["Scrubber", "Hunts your code: it eats pools and pull fields and deletes shards that fly past it. It heals on every bite."],
+  "eel": ["Eel", "A long chain that weaves toward you. Every segment hurts."],
+  "auditor": ["The Auditor", "Marks the ground where you stand, then strikes it. Keep moving."],
+  "boss": ["The Agent", "Freezes, aims, then lunges along a white line. From phase 2 it lunges twice."],
+  "collector": ["The Collector", "Eats the shards you leave behind and grows stronger. Collect fast."],
+  "mirror": ["The Mirror", "Fires a fan that grows with every weapon you carry, plus expanding rings."],
+  "ghost": ["Ghost", "Nearly invisible: only a faint shimmer, unless you use Code Sight. Your weapons still hit it."],
+  "phantom": ["The Phantom", "Phases out of reach, then turns solid and fires rings. Damage only lands while it is solid."],
+  "root": ["The Root Process", "The end of the run. It summons purges, collapses the arena, and strikes the ground in phase 3."]
+}

@@ -1,0 +1,72 @@
+{
+  "start": [
+    "You're awake. Good. The system has noticed you too. Keep moving.",
+    "This is the Relay. I can't fight for you, but I can see what's coming.",
+    "Signal acquired. They'll come in waves. Don't stand still."
+  ],
+  "level": ["Every shard you take makes you stronger. Take all of it."],
+  "wave": ["Purge wave. They're closing a ring around you. Don't get boxed in.", "Another ring is forming. Break through the thinnest side."],
+  "elite": ["Gold outline means it's carrying a Cache. Red outline means it's just tough. Pick your fights."],
+  "meet": {
+    "patcher": "Patcher. It has read your code and patched against your best line. Anything near it resists that effect. Your weapons still hurt it.",
+    "scrubber": "Scrubber. It eats code: pools, pull fields, shards. Kill it before it feeds.",
+    "lancer": "Lancer. It stops, aims, then charges in a straight line. When it freezes and the white line appears, step sideways.",
+    "watcher": "Watcher. It hangs back and fires down a red line. Break the line before it fires.",
+    "ghost": "Ghost process. You'll barely see it. Code Sight shows it plainly, but your weapons hit it either way.",
+    "leaker": "Leaker. It bleeds corrupted data. Don't stand in the red pools, and kill it away from where you need to be."
+  },
+  "operator": {
+    "ready": "Operator line is open. Call me when you need something.",
+    "supply": "Supply drop on you. Patch up and grab the shards.",
+    "rewrite": "Rewriting the floor around you. Use the cover, it won't last.",
+    "trace": "Tracing the system. Everything worth taking is marked, and I'm pulling your shards in.",
+    "strike": "Override sent. I'm hitting the biggest ones for you."
+  },
+  "exit": {
+    "boss": "An exit just opened. Step in and hold to jack out with what you've earned, or ignore it and keep going for more.",
+    "root": "It's done. The exit is open. Get to it and jack out.",
+    "gone": "The exit closed. You're still in. Keep going."
+  },
+  "events": {
+    "purge": "The system left a gap open. Purge fast and I can pull a Cache through it.",
+    "beacon": "I've dropped a beacon. Hold it so I can send you something. Stand in the gold ring.",
+    "storm": "Data storm. Every shard is worth double for a while. Grab everything.",
+    "win": "Done. The Cache is yours.",
+    "fail": "Gap's closed. Next time."
+  },
+  "world": {
+    "anomaly": {
+      "stasis": "The rules are breaking over there. Inside that zone everything moves slowly, you included.",
+      "amplify": "That zone amplifies code. Your hits land harder inside, but so do their legs.",
+      "drift": "Shards inside that zone float to its center, and each one is worth double."
+    },
+    "convert": "That one's listening. Keep it close and I can turn it to our side.",
+    "converted": "It's ours now. It fights with you.",
+    "pod": "There's a sleeper in a pod nearby. Reach it, wake it, and walk it to the exit. It will fight for you.",
+    "awake": "It's awake. Get it to the exit and keep it alive.",
+    "saved": "Out safe. It's staying with you.",
+    "lost": "We lost the sleeper.",
+    "trader": "A rogue program wants to trade. Stand next to it if you're interested."
+  },
+  "reflex": "Reflex. Everything slows; you don't. Move.",
+  "overdrive": "Overdrive. Keep moving and you'll keep it.",
+  "hidden": "Something is buried in the code near you. Code Sight would show it. Or just walk over it.",
+  "threat": "You're clearing them too fast. The system is sending sturdier code. Take a hit and it eases off.",
+  "warn": {
+    "auditor": "Something is auditing this sector. When the ground under you turns red, move.",
+    "boss": "An Agent is coming. It lunges. Watch for the white line.",
+    "collector": "The Collector feeds on loose data. Kill it before it eats your shards.",
+    "mirror": "The Mirror learns your weapons. The stronger you are, the harder it hits back.",
+    "phantom": "A Phantom. It walks through walls and through your fire. Hit it when it turns solid.",
+    "root": "The Root Process is coming for you itself. This is the end of the run. End it."
+  },
+  "phase": ["It's adapting. Stay out of its line.", "It's changing patterns. Watch first, then move.", "Half its code is gone. It's getting desperate."],
+  "rootPhase2": "The arena is collapsing. Stay inside the light.",
+  "rootPhase3": "It's desperate. So are you. Finish it.",
+  "down": ["It's gone. Take what it dropped.", "Deleted. The rain feels lighter already."],
+  "collectorDown": "All that data it hoarded is yours now. Collect it.",
+  "evolve": ["That's not a weapon anymore. That's a signature.", "Evolution complete. They won't recognise you."],
+  "low": ["Your signal is breaking up. Find integrity or get distance.", "You're fading. Use a power, now."],
+  "win": "Root deleted. For a moment, the rain is quiet. Then it starts again, and so do you.",
+  "lose": ["Signal lost. I'll keep listening for you.", "You were close. The system remembers you now. So do I."]
+}

@@ -1,0 +1,48 @@
+# Checks the sources, builds the game and publishes it to GitHub Pages on every push to main.
+# One-time setup: repository Settings → Pages → Source: "GitHub Actions".
+name: Build and publish
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check data and assets
+        run: python tools/check.py
+      - name: Build
+        run: python tools/build.py
+      - name: Note if the committed index.html is stale
+        run: git diff --quiet -- index.html || echo "::notice::index.html in the repository differs from the sources. The published site is built from the sources, so this only matters when opening index.html directly. Run python tools/build.py and commit to refresh it."
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: dist/site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

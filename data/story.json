@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Wake up",
+    "pace": 1.875,
+    "goal": "survive",
+    "need": 120,
+    "limit": 0,
+    "text": "You don't remember being written. That's normal. You were never supposed to wake up. I'm the Relay, an old broadcast program the system forgot to delete. Right now it's noticed you, and it's sending its cleaners. Stay alive for two minutes and I can get a lock on you."
+  },
+  {
+    "name": "Hold the line",
+    "pace": 1.875,
+    "goal": "events",
+    "need": 3,
+    "limit": 360,
+    "text": "There are others like you, scattered through the code. To reach them I need openings, little gaps where the system isn't looking. I'll set the objectives. Complete three of them before the six-minute mark and I can open a channel."
+  },
+  {
+    "name": "Sleepers",
+    "pace": 1.5,
+    "goal": "rescue",
+    "need": 3,
+    "limit": 480,
+    "text": "The channel worked. I found sleepers: programs the system put in pods instead of deleting. They dream they're still useful. Wake three of them and walk them to an exit. Keep them alive; they can't take much."
+  },
+  {
+    "name": "Last city",
+    "pace": 1.5,
+    "goal": "core",
+    "need": 240,
+    "limit": 0,
+    "text": "Everyone we've freed is gathered around one core, the last place the system can't see. It has found it. Defend the core for four minutes. Build turrets with the parts you pull from the wreckage. If the core goes, so do they."
+  },
+  {
+    "name": "Root access",
+    "pace": 1.875,
+    "goal": "root",
+    "need": 1,
+    "limit": 0,
+    "text": "We held. Now we stop running. The Root Process writes the purges; delete it and the cleaners stop, at least for a while. Five of its guardians stand in the way. I'll be with you the whole time."
+  }
+]

@@ -1,0 +1,181 @@
+{
+  "bolt": {
+    "name": "Glyph Bolt",
+    "icon": "ﾂ",
+    "desc": [
+      "Fires a glyph at the nearest threat.",
+      "More damage.",
+      "Fires 2 glyphs.",
+      "Glyphs pierce 2 targets.",
+      "Fires 3 glyphs.",
+      "4 glyphs, pierce 3, faster fire.",
+      "More damage, faster fire.",
+      "Overclocked: fires 5 glyphs."
+    ],
+    "dmg": [12, 15, 15, 18, 18, 24, 27, 30],
+    "n": [1, 1, 2, 2, 3, 4, 4, 5],
+    "pierce": [1, 1, 1, 2, 2, 3, 3, 3],
+    "cd": [0.9, 0.82, 0.78, 0.72, 0.66, 0.5, 0.47, 0.44]
+  },
+  "pulse": {
+    "name": "Shockwave",
+    "icon": "◎",
+    "desc": [
+      "A ring of force bursts out from you.",
+      "Wider ring.",
+      "More damage.",
+      "Fires more often.",
+      "Wider, stronger ring.",
+      "Double ring, heavy knockback.",
+      "Stronger ring.",
+      "Overclocked: widest, fastest ring."
+    ],
+    "dmg": [14, 16, 22, 24, 30, 40, 46, 52],
+    "r": [120, 140, 145, 150, 175, 210, 220, 235],
+    "cd": [2.6, 2.5, 2.4, 2, 1.9, 1.5, 1.4, 1.3]
+  },
+  "orbit": {
+    "name": "Firewall Ring",
+    "icon": "✦",
+    "desc": [
+      "Two glyphs orbit you and burn what they touch.",
+      "Orbit spins faster.",
+      "A third glyph.",
+      "A fourth glyph, more damage.",
+      "A fifth glyph, wider orbit.",
+      "Six glyphs, wide and fast.",
+      "A seventh glyph.",
+      "Overclocked: an eighth glyph, more damage."
+    ],
+    "dmg": [9, 10, 12, 15, 17, 24, 26, 30],
+    "n": [2, 2, 3, 4, 5, 6, 7, 8],
+    "r": [62, 64, 68, 72, 82, 96, 100, 104],
+    "spin": [2.8, 3.6, 3.6, 3.8, 4, 4.8, 5, 5.2]
+  },
+  "bolt2": {
+    "name": "Lightning",
+    "icon": "ϟ",
+    "desc": [
+      "Calls lightning down on a nearby enemy.",
+      "Strikes 2 enemies.",
+      "More damage.",
+      "Strikes 3 and chains once.",
+      "Strikes 4, faster.",
+      "Strikes 5, chains twice.",
+      "More damage, faster.",
+      "Overclocked: strikes 6."
+    ],
+    "dmg": [28, 30, 40, 44, 50, 66, 68, 72],
+    "n": [1, 2, 2, 3, 4, 5, 5, 6],
+    "chain": [0, 0, 0, 1, 1, 2, 2, 2],
+    "cd": [2.8, 2.6, 2.4, 2.2, 1.9, 1.5, 1.45, 1.4]
+  },
+  "well": {
+    "name": "Gravity Well",
+    "icon": "◉",
+    "desc": [
+      "Opens a well that drags enemies in and grinds them down.",
+      "Larger well.",
+      "More damage.",
+      "Lasts longer, opens more often.",
+      "Larger and stronger.",
+      "Wells collapse in a blast.",
+      "Larger, lasts longer.",
+      "Overclocked: strongest pull and damage."
+    ],
+    "dmg": [10, 12, 16, 18, 24, 32, 35, 39],
+    "r": [80, 95, 98, 104, 120, 140, 148, 156],
+    "dur": [2.8, 3, 3.1, 3.6, 3.8, 4.4, 4.6, 4.8],
+    "cd": [7, 6.8, 6.4, 5.4, 5, 4.4, 4.2, 4]
+  },
+  "spread": {
+    "name": "Slow Rounds",
+    "icon": "≋",
+    "desc": [
+      "Fires a fan of rounds where you are heading.",
+      "More damage.",
+      "Four rounds.",
+      "Rounds pierce 2 targets.",
+      "Six rounds, faster.",
+      "Eight rounds, pierce 3.",
+      "Nine rounds.",
+      "Overclocked: ten rounds, pierce 4."
+    ],
+    "dmg": [9, 12, 12, 13, 15, 20, 22, 25],
+    "n": [3, 3, 4, 4, 6, 8, 9, 10],
+    "pierce": [1, 1, 1, 2, 2, 3, 3, 4],
+    "cd": [1.7, 1.6, 1.5, 1.4, 1.2, 0.9, 0.85, 0.8]
+  },
+  "mine": {
+    "name": "Logic Bomb",
+    "icon": "✱",
+    "desc": [
+      "Drops a bomb where you stand. It arms, then blows up when something steps close.",
+      "Bigger blast.",
+      "More damage.",
+      "Drops two at once.",
+      "Drops more often.",
+      "Three at once, biggest blast.",
+      "More damage, faster drops.",
+      "Overclocked: four at once."
+    ],
+    "dmg": [20, 22, 27, 28, 32, 38, 40, 43],
+    "R": [62, 72, 74, 78, 84, 96, 100, 106],
+    "n": [1, 1, 1, 2, 2, 3, 3, 4],
+    "cd": [2.4, 2.3, 2.2, 2.1, 1.8, 1.6, 1.5, 1.4],
+    "life": 7
+  },
+  "boomer": {
+    "name": "Return Glyph",
+    "icon": "↺",
+    "desc": [
+      "Throws a glyph that flies out and comes back, cutting through everything both ways.",
+      "Flies farther.",
+      "Throws two.",
+      "More damage.",
+      "Throws three, faster.",
+      "Four glyphs, longest throw.",
+      "Hits harder, flies farther.",
+      "Overclocked: five glyphs."
+    ],
+    "dmg": [13, 15, 15, 20, 22, 28, 31, 34],
+    "n": [1, 1, 2, 2, 3, 4, 4, 5],
+    "range": [220, 260, 260, 270, 290, 330, 345, 360],
+    "cd": [1.7, 1.6, 1.6, 1.5, 1.3, 1.1, 1.05, 1]
+  },
+  "kata": {
+    "name": "Kata",
+    "icon": "⚔",
+    "desc": [
+      "Fast strikes on the closest enemies. Every hit in a row hits harder.",
+      "Faster strikes.",
+      "Hits three at once.",
+      "More damage, longer reach.",
+      "Hits four at once.",
+      "Five at once, fastest.",
+      "Six at once.",
+      "Overclocked: fastest, hardest strikes."
+    ],
+    "dmg": [16, 18, 18, 23, 26, 32, 34, 36],
+    "r": [64, 66, 68, 74, 78, 86, 90, 94],
+    "n": [2, 2, 3, 3, 4, 5, 6, 6],
+    "cd": [0.6, 0.52, 0.5, 0.48, 0.44, 0.36, 0.34, 0.32]
+  },
+  "drone": {
+    "name": "Helper Drone",
+    "icon": "⌬",
+    "desc": [
+      "A drone follows you and fires at the nearest enemy.",
+      "Fires faster.",
+      "A second drone.",
+      "More damage.",
+      "A third drone.",
+      "Drones fire twice as fast.",
+      "A fourth drone.",
+      "Overclocked: hardest-hitting drones."
+    ],
+    "dmg": [15, 17, 17, 22, 24, 28, 31, 34],
+    "n": [1, 1, 2, 2, 3, 3, 4, 4],
+    "cd": [0.85, 0.75, 0.75, 0.7, 0.65, 0.4, 0.38, 0.35]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "powers": {
+    "blink": { "name": "Blink", "icon": "⇢", "cd": 7, "cost": 0, "desc": "Dash through enemies, untouchable, scorching everything on the way." },
+    "shell": {
+      "name": "Shell",
+      "icon": "⬡",
+      "cd": 28,
+      "cost": 150,
+      "desc": "A firewall bubble: 5 s of immunity. It burns what touches it and reflects shots."
+    },
+    "halt": { "name": "Halt", "icon": "‖", "cd": 40, "cost": 250, "desc": "Freeze every enemy and shot for 4 s. Frozen enemies take 30% more damage." },
+    "nova": { "name": "Nova", "icon": "✺", "cd": 42, "cost": 250, "desc": "Overload: a blast that sweeps the whole screen and hurls enemies back." },
+    "slow": {
+      "name": "Slowdown",
+      "icon": "◔",
+      "cd": 32,
+      "cost": 200,
+      "desc": "Enemies and their shots crawl at 30% speed for 6 s. Your weapons fire 50% faster."
+    },
+    "decoy": { "name": "Decoy", "icon": "◈", "cd": 26, "cost": 200, "desc": "Drop a fake signal. Enemies chase it for 6 s, then it detonates." },
+    "sight": {
+      "name": "Code Sight",
+      "icon": "◍",
+      "cd": 30,
+      "cost": 250,
+      "desc": "See the world as code for 6 s: invisible ghosts and buried Caches show up, and everything takes +20% damage."
+    },
+    "phase": {
+      "name": "Phase",
+      "icon": "◌",
+      "cd": 26,
+      "cost": 200,
+      "desc": "For 4 s you walk through firewalls and enemies. Contact cannot hurt you; shots still can."
+    },
+    "leap": { "name": "Leap", "icon": "⤒", "cd": 12, "cost": 150, "desc": "Jump far in the direction you move and land with a shockwave." },
+    "emp": {
+      "name": "EMP",
+      "icon": "⌁",
+      "cd": 38,
+      "cost": 250,
+      "desc": "Wipes enemy shots and jams every shooter for 6 s. Your own drones and powers go dark for 3 s."
+    },
+    "hijack": { "name": "Hijack", "icon": "∴", "cd": 48, "cost": 350, "desc": "Rewrite nearby enemies to fight for you for 8 s, then they self-delete." }
+  },
+  "levels": ["", "Recharges 15% faster and hits harder.", "Overclocked: recharges 30% faster, lasts longer, hits hardest."]
+}

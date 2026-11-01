@@ -1,0 +1,21 @@
+{
+  "warden": { "hp": 75, "spd": 58, "r": 18, "dmg": 13, "xp": 7 },
+  "bug": { "hp": 9, "spd": 64, "r": 9, "dmg": 6, "xp": 1 },
+  "daemon": { "hp": 30, "spd": 86, "r": 13, "dmg": 10, "xp": 3 },
+  "drone": { "hp": 24, "spd": 80, "r": 12, "dmg": 8, "xp": 3 },
+  "split": { "hp": 44, "spd": 70, "r": 15, "dmg": 10, "xp": 4 },
+  "brute": { "hp": 120, "spd": 46, "r": 22, "dmg": 18, "xp": 8 },
+  "eel": { "hp": 180, "spd": 104, "r": 14, "dmg": 14, "xp": 12 },
+  "ghost": { "hp": 50, "spd": 92, "r": 12, "dmg": 12, "xp": 6 },
+  "lancer": { "hp": 40, "spd": 74, "r": 12, "dmg": 16, "xp": 4 },
+  "watcher": { "hp": 34, "spd": 80, "r": 12, "dmg": 12, "xp": 4 },
+  "leaker": { "hp": 80, "spd": 52, "r": 15, "dmg": 7, "xp": 5 },
+  "patcher": { "hp": 64, "spd": 66, "r": 14, "dmg": 11, "xp": 6 },
+  "scrubber": { "hp": 58, "spd": 84, "r": 13, "dmg": 9, "xp": 5 },
+  "boss": { "hp": 1800, "spd": 72, "r": 34, "dmg": 26, "xp": 0 },
+  "root": { "hp": 9000, "spd": 52, "r": 54, "dmg": 32, "xp": 0 },
+  "auditor": { "hp": 1500, "spd": 58, "r": 30, "dmg": 24, "xp": 0 },
+  "collector": { "hp": 3200, "spd": 92, "r": 26, "dmg": 20, "xp": 0 },
+  "mirror": { "hp": 2700, "spd": 80, "r": 24, "dmg": 20, "xp": 0 },
+  "phantom": { "hp": 3000, "spd": 76, "r": 26, "dmg": 22, "xp": 0 }
+}

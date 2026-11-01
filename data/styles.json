@@ -1,0 +1,7 @@
+{
+  "kana": { "name": "Katakana", "cost": 0, "set": "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789" },
+  "binary": { "name": "Binary", "cost": 400, "set": "0101010110" },
+  "hex": { "name": "Hex dump", "cost": 500, "set": "0123456789ABCDEF" },
+  "sigil": { "name": "Sigils", "cost": 700, "set": "∴∵∷⊕⊗⊘⌬⌖※⁂⟁⟐⧉⧖◬◭" },
+  "greek": { "name": "Greek", "cost": 700, "set": "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩλπψω" }
+}

@@ -1,0 +1,12 @@
+{
+  "bolt": { "need": "cool", "name": "Sync Storm", "desc": "Six homing glyphs, firing nonstop." },
+  "pulse": { "need": "area", "name": "Event Horizon", "desc": "Huge rings that slow everything they touch." },
+  "orbit": { "need": "might", "name": "Firewall Halo", "desc": "Two counter-rotating rings of burning glyphs." },
+  "bolt2": { "need": "magnet", "name": "Storm Uplink", "desc": "Eight strikes at once, each chaining three times." },
+  "well": { "need": "regen", "name": "Singularity", "desc": "Twin wells. Every kill inside repairs you." },
+  "spread": { "need": "swift", "name": "Time Dilation", "desc": "Ten rounds that pierce everything and slow it." },
+  "mine": { "need": "dur", "name": "Minefield", "desc": "Four bombs at a time, huge blasts that slow survivors." },
+  "boomer": { "need": "echo", "name": "Recursion", "desc": "Six big glyphs that fly far and come back twice as hard." },
+  "drone": { "need": "buffer", "name": "Swarm Protocol", "desc": "Five drones with piercing shots." },
+  "kata": { "need": "thorns", "name": "Perfect Form", "desc": "Strikes everything in reach; the combo climbs higher." }
+}
