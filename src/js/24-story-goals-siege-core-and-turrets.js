@@ -64,6 +64,8 @@ function checkAch(R) {
 function metaAch() { for (const a of checkAch(null)) toast(`Achievement: ${a.name} · +◆ ${a.reward}`); }
 function toTitle() { RUN_DAILY = null; relayStop(); ['over', 'pause', 'hud', 'levelup', 'editor', 'sectorChoice', 'discoveryChoice'].forEach(id => $(id).hidden = true); $('title').hidden = false; state = 'title'; G = null; sfx.hum(false); renderTitle(); setTimeout(() => $('startBtn').focus({ preventScroll: true }), 30); }
 
+$('continueBtn').addEventListener('click', resumeRun);
+runLoad();
 $('startBtn').addEventListener('click', () => { RUN_DAILY = null; if (META.mode === 'story') showChapter(); else startRun(); });
 function showChapter() {
   const i = clamp((META.chapter || 1) - 1, 0, 4), C = CHAPTERS[i];

@@ -37,6 +37,7 @@ function renderTitle() {
       b.addEventListener('click', () => { META.chapter = i + 1; saveMeta(); renderTitle(); }); ch.appendChild(b);
     });
   }
+  renderContinue();
   $('startBtn').textContent = META.mode === 'story' ? `Play chapter ${META.chapter}` : META.mode === 'training' ? 'Start training' : 'Start run';
   const pm = PROTO(META.proto);
   $('protoNote').textContent = `Protocol ${META.proto}: ${PROTO_NOTES[META.proto]} Fragments ×${pm.frag.toFixed(2)}.` + (META.protoMax < 5 ? ` Delete the Root Process on Protocol ${META.protoMax} to unlock ${META.protoMax + 1}.` : '');

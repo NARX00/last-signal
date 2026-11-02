@@ -25,13 +25,14 @@ function renderExitFx() {
   ctx.globalAlpha = 1; ctx.textAlign = 'left';
 }
 function beginPlay() {
-  if (G && !G.training) TELE.run();
+  if (G && !G.training && !G.resumed) TELE.run();
   state = 'play'; $('hud').hidden = false; last = performance.now();
   banner(G.daily ? `Daily · ${G.daily.mods.map(m => DAILY_MODS[m].split(':')[0]).join(' · ')}` : `Protocol ${G.proto} · ${OPS[G.op].name}`, 'Hold the signal');
   relayStop(); setTimeout(() => { if (state === 'play') relay(pickL(RELAY.start)); }, 1200);
 }
 function skipIntro() { if (state === 'intro') beginPlay(); }
 function startRun() {
+  runClear();
   sfx.init(); sfx.hum(true);
   newRun();
   ['title', 'over', 'pause', 'levelup'].forEach(id => $(id).hidden = true);
@@ -43,7 +44,7 @@ function startRun() {
 }
 function pauseGame() {
   if (state !== 'play') return;
-  state = 'pause'; sfx.hum(false); $('pauseTime').textContent = fmt(G.t); renderSlots($('pauseBuild'));
+  state = 'pause'; sfx.hum(false); runSave(true); $('pauseTime').textContent = fmt(G.t); renderSlots($('pauseBuild'));
   { // live stats, compared with a fresh run, so every upgrade's effect is visible
     const pc = v => (v >= 0 ? '+' : '') + Math.round(v * 100) + '%';
     const rows = [['Integrity', `${Math.ceil(P.hp)} / ${STAT.maxHp}`], ['Shield', STAT.shieldMax ? String(STAT.shieldMax) : '–'], ['Damage', pc(STAT.dmg - 1)], ['Speed', `${Math.round(STAT.speed)} (${pc(STAT.speed / 165 - 1)})`],
@@ -88,6 +89,7 @@ async function endRun(won) {
   if (state === 'over' || !G) return;
   state = 'over'; sfx.hum(false); won ? sfx.win() : sfx.lose();
   if (!G.training) TELE.end(won, G.t);
+  runClear();
   stick.on = false; mouseHold.on = false; keys.clear();
   $('sectorChoice').hidden=true; $('discoveryChoice').hidden=true;
   settleContract();
