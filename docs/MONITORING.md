@@ -36,6 +36,18 @@ The name is "Player XXXX" until the player sets their own in
 **Settings → Leaderboard name**. **Settings → Show me on the leaderboard** turns it off and removes the player's entries.
 Leaderboard names are visible to anyone who opens the game. The Claude version keeps its own separate board.
 
+## Feedback
+
+Players can send a bug report, an idea or anything else from **Settings → Feedback**, the pause screen, or the
+end-of-run screen. Each message is stored at `feedback/<player id>/<time>` with its kind (`bug`, `idea`, `other`),
+the text (up to 1,000 characters), an optional name, and a short context line: game version, language, Telegram or
+browser, screen size, device type and, during a run, the mode, Protocol, level, time and kills.
+
+**Only you can read feedback**: open the Firebase console → Realtime Database → Data → `feedback`. The rules let a
+device add messages under its own id and nothing else: nobody can read, change or delete them through the game.
+The monitoring page shows how many arrived today. Feedback needs sign-in on and the current
+`firebase/database.rules.json` published.
+
 ## One-time setup (about 10 minutes)
 
 1. Go to https://console.firebase.google.com and sign in with a Google account.

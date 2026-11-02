@@ -180,3 +180,15 @@ html[lang="he"] .quote::before { content: "הממסר · "; }
 .lvbadge { pointer-events: auto; margin-left: 8px; padding: 2px 8px; min-height: 0; font: 11px var(--mono); color: #00110a; background: var(--accent); border: 0; border-radius: 10px; cursor: pointer; vertical-align: middle; animation: lvpulse 1s ease-in-out infinite alternate; }
 @keyframes lvpulse { to { box-shadow: 0 0 12px var(--accent); } }
 @media (max-width: 760px) { .lvbadge { padding: 4px 9px; font-size: 11px; } }
+/* feedback form */
+#feedback { z-index: 40; align-items: center; }
+.fbbox { width: min(520px, 100%); text-align: start; }
+.fbbox > .eyebrow, .fbbox > h2 { text-align: center; }
+.fbbox textarea, .fbbox input { width: 100%; box-sizing: border-box; font: 13px var(--mono); background: rgba(0,0,0,.4); color: var(--white); border: 1px solid var(--edge); border-radius: 8px; padding: 10px; user-select: text; -webkit-user-select: text; touch-action: auto; resize: vertical; }
+.fbbox textarea { margin-top: 12px; min-height: 110px; }
+.fbname { display: block; margin-top: 10px; font-size: 11px; color: var(--dim); }
+.fbname span { display: block; margin-bottom: 4px; }
+.fbbox .actions { justify-content: center; }
+#fbKinds .btn[aria-pressed="false"] { opacity: .6; }
+#fbKinds .btn[aria-pressed="true"] { border-color: var(--accent); color: var(--white); opacity: 1; }
+#fbInfo { font-size: 10px; margin-top: 8px; }

@@ -135,6 +135,7 @@ async function refresh() {
     tile('Runs today', T.runs || 0, `${T.finished || 0} finished · ${T.wins || 0} won`);
     tile('Average run', T.finished ? fmtDur((T.secs || 0) / T.finished) : '–', 'finished runs today');
     tile('Errors today', T.errors || 0, T.errors ? 'see below' : 'all clear');
+    tile('Feedback today', T.feedback || 0, T.feedback ? 'read it in the Firebase console → Data → feedback' : 'none yet');
     app.append(el('h2', null, 'Now'), tiles);
 
     app.append(el('h2', null, 'Last 14 days (UTC days)'));

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-pHyy4iFpSHrMV8puGurZ08g2f1m7dJTfBw48hpFmSQY='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self' https://lastsignal-173b0-default-rtdb.firebaseio.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-P4iDErWE9c5iVfI3O8LbZyMPMcu/NGYx5+QiJqAUb48='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self' https://lastsignal-173b0-default-rtdb.firebaseio.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
 <meta name="robots" content="noindex">
@@ -135,6 +135,7 @@ async function refresh() {
     tile('Runs today', T.runs || 0, `${T.finished || 0} finished · ${T.wins || 0} won`);
     tile('Average run', T.finished ? fmtDur((T.secs || 0) / T.finished) : '–', 'finished runs today');
     tile('Errors today', T.errors || 0, T.errors ? 'see below' : 'all clear');
+    tile('Feedback today', T.feedback || 0, T.feedback ? 'read it in the Firebase console → Data → feedback' : 'none yet');
     app.append(el('h2', null, 'Now'), tiles);
 
     app.append(el('h2', null, 'Last 14 days (UTC days)'));

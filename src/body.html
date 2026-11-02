@@ -122,6 +122,7 @@
               <div class="setrow tg-only"><span class="nm">Vibration</span><button class="btn" id="hapticT" type="button" aria-pressed="true">On</button><span class="ds">Short vibrations when you're hit, level up or delete a boss.</span></div>
               <div class="setrow" id="lbNameRow" hidden><label class="nm" for="lbNameIn">Leaderboard name</label><span></span><span class="ds"><input id="lbNameIn" maxlength="16" autocomplete="off" spellcheck="false" style="width:100%;max-width:220px;font:13px var(--mono);background:rgba(0,0,0,.4);color:var(--white);border:1px solid var(--edge);border-radius:6px;padding:6px 8px;user-select:text;-webkit-user-select:text;touch-action:auto"> <span id="lbNameNote"></span><br>Shown next to your best runs on the shared board. Up to 16 characters.</span></div>
               <div class="setrow" id="lbShowRow" hidden><span class="nm">Show me on the leaderboard</span><button class="btn" id="lbShowT" type="button" aria-pressed="true">On</button><span class="ds">Turn off to keep your runs private. Your entries are removed from the board.</span></div>
+              <div class="setrow fb-only"><span class="nm">Feedback</span><button class="btn" id="fbSetBtn" type="button">Send feedback</button><span class="ds">Found a bug or have an idea? It goes straight to the developer, with basic game info (version, language, device type) to help fix bugs.</span></div>
               <div class="setrow" id="statsRow" hidden><span class="nm">Anonymous play stats</span><button class="btn" id="statsT" type="button" aria-pressed="true">On</button><span class="ds">Shares how many people are playing, run counts and error reports, with a random device id and no names. Helps keep the game working.</span></div>
               <div class="setrow"><span class="nm">Progress code</span><button class="btn" id="exportBtn" type="button">Copy code</button><span class="ds">Copies your whole progress as a code. Paste it into another copy of the game to bring everything across.</span></div>
               <div class="setrow"><span class="nm">Import progress</span><span></span><span class="ds"><textarea id="importCode" rows="2" placeholder="Paste a progress code (starts with LS1.)" style="width:100%;font:11px var(--mono);background:rgba(0,0,0,.4);color:var(--ink);border:1px solid var(--edge);border-radius:6px;padding:6px;user-select:text;-webkit-user-select:text;touch-action:auto"></textarea><button class="btn" id="importBtn" type="button" style="margin-top:6px">Import</button> <span id="importNote"></span></span></div>
@@ -215,6 +216,7 @@
       <button class="btn" id="soundT2" type="button" aria-pressed="true">Sound</button>
       <button class="btn" id="glowT2" type="button" aria-pressed="true">Glow</button>
       <button class="btn" id="clarT2" type="button">Clarity: Auto</button>
+      <button class="btn fb-only" id="fbPauseBtn" type="button">Feedback</button>
       <button class="btn" id="quitBtn" type="button">End run</button>
     </div>
   </div>
@@ -242,6 +244,28 @@
       <button class="btn primary" id="againBtn" type="button">Run again</button>
       <button class="btn" id="menuBtn" type="button">Title and Kernel</button>
     </div>
+    <p class="note fb-only" style="margin-top:10px"><button class="linkish" id="fbOverBtn" type="button">Send feedback about this run</button></p>
+  </div>
+</section>
+
+<!-- Feedback -->
+<section class="screen" id="feedback" role="dialog" aria-modal="true" aria-labelledby="fbHead" hidden>
+  <div class="panel lvl fbbox">
+    <p class="eyebrow">Feedback</p>
+    <h2 id="fbHead">Tell the developer</h2>
+    <div class="actions" id="fbKinds" role="group" aria-label="Kind of feedback">
+      <button class="btn" type="button" data-k="bug" aria-pressed="true">Bug</button>
+      <button class="btn" type="button" data-k="idea" aria-pressed="false">Idea</button>
+      <button class="btn" type="button" data-k="other" aria-pressed="false">Other</button>
+    </div>
+    <textarea id="fbText" rows="5" maxlength="1000" placeholder="What happened, or what would make the game better?"></textarea>
+    <label class="fbname"><span>Your name (optional)</span><input id="fbName" maxlength="16" autocomplete="off" spellcheck="false"></label>
+    <p class="note" id="fbInfo">Sent with: game version, language, Telegram or browser, screen size and, during a run, the mode, level and time. No account details.</p>
+    <div class="actions">
+      <button class="btn primary" id="fbSend" type="button">Send</button>
+      <button class="btn" id="fbClose" type="button">Close</button>
+    </div>
+    <p class="note" id="fbNote" role="status"></p>
   </div>
 </section>
 

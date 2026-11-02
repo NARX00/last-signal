@@ -38,7 +38,7 @@
           }
         },
         "$counter": {
-          ".write": "auth != null && ($counter === 'opens' || $counter === 'telegram' || $counter === 'runs' || $counter === 'finished' || $counter === 'wins' || $counter === 'secs' || $counter === 'errors')",
+          ".write": "auth != null && ($counter === 'opens' || $counter === 'telegram' || $counter === 'runs' || $counter === 'finished' || $counter === 'wins' || $counter === 'secs' || $counter === 'errors' || $counter === 'feedback')",
           ".validate": "newData.isNumber() && newData.val() >= 0 && ($counter === 'secs' ? ((!data.exists() && newData.val() <= 1200) || (data.exists() && newData.val() > data.val() && newData.val() <= data.val() + 1200)) : ((!data.exists() && newData.val() === 1) || (data.exists() && newData.val() === data.val() + 1)))"
         }
       }
@@ -137,6 +137,32 @@
             ".validate": "newData.isBoolean()"
           },
           "at": {
+            ".validate": "newData.isNumber() && newData.val() <= now + 60000"
+          },
+          "$other": {
+            ".validate": false
+          }
+        }
+      }
+    },
+    "feedback": {
+      "$uid": {
+        "$id": {
+          ".write": "auth != null && auth.uid === $uid && !data.exists() && $id.matches(/^[0-9]{13}$/)",
+          ".validate": "newData.hasChildren(['kind', 'text', 't'])",
+          "kind": {
+            ".validate": "newData.isString() && (newData.val() === 'bug' || newData.val() === 'idea' || newData.val() === 'other')"
+          },
+          "text": {
+            ".validate": "newData.isString() && newData.val().length >= 3 && newData.val().length <= 1000"
+          },
+          "name": {
+            ".validate": "newData.isString() && newData.val().length <= 16"
+          },
+          "ctx": {
+            ".validate": "newData.isString() && newData.val().length <= 600"
+          },
+          "t": {
             ".validate": "newData.isNumber() && newData.val() <= now + 60000"
           },
           "$other": {

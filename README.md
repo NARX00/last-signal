@@ -14,7 +14,7 @@ outrun the swarm, build impossible weapons, and take down the Root Process.
   built from trigger, condition and effect pieces in an in-game editor.
 - Operators, powers, a Kernel of permanent upgrades, a Code library, specializations,
   mutations, routes and a Nemesis rival.
-- A shared leaderboard and daily challenge board.
+- A shared leaderboard and daily challenge board, and in-game feedback (Settings, pause or end of run).
 - Keyboard, mouse or touch. In Telegram, progress is saved to your Telegram account, and an
   unfinished run can be resumed after closing the app.
 - English, Russian and Hebrew (right to left). The game follows the Telegram or browser language;
