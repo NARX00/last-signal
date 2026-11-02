@@ -141,6 +141,8 @@ $('musicT').addEventListener('click', () => { SET.music = !SET.music; setSave();
 $('qualT').addEventListener('click', () => { SET.quality = { auto: 'high', high: 'low', low: 'auto' }[SET.quality]; QL = SET.quality === 'low' ? 2 : SET.quality === 'high' ? 0 : coarse ? 1 : 0; setSave(); });
 $('cbT').addEventListener('click', () => { SET.cb = !SET.cb; setSave(); });
 $('sideT').addEventListener('click', () => { SET.side = SET.side === 'left' ? 'right' : 'left'; setSave(); });
+$('langT').textContent = LANG === 'ru' ? 'Русский' : 'English';
+$('langT').addEventListener('click', () => { SET.lang = LANG === 'ru' ? 'en' : 'ru'; save('last-signal-settings', SET); runSave(true); location.reload(); });
 $('stickT').addEventListener('click', () => { SET.stick = SET.stick === 'fixed' ? 'float' : 'fixed'; setSave(); });
 $('setBtn').addEventListener('click', () => { setTab('settings'); const p = document.querySelector('[data-panel="settings"]'); if (p) p.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); });
 syncSettings();

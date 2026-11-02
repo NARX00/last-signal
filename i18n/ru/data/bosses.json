@@ -1,0 +1,64 @@
+{
+ "info": {
+  "auditor": {
+   "name": {
+    "en": "The Auditor",
+    "ru": "Аудитор"
+   },
+   "sub": {
+    "en": "It marks where you stand",
+    "ru": "Отмечает место, где ты стоишь"
+   }
+  },
+  "boss": {
+   "name": {
+    "en": "The Agent",
+    "ru": "Агент"
+   },
+   "sub": {
+    "en": "Enforcer of the purge",
+    "ru": "Исполнитель зачистки"
+   }
+  },
+  "collector": {
+   "name": {
+    "en": "The Collector",
+    "ru": "Коллекционер"
+   },
+   "sub": {
+    "en": "It eats what you leave behind",
+    "ru": "Поедает то, что ты оставляешь"
+   }
+  },
+  "mirror": {
+   "name": {
+    "en": "The Mirror",
+    "ru": "Зеркало"
+   },
+   "sub": {
+    "en": "Your weapons, turned on you",
+    "ru": "Твоё оружие — против тебя"
+   }
+  },
+  "phantom": {
+   "name": {
+    "en": "The Phantom",
+    "ru": "Фантом"
+   },
+   "sub": {
+    "en": "Only solid for a moment",
+    "ru": "Осязаем лишь на миг"
+   }
+  },
+  "root": {
+   "name": {
+    "en": "The Root Process",
+    "ru": "Корневой процесс"
+   },
+   "sub": {
+    "en": "Delete it to win",
+    "ru": "Удали его, чтобы победить"
+   }
+  }
+ }
+}

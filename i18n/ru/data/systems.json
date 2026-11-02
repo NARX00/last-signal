@@ -1,0 +1,122 @@
+{
+ "might": {
+  "name": {
+   "en": "Overclock",
+   "ru": "Разгон"
+  },
+  "desc": {
+   "en": "+12% damage for every weapon.",
+   "ru": "+12% урона для каждого оружия."
+  }
+ },
+ "area": {
+  "name": {
+   "en": "Bandwidth",
+   "ru": "Пропускная способность"
+  },
+  "desc": {
+   "en": "+10% area: rings, orbits, wells and blasts grow.",
+   "ru": "+10% площади: кольца, орбиты, воронки и взрывы растут."
+  }
+ },
+ "cool": {
+  "name": {
+   "en": "Low Latency",
+   "ru": "Низкая задержка"
+  },
+  "desc": {
+   "en": "Weapons recharge 7% faster.",
+   "ru": "Оружие перезаряжается на 7% быстрее."
+  }
+ },
+ "swift": {
+  "name": {
+   "en": "Fast Path",
+   "ru": "Быстрый путь"
+  },
+  "desc": {
+   "en": "+10% movement speed.",
+   "ru": "+10% к скорости движения."
+  }
+ },
+ "magnet": {
+  "name": {
+   "en": "Uplink",
+   "ru": "Аплинк"
+  },
+  "desc": {
+   "en": "+40% pickup range for data.",
+   "ru": "+40% к радиусу сбора данных."
+  }
+ },
+ "vital": {
+  "name": {
+   "en": "Redundancy",
+   "ru": "Резервирование"
+  },
+  "desc": {
+   "en": "+20 max integrity, and restores 20.",
+   "ru": "+20 к макс. целостности и восстанавливает 20."
+  }
+ },
+ "regen": {
+  "name": {
+   "en": "Self-Repair",
+   "ru": "Самовосстановление"
+  },
+  "desc": {
+   "en": "Restore 0.4 integrity every second.",
+   "ru": "Восстанавливает 0,4 целостности в секунду."
+  }
+ },
+ "buffer": {
+  "name": {
+   "en": "Buffer",
+   "ru": "Буфер"
+  },
+  "desc": {
+   "en": "+25 shield. Shields soak damage first and recharge after 4 s without a hit.",
+   "ru": "+25 щита. Щит принимает урон первым и восстанавливается через 4 с без попаданий."
+  }
+ },
+ "crit": {
+  "name": {
+   "en": "Precision",
+   "ru": "Точность"
+  },
+  "desc": {
+   "en": "+8% chance for any hit to deal double damage.",
+   "ru": "+8% шанс, что любое попадание нанесёт двойной урон."
+  }
+ },
+ "thorns": {
+  "name": {
+   "en": "Backtrace",
+   "ru": "Обратная трассировка"
+  },
+  "desc": {
+   "en": "Anything that hits you takes 30 damage and is thrown back.",
+   "ru": "Всё, что тебя бьёт, получает 30 урона и отбрасывается."
+  }
+ },
+ "dur": {
+  "name": {
+   "en": "Persistence",
+   "ru": "Стойкость"
+  },
+  "desc": {
+   "en": "+12% duration for wells and bombs.",
+   "ru": "+12% к длительности воронок и бомб."
+  }
+ },
+ "echo": {
+  "name": {
+   "en": "Echo",
+   "ru": "Эхо"
+  },
+  "desc": {
+   "en": "+6% chance for any weapon to fire again right away.",
+   "ru": "+6% шанс, что любое оружие сразу выстрелит снова."
+  }
+ }
+}

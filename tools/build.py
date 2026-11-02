@@ -23,7 +23,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC, DATA, ASSETS, DIST = ROOT / 'src', ROOT / 'data', ROOT / 'assets', ROOT / 'dist'
 
 TITLE = 'Last Signal: Rewrite'
-FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap">'
+FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=PT+Mono&display=swap">'
 SITE_URL = 'https://narx00.github.io/last-signal/'
 ICONS = (
     '<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/icon-32.png">'
@@ -56,6 +56,19 @@ def load_data():
     return {p.stem: json.loads(p.read_text(encoding='utf-8')) for p in sorted(DATA.glob('*.json'))}
 
 
+def load_i18n():
+    """i18n/<lang>/data/*.json and ui.json; only filled-in translations are shipped."""
+    out = {}
+    for d in sorted((ROOT / 'i18n').glob('*/')):
+        if not (d / 'ui.json').exists():
+            continue
+        ui = json.loads((d / 'ui.json').read_text(encoding='utf-8'))
+        ui = {sec: {k: v for k, v in items.items() if v} for sec, items in ui.items()}
+        data = {p.stem: json.loads(p.read_text(encoding='utf-8')) for p in sorted((d / 'data').glob('*.json'))}
+        out[d.name] = {'ui': ui, 'data': data}
+    return out
+
+
 def load_assets(with_music=True):
     """assets/sprites and assets/icons become data URIs; assets/music becomes relative URLs."""
     out = {'sprites': {}, 'icons': {}, 'music': {}}
@@ -80,7 +93,7 @@ def build_game(with_music=True, sim_hook=''):
     if not with_music:   # the Claude artifact: no files next to it, and no telemetry
         data['telemetry'] = {}
     version = hashlib.sha256((css + markup + js + json.dumps(data, sort_keys=True)).encode()).hexdigest()[:8]
-    payload = json.dumps({'data': data, 'assets': load_assets(with_music), 'version': version}, ensure_ascii=False, separators=(',', ':'))
+    payload = json.dumps({'data': data, 'assets': load_assets(with_music), 'version': version, 'i18n': load_i18n()}, ensure_ascii=False, separators=(',', ':'))
     if js.count(MARKER) != 1:
         raise SystemExit(f'src/js must contain {MARKER} exactly once (it sits in 00-prelude.js)')
     js = js.replace(MARKER, f'const BUILD = {payload};', 1)

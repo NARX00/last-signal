@@ -10,7 +10,7 @@ const TAU = Math.PI * 2;
 const rand = (a, b) => a + Math.random() * (b - a);
 const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const FONT = '"Share Tech Mono", monospace';
+const FONT = '"Share Tech Mono", "PT Mono", monospace';
 let GLYPHS = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789';
 const pick = () => GLYPHS[(Math.random() * GLYPHS.length) | 0];
 const use = n => (window.claude && typeof window.claude.use === 'function') ? window.claude.use(n).catch(() => null) : Promise.resolve(null);

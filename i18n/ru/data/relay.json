@@ -1,0 +1,278 @@
+{
+ "start": [
+  {
+   "en": "You're awake. Good. The system has noticed you too. Keep moving.",
+   "ru": "Ты очнулся. Хорошо. Система тоже тебя заметила. Двигайся."
+  },
+  {
+   "en": "This is the Relay. I can't fight for you, but I can see what's coming.",
+   "ru": "Это Ретранслятор. Сражаться за тебя я не могу, но вижу, что надвигается."
+  },
+  {
+   "en": "Signal acquired. They'll come in waves. Don't stand still.",
+   "ru": "Сигнал пойман. Они пойдут волнами. Не стой на месте."
+  }
+ ],
+ "level": [
+  {
+   "en": "Every shard you take makes you stronger. Take all of it.",
+   "ru": "Каждый осколок делает тебя сильнее. Собирай всё."
+  }
+ ],
+ "wave": [
+  {
+   "en": "Purge wave. They're closing a ring around you. Don't get boxed in.",
+   "ru": "Волна зачистки. Они смыкают кольцо вокруг тебя. Не дай себя запереть."
+  },
+  {
+   "en": "Another ring is forming. Break through the thinnest side.",
+   "ru": "Формируется ещё одно кольцо. Прорывайся там, где оно тоньше."
+  }
+ ],
+ "elite": [
+  {
+   "en": "Gold outline means it's carrying a Cache. Red outline means it's just tough. Pick your fights.",
+   "ru": "Золотой контур — он несёт Кэш. Красный — просто крепкий. Выбирай бои."
+  }
+ ],
+ "meet": {
+  "patcher": {
+   "en": "Patcher. It has read your code and patched against your best line. Anything near it resists that effect. Your weapons still hurt it.",
+   "ru": "Патчер. Он прочитал твой код и поставил патч против твоей лучшей строки. Всё рядом с ним сопротивляется этому эффекту. Оружие его всё равно ранит."
+  },
+  "scrubber": {
+   "en": "Scrubber. It eats code: pools, pull fields, shards. Kill it before it feeds.",
+   "ru": "Чистильщик. Он ест код: лужи, поля притяжения, осколки. Убей его, пока он не наелся."
+  },
+  "lancer": {
+   "en": "Lancer. It stops, aims, then charges in a straight line. When it freezes and the white line appears, step sideways.",
+   "ru": "Копейщик. Он останавливается, целится, затем бросается по прямой. Когда он замирает и появляется белая линия — шагни в сторону."
+  },
+  "watcher": {
+   "en": "Watcher. It hangs back and fires down a red line. Break the line before it fires.",
+   "ru": "Наблюдатель. Держится позади и стреляет вдоль красной линии. Сбей линию, пока он не выстрелил."
+  },
+  "ghost": {
+   "en": "Ghost process. You'll barely see it. Code Sight shows it plainly, but your weapons hit it either way.",
+   "ru": "Процесс-призрак. Ты его почти не увидишь. Зрение кода покажет его ясно, но оружие попадает по нему в любом случае."
+  },
+  "leaker": {
+   "en": "Leaker. It bleeds corrupted data. Don't stand in the red pools, and kill it away from where you need to be.",
+   "ru": "Утечка. Из неё сочатся повреждённые данные. Не стой в красных лужах и убивай её подальше от нужного места."
+  }
+ },
+ "operator": {
+  "ready": {
+   "en": "Operator line is open. Call me when you need something.",
+   "ru": "Линия оператора открыта. Зови, когда понадобится."
+  },
+  "supply": {
+   "en": "Supply drop on you. Patch up and grab the shards.",
+   "ru": "Сбрасываю припасы на тебя. Подлатайся и хватай осколки."
+  },
+  "rewrite": {
+   "en": "Rewriting the floor around you. Use the cover, it won't last.",
+   "ru": "Переписываю пол вокруг тебя. Используй укрытие, оно ненадолго."
+  },
+  "trace": {
+   "en": "Tracing the system. Everything worth taking is marked, and I'm pulling your shards in.",
+   "ru": "Трассирую систему. Всё ценное отмечено, и я подтягиваю к тебе осколки."
+  },
+  "strike": {
+   "en": "Override sent. I'm hitting the biggest ones for you.",
+   "ru": "Команда отправлена. Бью по самым крупным за тебя."
+  }
+ },
+ "exit": {
+  "boss": {
+   "en": "An exit just opened. Step in and hold to jack out with what you've earned, or ignore it and keep going for more.",
+   "ru": "Открылся выход. Встань в него и держись, чтобы отключиться с заработанным, — или игнорируй и иди дальше за большим."
+  },
+  "root": {
+   "en": "It's done. The exit is open. Get to it and jack out.",
+   "ru": "Готово. Выход открыт. Доберись до него и отключайся."
+  },
+  "gone": {
+   "en": "The exit closed. You're still in. Keep going.",
+   "ru": "Выход закрылся. Ты всё ещё внутри. Продолжай."
+  }
+ },
+ "events": {
+  "purge": {
+   "en": "The system left a gap open. Purge fast and I can pull a Cache through it.",
+   "ru": "Система оставила брешь. Зачисти быстро, и я протащу через неё Кэш."
+  },
+  "beacon": {
+   "en": "I've dropped a beacon. Hold it so I can send you something. Stand in the gold ring.",
+   "ru": "Я сбросил маяк. Удерживай его, чтобы я мог тебе кое-что отправить. Стой в золотом кольце."
+  },
+  "storm": {
+   "en": "Data storm. Every shard is worth double for a while. Grab everything.",
+   "ru": "Шторм данных. Какое-то время каждый осколок стоит вдвое. Хватай всё."
+  },
+  "win": {
+   "en": "Done. The Cache is yours.",
+   "ru": "Готово. Кэш твой."
+  },
+  "fail": {
+   "en": "Gap's closed. Next time.",
+   "ru": "Брешь закрылась. В следующий раз."
+  }
+ },
+ "world": {
+  "anomaly": {
+   "stasis": {
+    "en": "The rules are breaking over there. Inside that zone everything moves slowly, you included.",
+    "ru": "Там ломаются правила. Внутри этой зоны всё движется медленно, и ты тоже."
+   },
+   "amplify": {
+    "en": "That zone amplifies code. Your hits land harder inside, but so do their legs.",
+    "ru": "Эта зона усиливает код. Твои удары внутри сильнее, но и их удары тоже."
+   },
+   "drift": {
+    "en": "Shards inside that zone float to its center, and each one is worth double.",
+    "ru": "Осколки в этой зоне плывут к её центру, и каждый стоит вдвое."
+   }
+  },
+  "convert": {
+   "en": "That one's listening. Keep it close and I can turn it to our side.",
+   "ru": "Этот слушает. Держи его рядом, и я переманю его на нашу сторону."
+  },
+  "converted": {
+   "en": "It's ours now. It fights with you.",
+   "ru": "Теперь он наш. Сражается вместе с тобой."
+  },
+  "pod": {
+   "en": "There's a sleeper in a pod nearby. Reach it, wake it, and walk it to the exit. It will fight for you.",
+   "ru": "Рядом спящий в капсуле. Доберись, разбуди и доведи его до выхода. Он будет сражаться за тебя."
+  },
+  "awake": {
+   "en": "It's awake. Get it to the exit and keep it alive.",
+   "ru": "Он проснулся. Доведи его до выхода и сохрани ему жизнь."
+  },
+  "saved": {
+   "en": "Out safe. It's staying with you.",
+   "ru": "Выбрался. Он остаётся с тобой."
+  },
+  "lost": {
+   "en": "We lost the sleeper.",
+   "ru": "Мы потеряли спящего."
+  },
+  "trader": {
+   "en": "A rogue program wants to trade. Stand next to it if you're interested.",
+   "ru": "Программа-отступник хочет поторговать. Встань рядом, если интересно."
+  }
+ },
+ "reflex": {
+  "en": "Reflex. Everything slows; you don't. Move.",
+  "ru": "Рефлекс. Всё замедляется, кроме тебя. Двигайся."
+ },
+ "overdrive": {
+  "en": "Overdrive. Keep moving and you'll keep it.",
+  "ru": "Форсаж. Не останавливайся — и он сохранится."
+ },
+ "hidden": {
+  "en": "Something is buried in the code near you. Code Sight would show it. Or just walk over it.",
+  "ru": "Рядом в коде что-то спрятано. Зрение кода покажет. Или просто пройди по нему."
+ },
+ "threat": {
+  "en": "You're clearing them too fast. The system is sending sturdier code. Take a hit and it eases off.",
+  "ru": "Ты зачищаешь их слишком быстро. Система шлёт код покрепче. Пропусти удар — и она ослабит напор."
+ },
+ "warn": {
+  "auditor": {
+   "en": "Something is auditing this sector. When the ground under you turns red, move.",
+   "ru": "Кто-то проводит аудит этого сектора. Когда земля под тобой краснеет — уходи."
+  },
+  "boss": {
+   "en": "An Agent is coming. It lunges. Watch for the white line.",
+   "ru": "Идёт Агент. Он делает выпады. Следи за белой линией."
+  },
+  "collector": {
+   "en": "The Collector feeds on loose data. Kill it before it eats your shards.",
+   "ru": "Коллекционер питается брошенными данными. Убей его, пока он не съел твои осколки."
+  },
+  "mirror": {
+   "en": "The Mirror learns your weapons. The stronger you are, the harder it hits back.",
+   "ru": "Зеркало изучает твоё оружие. Чем ты сильнее, тем сильнее оно бьёт в ответ."
+  },
+  "phantom": {
+   "en": "A Phantom. It walks through walls and through your fire. Hit it when it turns solid.",
+   "ru": "Фантом. Проходит сквозь стены и сквозь твой огонь. Бей, когда он становится осязаемым."
+  },
+  "root": {
+   "en": "The Root Process is coming for you itself. This is the end of the run. End it.",
+   "ru": "Корневой процесс сам идёт за тобой. Это конец забега. Закончи его."
+  }
+ },
+ "phase": [
+  {
+   "en": "It's adapting. Stay out of its line.",
+   "ru": "Он адаптируется. Не стой на его линии."
+  },
+  {
+   "en": "It's changing patterns. Watch first, then move.",
+   "ru": "Он меняет схему атак. Сначала смотри, потом двигайся."
+  },
+  {
+   "en": "Half its code is gone. It's getting desperate.",
+   "ru": "Половины его кода уже нет. Он в отчаянии."
+  }
+ ],
+ "rootPhase2": {
+  "en": "The arena is collapsing. Stay inside the light.",
+  "ru": "Арена рушится. Держись в пределах света."
+ },
+ "rootPhase3": {
+  "en": "It's desperate. So are you. Finish it.",
+  "ru": "Он в отчаянии. Ты тоже. Добей его."
+ },
+ "down": [
+  {
+   "en": "It's gone. Take what it dropped.",
+   "ru": "Его больше нет. Забери то, что он оставил."
+  },
+  {
+   "en": "Deleted. The rain feels lighter already.",
+   "ru": "Удалён. Дождь уже кажется легче."
+  }
+ ],
+ "collectorDown": {
+  "en": "All that data it hoarded is yours now. Collect it.",
+  "ru": "Все данные, что он накопил, теперь твои. Собирай."
+ },
+ "evolve": [
+  {
+   "en": "That's not a weapon anymore. That's a signature.",
+   "ru": "Это уже не оружие. Это почерк."
+  },
+  {
+   "en": "Evolution complete. They won't recognise you.",
+   "ru": "Эволюция завершена. Тебя не узнают."
+  }
+ ],
+ "low": [
+  {
+   "en": "Your signal is breaking up. Find integrity or get distance.",
+   "ru": "Твой сигнал прерывается. Найди целостность или разорви дистанцию."
+  },
+  {
+   "en": "You're fading. Use a power, now.",
+   "ru": "Ты угасаешь. Используй способность, сейчас."
+  }
+ ],
+ "win": {
+  "en": "Root deleted. For a moment, the rain is quiet. Then it starts again, and so do you.",
+  "ru": "Корень удалён. На мгновение дождь стихает. Потом начинается снова — и ты тоже."
+ },
+ "lose": [
+  {
+   "en": "Signal lost. I'll keep listening for you.",
+   "ru": "Сигнал потерян. Я буду ждать тебя на связи."
+  },
+  {
+   "en": "You were close. The system remembers you now. So do I.",
+   "ru": "Ты был близко. Теперь система тебя помнит. И я тоже."
+  }
+ ]
+}

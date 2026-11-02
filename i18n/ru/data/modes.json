@@ -1,0 +1,87 @@
+{
+ "modes": [
+  [
+   null,
+   {
+    "en": "Full · 15:00",
+    "ru": "Полный · 15:00"
+   }
+  ],
+  [
+   null,
+   {
+    "en": "Short · 8:00",
+    "ru": "Короткий · 8:00"
+   }
+  ],
+  [
+   null,
+   {
+    "en": "Siege · 10:00",
+    "ru": "Осада · 10:00"
+   }
+  ],
+  [
+   null,
+   {
+    "en": "Story",
+    "ru": "Сюжет"
+   }
+  ],
+  [
+   null,
+   {
+    "en": "Training",
+    "ru": "Тренировка"
+   }
+  ]
+ ],
+ "notes": {
+  "full": {
+   "en": "The full run: five bosses, then the Root Process at 15:00. Ranked on the leaderboard.",
+   "ru": "Полный забег: пять боссов, затем Корневой процесс в 15:00. Идёт в таблицу лидеров."
+  },
+  "short": {
+   "en": "The same run, compressed: bosses at 1:36, 2:40, 4:00, 5:20 and 6:40, the Root Process at 8:00. Not ranked.",
+   "ru": "Тот же забег, сжатый: боссы в 1:36, 2:40, 4:00, 5:20 и 6:40, Корневой процесс в 8:00. Без рейтинга."
+  },
+  "siege": {
+   "en": "Defend the core in the middle of the map. Enemies go for whichever is closer, you or the core. Every 15 kills earns a part: press T or tap ▲ to build a turret. The Root Process comes at 10:00. Not ranked.",
+   "ru": "Защищай ядро в центре карты. Враги идут к тому, кто ближе — к тебе или к ядру. Каждые 15 убийств дают деталь: нажми T или ▲, чтобы построить турель. Корневой процесс приходит в 10:00. Без рейтинга."
+  },
+  "story": {
+   "en": "Five chapters narrated by the Relay, each with its own goal. Finish one to unlock the next.",
+   "ru": "Пять глав, которые рассказывает Ретранслятор, у каждой своя цель. Пройди одну, чтобы открыть следующую."
+  },
+  "training": {
+   "en": "A sandbox. You cannot be hurt, nothing spawns on its own, and nothing is earned. Use the bar at the top to level up, spawn enemies and bosses, and jump ahead in time.",
+   "ru": "Песочница. Тебя нельзя ранить, никто не появляется сам, ничего не начисляется. Панель сверху: повысить уровень, вызвать врагов и боссов, перемотать время."
+  }
+ },
+ "daily": {
+  "glass": {
+   "en": "Glass: −40% integrity, +25% damage",
+   "ru": "Стекло: −40% целостности, +25% урона"
+  },
+  "haste": {
+   "en": "Haste: enemies move 15% faster",
+   "ru": "Спешка: враги на 15% быстрее"
+  },
+  "swarm": {
+   "en": "Swarm: 35% more enemies, each 20% weaker",
+   "ru": "Рой: на 35% больше врагов, каждый на 20% слабее"
+  },
+  "drought": {
+   "en": "Drought: no repairs drop",
+   "ru": "Засуха: ремонт не выпадает"
+  },
+  "overcharged": {
+   "en": "Overcharged: powers recharge twice as fast",
+   "ru": "Перегрузка: способности перезаряжаются вдвое быстрее"
+  },
+  "elites": {
+   "en": "Elite rush: elites come twice as often",
+   "ru": "Наплыв элиты: элита приходит вдвое чаще"
+  }
+ }
+}

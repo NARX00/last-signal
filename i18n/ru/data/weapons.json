@@ -1,0 +1,402 @@
+{
+ "bolt": {
+  "name": {
+   "en": "Glyph Bolt",
+   "ru": "Глиф-болт"
+  },
+  "desc": [
+   {
+    "en": "Fires a glyph at the nearest threat.",
+    "ru": "Стреляет глифом в ближайшую угрозу."
+   },
+   {
+    "en": "More damage.",
+    "ru": "Больше урона."
+   },
+   {
+    "en": "Fires 2 glyphs.",
+    "ru": "Стреляет 2 глифами."
+   },
+   {
+    "en": "Glyphs pierce 2 targets.",
+    "ru": "Глифы пробивают 2 цели."
+   },
+   {
+    "en": "Fires 3 glyphs.",
+    "ru": "Стреляет 3 глифами."
+   },
+   {
+    "en": "4 glyphs, pierce 3, faster fire.",
+    "ru": "4 глифа, пробивают 3, стрельба быстрее."
+   },
+   {
+    "en": "More damage, faster fire.",
+    "ru": "Больше урона, стрельба быстрее."
+   },
+   {
+    "en": "Overclocked: fires 5 glyphs.",
+    "ru": "Разгон: стреляет 5 глифами."
+   }
+  ]
+ },
+ "pulse": {
+  "name": {
+   "en": "Shockwave",
+   "ru": "Ударная волна"
+  },
+  "desc": [
+   {
+    "en": "A ring of force bursts out from you.",
+    "ru": "От тебя расходится кольцо силы."
+   },
+   {
+    "en": "Wider ring.",
+    "ru": "Кольцо шире."
+   },
+   {
+    "en": "More damage.",
+    "ru": "Больше урона."
+   },
+   {
+    "en": "Fires more often.",
+    "ru": "Срабатывает чаще."
+   },
+   {
+    "en": "Wider, stronger ring.",
+    "ru": "Кольцо шире и сильнее."
+   },
+   {
+    "en": "Double ring, heavy knockback.",
+    "ru": "Двойное кольцо, сильное отбрасывание."
+   },
+   {
+    "en": "Stronger ring.",
+    "ru": "Кольцо сильнее."
+   },
+   {
+    "en": "Overclocked: widest, fastest ring.",
+    "ru": "Разгон: самое широкое и быстрое кольцо."
+   }
+  ]
+ },
+ "orbit": {
+  "name": {
+   "en": "Firewall Ring",
+   "ru": "Кольцо-файрвол"
+  },
+  "desc": [
+   {
+    "en": "Two glyphs orbit you and burn what they touch.",
+    "ru": "Два глифа вращаются вокруг тебя и жгут всё, чего касаются."
+   },
+   {
+    "en": "Orbit spins faster.",
+    "ru": "Орбита вращается быстрее."
+   },
+   {
+    "en": "A third glyph.",
+    "ru": "Третий глиф."
+   },
+   {
+    "en": "A fourth glyph, more damage.",
+    "ru": "Четвёртый глиф, больше урона."
+   },
+   {
+    "en": "A fifth glyph, wider orbit.",
+    "ru": "Пятый глиф, орбита шире."
+   },
+   {
+    "en": "Six glyphs, wide and fast.",
+    "ru": "Шесть глифов, широко и быстро."
+   },
+   {
+    "en": "A seventh glyph.",
+    "ru": "Седьмой глиф."
+   },
+   {
+    "en": "Overclocked: an eighth glyph, more damage.",
+    "ru": "Разгон: восьмой глиф, больше урона."
+   }
+  ]
+ },
+ "bolt2": {
+  "name": {
+   "en": "Lightning",
+   "ru": "Молния"
+  },
+  "desc": [
+   {
+    "en": "Calls lightning down on a nearby enemy.",
+    "ru": "Обрушивает молнию на ближайшего врага."
+   },
+   {
+    "en": "Strikes 2 enemies.",
+    "ru": "Бьёт 2 врагов."
+   },
+   {
+    "en": "More damage.",
+    "ru": "Больше урона."
+   },
+   {
+    "en": "Strikes 3 and chains once.",
+    "ru": "Бьёт 3 и перескакивает один раз."
+   },
+   {
+    "en": "Strikes 4, faster.",
+    "ru": "Бьёт 4, быстрее."
+   },
+   {
+    "en": "Strikes 5, chains twice.",
+    "ru": "Бьёт 5, перескакивает дважды."
+   },
+   {
+    "en": "More damage, faster.",
+    "ru": "Больше урона, быстрее."
+   },
+   {
+    "en": "Overclocked: strikes 6.",
+    "ru": "Разгон: бьёт 6."
+   }
+  ]
+ },
+ "well": {
+  "name": {
+   "en": "Gravity Well",
+   "ru": "Гравитационная воронка"
+  },
+  "desc": [
+   {
+    "en": "Opens a well that drags enemies in and grinds them down.",
+    "ru": "Открывает воронку, которая затягивает и перемалывает врагов."
+   },
+   {
+    "en": "Larger well.",
+    "ru": "Воронка больше."
+   },
+   {
+    "en": "More damage.",
+    "ru": "Больше урона."
+   },
+   {
+    "en": "Lasts longer, opens more often.",
+    "ru": "Держится дольше, открывается чаще."
+   },
+   {
+    "en": "Larger and stronger.",
+    "ru": "Больше и сильнее."
+   },
+   {
+    "en": "Wells collapse in a blast.",
+    "ru": "Воронки схлопываются со взрывом."
+   },
+   {
+    "en": "Larger, lasts longer.",
+    "ru": "Больше, держится дольше."
+   },
+   {
+    "en": "Overclocked: strongest pull and damage.",
+    "ru": "Разгон: сильнейшее притяжение и урон."
+   }
+  ]
+ },
+ "spread": {
+  "name": {
+   "en": "Slow Rounds",
+   "ru": "Замедляющие заряды"
+  },
+  "desc": [
+   {
+    "en": "Fires a fan of rounds where you are heading.",
+    "ru": "Стреляет веером зарядов туда, куда ты движешься."
+   },
+   {
+    "en": "More damage.",
+    "ru": "Больше урона."
+   },
+   {
+    "en": "Four rounds.",
+    "ru": "Четыре заряда."
+   },
+   {
+    "en": "Rounds pierce 2 targets.",
+    "ru": "Заряды пробивают 2 цели."
+   },
+   {
+    "en": "Six rounds, faster.",
+    "ru": "Шесть зарядов, быстрее."
+   },
+   {
+    "en": "Eight rounds, pierce 3.",
+    "ru": "Восемь зарядов, пробивают 3."
+   },
+   {
+    "en": "Nine rounds.",
+    "ru": "Девять зарядов."
+   },
+   {
+    "en": "Overclocked: ten rounds, pierce 4.",
+    "ru": "Разгон: десять зарядов, пробивают 4."
+   }
+  ]
+ },
+ "mine": {
+  "name": {
+   "en": "Logic Bomb",
+   "ru": "Логическая бомба"
+  },
+  "desc": [
+   {
+    "en": "Drops a bomb where you stand. It arms, then blows up when something steps close.",
+    "ru": "Оставляет бомбу там, где ты стоишь. Она взводится и взрывается, когда кто-то подходит."
+   },
+   {
+    "en": "Bigger blast.",
+    "ru": "Взрыв больше."
+   },
+   {
+    "en": "More damage.",
+    "ru": "Больше урона."
+   },
+   {
+    "en": "Drops two at once.",
+    "ru": "Две бомбы разом."
+   },
+   {
+    "en": "Drops more often.",
+    "ru": "Бомбы чаще."
+   },
+   {
+    "en": "Three at once, biggest blast.",
+    "ru": "Три разом, самый большой взрыв."
+   },
+   {
+    "en": "More damage, faster drops.",
+    "ru": "Больше урона, бомбы чаще."
+   },
+   {
+    "en": "Overclocked: four at once.",
+    "ru": "Разгон: четыре разом."
+   }
+  ]
+ },
+ "boomer": {
+  "name": {
+   "en": "Return Glyph",
+   "ru": "Глиф-бумеранг"
+  },
+  "desc": [
+   {
+    "en": "Throws a glyph that flies out and comes back, cutting through everything both ways.",
+    "ru": "Бросает глиф, который улетает и возвращается, прорезая всё в обе стороны."
+   },
+   {
+    "en": "Flies farther.",
+    "ru": "Летит дальше."
+   },
+   {
+    "en": "Throws two.",
+    "ru": "Бросает два."
+   },
+   {
+    "en": "More damage.",
+    "ru": "Больше урона."
+   },
+   {
+    "en": "Throws three, faster.",
+    "ru": "Бросает три, быстрее."
+   },
+   {
+    "en": "Four glyphs, longest throw.",
+    "ru": "Четыре глифа, самый дальний бросок."
+   },
+   {
+    "en": "Hits harder, flies farther.",
+    "ru": "Бьёт сильнее, летит дальше."
+   },
+   {
+    "en": "Overclocked: five glyphs.",
+    "ru": "Разгон: пять глифов."
+   }
+  ]
+ },
+ "kata": {
+  "name": {
+   "en": "Kata",
+   "ru": "Ката"
+  },
+  "desc": [
+   {
+    "en": "Fast strikes on the closest enemies. Every hit in a row hits harder.",
+    "ru": "Быстрые удары по ближайшим врагам. Каждый удар подряд сильнее предыдущего."
+   },
+   {
+    "en": "Faster strikes.",
+    "ru": "Удары быстрее."
+   },
+   {
+    "en": "Hits three at once.",
+    "ru": "Бьёт троих разом."
+   },
+   {
+    "en": "More damage, longer reach.",
+    "ru": "Больше урона, дальше досягаемость."
+   },
+   {
+    "en": "Hits four at once.",
+    "ru": "Бьёт четверых разом."
+   },
+   {
+    "en": "Five at once, fastest.",
+    "ru": "Пятерых разом, быстрее всего."
+   },
+   {
+    "en": "Six at once.",
+    "ru": "Шестерых разом."
+   },
+   {
+    "en": "Overclocked: fastest, hardest strikes.",
+    "ru": "Разгон: самые быстрые и сильные удары."
+   }
+  ]
+ },
+ "drone": {
+  "name": {
+   "en": "Helper Drone",
+   "ru": "Дрон-помощник"
+  },
+  "desc": [
+   {
+    "en": "A drone follows you and fires at the nearest enemy.",
+    "ru": "Дрон следует за тобой и стреляет в ближайшего врага."
+   },
+   {
+    "en": "Fires faster.",
+    "ru": "Стреляет быстрее."
+   },
+   {
+    "en": "A second drone.",
+    "ru": "Второй дрон."
+   },
+   {
+    "en": "More damage.",
+    "ru": "Больше урона."
+   },
+   {
+    "en": "A third drone.",
+    "ru": "Третий дрон."
+   },
+   {
+    "en": "Drones fire twice as fast.",
+    "ru": "Дроны стреляют вдвое быстрее."
+   },
+   {
+    "en": "A fourth drone.",
+    "ru": "Четвёртый дрон."
+   },
+   {
+    "en": "Overclocked: hardest-hitting drones.",
+    "ru": "Разгон: самые мощные дроны."
+   }
+  ]
+ }
+}

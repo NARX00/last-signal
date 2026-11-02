@@ -1,0 +1,202 @@
+{
+ "sectors": {
+  "foundry": {
+   "name": {
+    "en": "The Foundry",
+    "ru": "Литейная"
+   },
+   "desc": {
+    "en": "Crowded industrial network. +25% regular enemy spawn rate; +20% shard XP. Earn upgrades faster, but leave room to escape.",
+    "ru": "Тесная промышленная сеть. +25% к появлению обычных врагов; +20% опыта с осколков. Улучшения быстрее, но оставляй место для отхода."
+   }
+  },
+  "blackout": {
+   "name": {
+    "en": "Blackout",
+    "ru": "Затемнение"
+   },
+   "desc": {
+    "en": "Distant ordinary enemies are dimmed; shard pickup range −25%. On entry: one trigger + one effect for your code editor. Bosses, elites and attack warnings stay visible.",
+    "ru": "Далёкие обычные враги затемнены; радиус сбора осколков −25%. При входе: один триггер + один эффект для редактора кода. Боссы, элита и предупреждения об атаках остаются видимыми."
+   }
+  },
+  "sanctuary": {
+   "name": {
+    "en": "Sanctuary",
+    "ru": "Убежище"
+   },
+   "desc": {
+    "en": "A quieter repair network. −15% regular enemy spawn rate and repair 0.75 integrity per second; −15% shard XP. A recovery route with slower growth.",
+    "ru": "Более тихая ремонтная сеть. −15% к появлению обычных врагов и ремонт 0,75 целостности в секунду; −15% опыта с осколков. Путь восстановления с медленным ростом."
+   }
+  }
+ },
+ "boss_abilities": {
+  "auditor": {
+   "name": {
+    "en": "Audit Mark",
+    "ru": "Метка аудита"
+   },
+   "desc": {
+    "en": "Every 6 seconds, mark up to 3 nearby enemies for 4 seconds. Marked enemies take 35% more damage.",
+    "ru": "Каждые 6 секунд отмечает до 3 ближайших врагов на 4 секунды. Отмеченные враги получают на 35% больше урона."
+   }
+  },
+  "boss": {
+   "name": {
+    "en": "Purge Echo",
+    "ru": "Эхо зачистки"
+   },
+   "desc": {
+    "en": "Every 8 seconds, emit a 160m pulse dealing 28 base damage and pushing enemies away.",
+    "ru": "Каждые 8 секунд испускает импульс радиусом 160 м: 28 базового урона и отбрасывание врагов."
+   }
+  },
+  "collector": {
+   "name": {
+    "en": "Shard Siphon",
+    "ru": "Сифон осколков"
+   },
+   "desc": {
+    "en": "Every 10 seconds, pull all shards within 500m toward you.",
+    "ru": "Каждые 10 секунд притягивает к тебе все осколки в радиусе 500 м."
+   }
+  },
+  "mirror": {
+   "name": {
+    "en": "Mirror Lance",
+    "ru": "Зеркальное копьё"
+   },
+   "desc": {
+    "en": "Every 7 seconds, strike the nearest enemy within 420m for 45 base damage.",
+    "ru": "Каждые 7 секунд бьёт ближайшего врага в радиусе 420 м на 45 базового урона."
+   }
+  },
+  "phantom": {
+   "name": {
+    "en": "Phase Step",
+    "ru": "Фазовый шаг"
+   },
+   "desc": {
+    "en": "Every 12 seconds while moving, phase through enemies and firewalls for 1 second. Enemy shots can still hit you.",
+    "ru": "Каждые 12 секунд в движении проходишь сквозь врагов и файрволы на 1 секунду. Вражеские выстрелы всё ещё попадают."
+   }
+  }
+ },
+ "mutations": {
+  "return": {
+   "name": {
+    "en": "Return Protocol",
+    "ru": "Протокол возврата"
+   },
+   "desc": {
+    "en": "Glyph Bolt and Slow Rounds projectiles return once and may hit the same target again. Each pass deals 70% normal damage. Other weapons are unchanged.",
+    "ru": "Снаряды Глиф-болта и Замедляющих зарядов возвращаются один раз и могут снова попасть в ту же цель. Каждый проход наносит 70% обычного урона. Остальное оружие не меняется."
+   }
+  },
+  "mines": {
+   "name": {
+    "en": "Orbital Mines",
+    "ru": "Орбитальные мины"
+   },
+   "desc": {
+    "en": "Three proximity mines orbit you. Each detonates for 32 base damage, then re-arms after 6 seconds. Tradeoff: movement speed −8%.",
+    "ru": "Вокруг тебя кружат три мины. Каждая взрывается на 32 базового урона и перезаряжается через 6 секунд. Цена: скорость движения −8%."
+   }
+  },
+  "clone": {
+   "name": {
+    "en": "Afterimage",
+    "ru": "Остаточный образ"
+   },
+   "desc": {
+    "en": "Using a power leaves a clone at your old position. After 1 second it blasts a 120m area for 70 base damage. Tradeoff: power cooldowns +20%.",
+    "ru": "Способность оставляет клона на твоём прежнем месте. Через 1 секунду он взрывается в радиусе 120 м на 70 базового урона. Цена: перезарядка способностей +20%."
+   }
+  }
+ },
+ "specializations": {
+  "gunslinger": {
+   "name": {
+    "en": "Gunslinger",
+    "ru": "Стрелок"
+   },
+   "desc": {
+    "en": "Weapon damage +15%, but power cooldowns +10% and code damage −15%. A specialist in direct fire.",
+    "ru": "Урон оружия +15%, но перезарядка способностей +10% и урон кода −15%. Специалист по прямому огню."
+   }
+  },
+  "codebreaker": {
+   "name": {
+    "en": "Codebreaker",
+    "ru": "Взломщик"
+   },
+   "desc": {
+    "en": "Code damage +25%, but weapon damage −10% and shard pickup range −10%. Receive one trigger/effect kit on selection.",
+    "ru": "Урон кода +25%, но урон оружия −10% и радиус сбора осколков −10%. При выборе даёт набор: триггер и эффект."
+   }
+  },
+  "phantom": {
+   "name": {
+    "en": "Phantom",
+    "ru": "Фантом"
+   },
+   "desc": {
+    "en": "Movement speed +10%, but maximum integrity −10%. Built for evasion and positioning. This reduces current integrity proportionally too.",
+    "ru": "Скорость движения +10%, но максимальная целостность −10%. Для уклонения и позиционирования. Текущая целостность тоже снижается пропорционально."
+   }
+  }
+ },
+ "quests": {
+  "kills": {
+   "name": {
+    "en": "Purge contract",
+    "ru": "Контракт на зачистку"
+   },
+   "desc": {
+    "en": "Purge 200 enemies",
+    "ru": "Зачистить 200 врагов"
+   }
+  },
+  "shards": {
+   "name": {
+    "en": "Data recovery",
+    "ru": "Восстановление данных"
+   },
+   "desc": {
+    "en": "Collect 250 raw shard XP",
+    "ru": "Собрать 250 опыта с осколков"
+   }
+  },
+  "clean": {
+   "name": {
+    "en": "Ghost signal",
+    "ru": "Сигнал-призрак"
+   },
+   "desc": {
+    "en": "Survive 30 consecutive seconds without being hit",
+    "ru": "Продержаться 30 секунд подряд без попаданий"
+   }
+  }
+ },
+ "halos": {
+  "cyan": {
+   "name": {
+    "en": "Ion halo",
+    "ru": "Ионный ореол"
+   }
+  },
+  "amber": {
+   "name": {
+    "en": "Solar halo",
+    "ru": "Солнечный ореол"
+   }
+  },
+  "violet": {
+   "name": {
+    "en": "Void halo",
+    "ru": "Ореол пустоты"
+   }
+  }
+ }
+}

@@ -23,7 +23,7 @@
     <button class="btn" type="button" data-tr="level">Level up</button><button class="btn" type="button" data-tr="evolve">Evolve</button><button class="btn" type="button" data-tr="crowd">Crowd</button><button class="btn" type="button" data-tr="elite">Elite</button><button class="btn" type="button" data-tr="boss">Boss</button><button class="btn" type="button" data-tr="time">+1 min</button><button class="btn" type="button" data-tr="clear">Clear</button><button class="btn" type="button" data-tr="end">End</button>
   </div>
 </div>
-<div class="relay" id="relay" aria-live="polite"><span class="who">Relay</span><p id="relayText"></p></div>
+<div class="relay" id="relay" aria-live="polite"><span class="who">Relay</span><p id="relayText" data-noi18n></p></div>
 
 <!-- Title -->
 <section class="screen" id="discoveryChoice" role="dialog" aria-modal="true" aria-labelledby="discoveryHead" hidden><div class="panel lvl"><p class="eyebrow" id="discoveryEyebrow">Recovered experiment</p><h2 id="discoveryHead">Rewrite your approach</h2><p class="note" id="discoveryNote"></p><div class="cards" id="discoveryCards"></div></div></section>
@@ -117,6 +117,7 @@
           </div>
           <div data-panel="settings" role="tabpanel" hidden>
             <div class="setlist">
+              <div class="setrow" data-noi18n><span class="nm">Language · Язык</span><button class="btn" id="langT" type="button">English</button><span class="ds">English · Русский</span></div>
               <div class="setrow"><span class="nm">Progress sync</span><span></span><span class="ds" id="syncNote">Checking…</span></div>
               <div class="setrow tg-only"><span class="nm">Vibration</span><button class="btn" id="hapticT" type="button" aria-pressed="true">On</button><span class="ds">Short vibrations when you're hit, level up or delete a boss.</span></div>
               <div class="setrow" id="lbNameRow" hidden><label class="nm" for="lbNameIn">Leaderboard name</label><span></span><span class="ds"><input id="lbNameIn" maxlength="16" autocomplete="off" spellcheck="false" style="width:100%;max-width:220px;font:13px var(--mono);background:rgba(0,0,0,.4);color:var(--white);border:1px solid var(--edge);border-radius:6px;padding:6px 8px;user-select:text;-webkit-user-select:text;touch-action:auto"> <span id="lbNameNote"></span><br>Shown next to your best runs on the shared board. Up to 16 characters.</span></div>

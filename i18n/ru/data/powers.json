@@ -1,0 +1,125 @@
+{
+ "powers": {
+  "blink": {
+   "name": {
+    "en": "Blink",
+    "ru": "Скачок"
+   },
+   "desc": {
+    "en": "Dash through enemies, untouchable, scorching everything on the way.",
+    "ru": "Рывок сквозь врагов, неуязвимый, выжигая всё на пути."
+   }
+  },
+  "shell": {
+   "name": {
+    "en": "Shell",
+    "ru": "Оболочка"
+   },
+   "desc": {
+    "en": "A firewall bubble: 5 s of immunity. It burns what touches it and reflects shots.",
+    "ru": "Пузырь-файрвол: 5 с неуязвимости. Жжёт всё, что его касается, и отражает выстрелы."
+   }
+  },
+  "halt": {
+   "name": {
+    "en": "Halt",
+    "ru": "Стоп"
+   },
+   "desc": {
+    "en": "Freeze every enemy and shot for 4 s. Frozen enemies take 30% more damage.",
+    "ru": "Замораживает всех врагов и выстрелы на 4 с. Замороженные враги получают на 30% больше урона."
+   }
+  },
+  "nova": {
+   "name": {
+    "en": "Nova",
+    "ru": "Нова"
+   },
+   "desc": {
+    "en": "Overload: a blast that sweeps the whole screen and hurls enemies back.",
+    "ru": "Перегрузка: взрыв на весь экран, отбрасывающий врагов."
+   }
+  },
+  "slow": {
+   "name": {
+    "en": "Slowdown",
+    "ru": "Замедление"
+   },
+   "desc": {
+    "en": "Enemies and their shots crawl at 30% speed for 6 s. Your weapons fire 50% faster.",
+    "ru": "Враги и их выстрелы ползут на 30% скорости 6 с. Твоё оружие стреляет на 50% быстрее."
+   }
+  },
+  "decoy": {
+   "name": {
+    "en": "Decoy",
+    "ru": "Приманка"
+   },
+   "desc": {
+    "en": "Drop a fake signal. Enemies chase it for 6 s, then it detonates.",
+    "ru": "Оставь ложный сигнал. Враги гонятся за ним 6 с, затем он взрывается."
+   }
+  },
+  "sight": {
+   "name": {
+    "en": "Code Sight",
+    "ru": "Зрение кода"
+   },
+   "desc": {
+    "en": "See the world as code for 6 s: invisible ghosts and buried Caches show up, and everything takes +20% damage.",
+    "ru": "Видь мир как код 6 с: проявляются невидимые призраки и спрятанные Кэши, а всё получает +20% урона."
+   }
+  },
+  "phase": {
+   "name": {
+    "en": "Phase",
+    "ru": "Фаза"
+   },
+   "desc": {
+    "en": "For 4 s you walk through firewalls and enemies. Contact cannot hurt you; shots still can.",
+    "ru": "4 с ты проходишь сквозь файрволы и врагов. Касания не ранят; выстрелы — ранят."
+   }
+  },
+  "leap": {
+   "name": {
+    "en": "Leap",
+    "ru": "Прыжок"
+   },
+   "desc": {
+    "en": "Jump far in the direction you move and land with a shockwave.",
+    "ru": "Дальний прыжок в сторону движения и приземление с ударной волной."
+   }
+  },
+  "emp": {
+   "name": {
+    "en": "EMP",
+    "ru": "ЭМИ"
+   },
+   "desc": {
+    "en": "Wipes enemy shots and jams every shooter for 6 s. Your own drones and powers go dark for 3 s.",
+    "ru": "Стирает вражеские выстрелы и глушит всех стрелков на 6 с. Твои дроны и способности гаснут на 3 с."
+   }
+  },
+  "hijack": {
+   "name": {
+    "en": "Hijack",
+    "ru": "Перехват"
+   },
+   "desc": {
+    "en": "Rewrite nearby enemies to fight for you for 8 s, then they self-delete.",
+    "ru": "Перепиши ближайших врагов: 8 с они сражаются за тебя, затем самоудаляются."
+   }
+  }
+ },
+ "levels": [
+  null,
+  {
+   "en": "Recharges 15% faster and hits harder.",
+   "ru": "Перезаряжается на 15% быстрее и бьёт сильнее."
+  },
+  {
+   "en": "Overclocked: recharges 30% faster, lasts longer, hits hardest.",
+   "ru": "Разгон: перезаряжается на 30% быстрее, длится дольше, бьёт сильнее всего."
+  }
+ ]
+}

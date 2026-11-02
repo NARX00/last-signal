@@ -1,0 +1,32 @@
+{
+ "kana": {
+  "name": {
+   "en": "Katakana",
+   "ru": "Катакана"
+  }
+ },
+ "binary": {
+  "name": {
+   "en": "Binary",
+   "ru": "Двоичный"
+  }
+ },
+ "hex": {
+  "name": {
+   "en": "Hex dump",
+   "ru": "Шестнадцатеричный дамп"
+  }
+ },
+ "sigil": {
+  "name": {
+   "en": "Sigils",
+   "ru": "Сигилы"
+  }
+ },
+ "greek": {
+  "name": {
+   "en": "Greek",
+   "ru": "Греческий"
+  }
+ }
+}

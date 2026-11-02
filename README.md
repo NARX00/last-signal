@@ -15,7 +15,9 @@ outrun the swarm, build impossible weapons, and take down the Root Process.
 - Operators, powers, a Kernel of permanent upgrades, a Code library, specializations,
   mutations, routes and a Nemesis rival.
 - A shared leaderboard and daily challenge board.
-- Keyboard, mouse or touch. In Telegram, progress is saved to your Telegram account.
+- Keyboard, mouse or touch. In Telegram, progress is saved to your Telegram account, and an
+  unfinished run can be resumed after closing the app.
+- English and Russian. The game follows the Telegram or browser language; Settings → Language switches it.
 
 ## Controls
 
@@ -31,11 +33,13 @@ The game is JavaScript and ships as a single `index.html`. Python tools build an
     python tools/check.py     check data/ and assets/ for mistakes
     python tools/build.py     build index.html (and dist/ for publishing)
     python tools/sim.py       run the balance bot (needs Playwright)
+    python tools/i18n.py      list new or untranslated texts for a language
 
 - `src/` game code, styles and markup, split by topic
 - `data/` editable tables: enemies, weapons, systems, bosses, texts
 - `assets/` optional sprites, icons and music
-- `docs/CONTENT.md` how to add enemies, art, icons and music
+- `i18n/ru/` the Russian translation
+- `docs/CONTENT.md` how to add enemies, art, icons, music and translations
 - `docs/MONITORING.md` live player count, stats (`monitor.html`) and the leaderboard
 - `assets/brand/` the game icon (`icon.svg`; `python tools/render_icon.py` renders the PNGs)
 

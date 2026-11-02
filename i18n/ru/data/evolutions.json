@@ -1,0 +1,102 @@
+{
+ "bolt": {
+  "name": {
+   "en": "Sync Storm",
+   "ru": "Буря синхронизации"
+  },
+  "desc": {
+   "en": "Six homing glyphs, firing nonstop.",
+   "ru": "Шесть самонаводящихся глифов, огонь без остановки."
+  }
+ },
+ "pulse": {
+  "name": {
+   "en": "Event Horizon",
+   "ru": "Горизонт событий"
+  },
+  "desc": {
+   "en": "Huge rings that slow everything they touch.",
+   "ru": "Огромные кольца, замедляющие всё, чего касаются."
+  }
+ },
+ "orbit": {
+  "name": {
+   "en": "Firewall Halo",
+   "ru": "Огненный ореол"
+  },
+  "desc": {
+   "en": "Two counter-rotating rings of burning glyphs.",
+   "ru": "Два встречно вращающихся кольца пылающих глифов."
+  }
+ },
+ "bolt2": {
+  "name": {
+   "en": "Storm Uplink",
+   "ru": "Грозовой канал"
+  },
+  "desc": {
+   "en": "Eight strikes at once, each chaining three times.",
+   "ru": "Восемь ударов разом, каждый перескакивает трижды."
+  }
+ },
+ "well": {
+  "name": {
+   "en": "Singularity",
+   "ru": "Сингулярность"
+  },
+  "desc": {
+   "en": "Twin wells. Every kill inside repairs you.",
+   "ru": "Две воронки. Каждое убийство внутри чинит тебя."
+  }
+ },
+ "spread": {
+  "name": {
+   "en": "Time Dilation",
+   "ru": "Замедление времени"
+  },
+  "desc": {
+   "en": "Ten rounds that pierce everything and slow it.",
+   "ru": "Десять зарядов, пробивающих и замедляющих всё."
+  }
+ },
+ "mine": {
+  "name": {
+   "en": "Minefield",
+   "ru": "Минное поле"
+  },
+  "desc": {
+   "en": "Four bombs at a time, huge blasts that slow survivors.",
+   "ru": "Четыре бомбы разом, огромные взрывы замедляют выживших."
+  }
+ },
+ "boomer": {
+  "name": {
+   "en": "Recursion",
+   "ru": "Рекурсия"
+  },
+  "desc": {
+   "en": "Six big glyphs that fly far and come back twice as hard.",
+   "ru": "Шесть больших глифов летят далеко и возвращаются вдвое сильнее."
+  }
+ },
+ "drone": {
+  "name": {
+   "en": "Swarm Protocol",
+   "ru": "Протокол роя"
+  },
+  "desc": {
+   "en": "Five drones with piercing shots.",
+   "ru": "Пять дронов с пробивающими выстрелами."
+  }
+ },
+ "kata": {
+  "name": {
+   "en": "Perfect Form",
+   "ru": "Идеальная форма"
+  },
+  "desc": {
+   "en": "Strikes everything in reach; the combo climbs higher.",
+   "ru": "Бьёт всё в досягаемости; комбо растёт выше."
+  }
+ }
+}

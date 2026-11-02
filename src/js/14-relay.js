@@ -2,6 +2,7 @@
 let relayQ = [], relayBusy = false, relayTimer = 0, relayType = 0;
 function relay(text, urgent) {
   if (!text || !G) return;
+  text = tr(text);
   if (urgent) { relayQ = [{ text, urgent }]; nextRelay(); }
   else { if (relayQ.length < 3) relayQ.push({ text }); if (!relayBusy) nextRelay(); }
 }

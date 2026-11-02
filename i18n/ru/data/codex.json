@@ -1,0 +1,192 @@
+{
+ "warden": [
+  {
+   "en": "Warden",
+   "ru": "Страж"
+  },
+  {
+   "en": "Blue armor absorbs 55% damage for 3 seconds, followed by an exposed amber rush for 1.5 seconds. Keep your escape route open.",
+   "ru": "Синяя броня поглощает 55% урона 3 секунды, затем 1,5 секунды открытого янтарного рывка. Держи путь к отступлению свободным."
+  }
+ ],
+ "bug": [
+  {
+   "en": "Bug",
+   "ru": "Баг"
+  },
+  {
+   "en": "The most common process. Weak alone, dangerous in a swarm.",
+   "ru": "Самый обычный процесс. Один слаб, в рое опасен."
+  }
+ ],
+ "daemon": [
+  {
+   "en": "Daemon",
+   "ru": "Демон"
+  },
+  {
+   "en": "Faster and sturdier than a bug. Keep moving and it never catches you.",
+   "ru": "Быстрее и крепче бага. Не стой на месте — и он тебя не догонит."
+  }
+ ],
+ "drone": [
+  {
+   "en": "Drone",
+   "ru": "Дрон"
+  },
+  {
+   "en": "Circles at range and fires slow shots. Firewalls block them.",
+   "ru": "Кружит на расстоянии и стреляет медленными зарядами. Файрволы их блокируют."
+  }
+ ],
+ "lancer": [
+  {
+   "en": "Lancer",
+   "ru": "Копейщик"
+  },
+  {
+   "en": "Freezes, shows a white line, then charges along it. Step sideways.",
+   "ru": "Замирает, показывает белую линию, затем бросается по ней. Шагни в сторону."
+  }
+ ],
+ "split": [
+  {
+   "en": "Splitter",
+   "ru": "Разделитель"
+  },
+  {
+   "en": "Breaks into three bugs when destroyed. Kill it away from your path.",
+   "ru": "При уничтожении распадается на три бага. Убивай его подальше от своего пути."
+  }
+ ],
+ "watcher": [
+  {
+   "en": "Watcher",
+   "ru": "Наблюдатель"
+  },
+  {
+   "en": "Hangs back and fires down a red line. Break the line or hide behind a firewall.",
+   "ru": "Держится позади и стреляет вдоль красной линии. Сбей прицел или спрячься за файрволом."
+  }
+ ],
+ "brute": [
+  {
+   "en": "Brute",
+   "ru": "Громила"
+  },
+  {
+   "en": "A slow, armored block of code that hits hard.",
+   "ru": "Медленный бронированный блок кода, бьёт сильно."
+  }
+ ],
+ "leaker": [
+  {
+   "en": "Leaker",
+   "ru": "Утечка"
+  },
+  {
+   "en": "Leaves pools of corrupted data that hurt while you stand in them.",
+   "ru": "Оставляет лужи повреждённых данных, которые ранят, пока ты в них стоишь."
+  }
+ ],
+ "patcher": [
+  {
+   "en": "Patcher",
+   "ru": "Патчер"
+  },
+  {
+   "en": "Reads your strongest code line and patches against it. It and everything near it shrug off that effect. Kill it with your weapons.",
+   "ru": "Читает твою сильнейшую строку кода и ставит против неё патч. Он и всё рядом с ним не поддаются этому эффекту. Убивай его оружием."
+  }
+ ],
+ "scrubber": [
+  {
+   "en": "Scrubber",
+   "ru": "Чистильщик"
+  },
+  {
+   "en": "Hunts your code: it eats pools and pull fields and deletes shards that fly past it. It heals on every bite.",
+   "ru": "Охотится за твоим кодом: поедает лужи и поля притяжения и удаляет пролетающие мимо осколки. Лечится с каждым укусом."
+  }
+ ],
+ "eel": [
+  {
+   "en": "Eel",
+   "ru": "Угорь"
+  },
+  {
+   "en": "A long chain that weaves toward you. Every segment hurts.",
+   "ru": "Длинная цепь, петляющая к тебе. Ранит каждый сегмент."
+  }
+ ],
+ "auditor": [
+  {
+   "en": "The Auditor",
+   "ru": "Аудитор"
+  },
+  {
+   "en": "Marks the ground where you stand, then strikes it. Keep moving.",
+   "ru": "Отмечает землю, где ты стоишь, затем бьёт туда. Не останавливайся."
+  }
+ ],
+ "boss": [
+  {
+   "en": "The Agent",
+   "ru": "Агент"
+  },
+  {
+   "en": "Freezes, aims, then lunges along a white line. From phase 2 it lunges twice.",
+   "ru": "Замирает, целится, затем делает выпад по белой линии. Со 2-й фазы — дважды."
+  }
+ ],
+ "collector": [
+  {
+   "en": "The Collector",
+   "ru": "Коллекционер"
+  },
+  {
+   "en": "Eats the shards you leave behind and grows stronger. Collect fast.",
+   "ru": "Поедает оставленные тобой осколки и становится сильнее. Собирай быстро."
+  }
+ ],
+ "mirror": [
+  {
+   "en": "The Mirror",
+   "ru": "Зеркало"
+  },
+  {
+   "en": "Fires a fan that grows with every weapon you carry, plus expanding rings.",
+   "ru": "Стреляет веером, который растёт с каждым твоим оружием, и расходящимися кольцами."
+  }
+ ],
+ "ghost": [
+  {
+   "en": "Ghost",
+   "ru": "Призрак"
+  },
+  {
+   "en": "Nearly invisible: only a faint shimmer, unless you use Code Sight. Your weapons still hit it.",
+   "ru": "Почти невидим: лишь слабое мерцание, если не использовать Зрение кода. Оружие по нему всё равно попадает."
+  }
+ ],
+ "phantom": [
+  {
+   "en": "The Phantom",
+   "ru": "Фантом"
+  },
+  {
+   "en": "Phases out of reach, then turns solid and fires rings. Damage only lands while it is solid.",
+   "ru": "Уходит в фазу, затем становится осязаемым и стреляет кольцами. Урон проходит только пока он осязаем."
+  }
+ ],
+ "root": [
+  {
+   "en": "The Root Process",
+   "ru": "Корневой процесс"
+  },
+  {
+   "en": "The end of the run. It summons purges, collapses the arena, and strikes the ground in phase 3.",
+   "ru": "Конец забега. Вызывает зачистки, сжимает арену, а в 3-й фазе бьёт по земле."
+  }
+ ]
+}

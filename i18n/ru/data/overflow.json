@@ -1,0 +1,72 @@
+[
+ {
+  "name": {
+   "en": "Surge",
+   "ru": "Всплеск"
+  },
+  "desc": {
+   "en": "+6% damage. Stacks without limit.",
+   "ru": "+6% урона. Складывается без предела."
+  }
+ },
+ {
+  "name": {
+   "en": "Spillover",
+   "ru": "Перелив"
+  },
+  "desc": {
+   "en": "+6% area. Stacks without limit.",
+   "ru": "+6% площади. Складывается без предела."
+  }
+ },
+ {
+  "name": {
+   "en": "Burst Mode",
+   "ru": "Режим очереди"
+  },
+  "desc": {
+   "en": "Weapons recharge 3% faster. Stacks.",
+   "ru": "Оружие перезаряжается на 3% быстрее. Складывается."
+  }
+ },
+ {
+  "name": {
+   "en": "Mirror",
+   "ru": "Зеркало"
+  },
+  "desc": {
+   "en": "+15 max integrity and restore 15. Stacks.",
+   "ru": "+15 к макс. целостности и восстановить 15. Складывается."
+  }
+ },
+ {
+  "name": {
+   "en": "Slipstream",
+   "ru": "Поток"
+  },
+  "desc": {
+   "en": "+4% movement speed. Stacks.",
+   "ru": "+4% к скорости движения. Складывается."
+  }
+ },
+ {
+  "name": {
+   "en": "Compression",
+   "ru": "Сжатие"
+  },
+  "desc": {
+   "en": "+8% data from shards. Stacks.",
+   "ru": "+8% данных с осколков. Складывается."
+  }
+ },
+ {
+  "name": {
+   "en": "Restore",
+   "ru": "Восстановление"
+  },
+  "desc": {
+   "en": "Restore 50 integrity now.",
+   "ru": "Сразу восстановить 50 целостности."
+  }
+ }
+]

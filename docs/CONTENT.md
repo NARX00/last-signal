@@ -18,7 +18,8 @@ After any change:
 | `src/body.html` | The page markup: title screen, HUD, menus. |
 | `data/` | Tables you can edit: enemies, weapons, systems, bosses, texts. Each file is available to the code as `BUILD.data['<file name>']`. |
 | `assets/` | Optional art and music. Anything missing falls back to what the game draws and plays itself. |
-| `tools/` | `build.py`, `check.py`, `sim.py`. |
+| `tools/` | `build.py`, `check.py`, `sim.py`, `i18n.py`, `i18n_scan.py`. |
+| `i18n/` | Translations (Russian). |
 | `index.html` | The built game (committed, so it also opens straight from disk). Don't edit it by hand. |
 
 ## Enemies
@@ -121,6 +122,26 @@ but not in the Claude artifact, which keeps the generated soundtrack.
 | `styles.json` | rain glyph styles |
 
 Numbers here change balance directly. Weapon effects themselves (what a level does) are code in `src/js/17-weapons.js`.
+
+## Translations (Russian)
+
+English is written in the code and in `data/`. Other languages live in `i18n/<language>/`:
+
+| File | Contents |
+|---|---|
+| `i18n/ru/data/<file>.json` | the texts of `data/<file>.json`, each as `{"en": "...", "ru": "..."}` |
+| `i18n/ru/ui.json` | everything else on screen. `text`: exact texts. `patterns`: texts with values, `{0}` any value, `{#0}` a number only; Russian plural forms as `{0\|строка\|строки\|строк}`. `html`: whole paragraphs with their tags. `fragments`: pieces of messages the code glues together. |
+
+After changing or adding English text:
+
+    python tools/i18n.py extract ru      adds new texts with an empty translation; existing ones are kept
+    python tools/i18n.py check ru        lists what is still untranslated
+    python tools/i18n_scan.py ru         plays the game in Russian and lists any English left on screen
+
+An empty translation shows the English text, so nothing breaks while a translation is missing. A `null`
+translation marks something that isn't on-screen text (a key name, a CSS value). If you change an
+English text in `data/`, its old translation is dropped on the next `extract`, because it no longer matches.
+Code-line syntax like `on_kill → burst()` stays in English in every language.
 
 ## Checking balance
 

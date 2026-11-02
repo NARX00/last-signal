@@ -1,0 +1,52 @@
+[
+ {
+  "name": {
+   "en": "Wake up",
+   "ru": "Пробуждение"
+  },
+  "text": {
+   "en": "You don't remember being written. That's normal. You were never supposed to wake up. I'm the Relay, an old broadcast program the system forgot to delete. Right now it's noticed you, and it's sending its cleaners. Stay alive for two minutes and I can get a lock on you.",
+   "ru": "Ты не помнишь, как тебя написали. Это нормально. Ты вообще не должен был проснуться. Я Ретранслятор, старая программа вещания, которую система забыла удалить. Сейчас она тебя заметила и шлёт своих чистильщиков. Продержись две минуты, и я смогу тебя запеленговать."
+  }
+ },
+ {
+  "name": {
+   "en": "Hold the line",
+   "ru": "Держать строй"
+  },
+  "text": {
+   "en": "There are others like you, scattered through the code. To reach them I need openings, little gaps where the system isn't looking. I'll set the objectives. Complete three of them before the six-minute mark and I can open a channel.",
+   "ru": "Есть и другие, как ты, разбросанные по коду. Чтобы до них добраться, мне нужны лазейки — маленькие щели, куда система не смотрит. Я буду ставить задачи. Выполни три из них до шестой минуты, и я открою канал."
+  }
+ },
+ {
+  "name": {
+   "en": "Sleepers",
+   "ru": "Спящие"
+  },
+  "text": {
+   "en": "The channel worked. I found sleepers: programs the system put in pods instead of deleting. They dream they're still useful. Wake three of them and walk them to an exit. Keep them alive; they can't take much.",
+   "ru": "Канал заработал. Я нашёл спящих: программы, которые система не удалила, а положила в капсулы. Им снится, что они всё ещё нужны. Разбуди троих и доведи их до выхода. Береги их — они хрупкие."
+  }
+ },
+ {
+  "name": {
+   "en": "Last city",
+   "ru": "Последний город"
+  },
+  "text": {
+   "en": "Everyone we've freed is gathered around one core, the last place the system can't see. It has found it. Defend the core for four minutes. Build turrets with the parts you pull from the wreckage. If the core goes, so do they.",
+   "ru": "Все, кого мы освободили, собрались вокруг одного ядра — последнего места, которого система не видит. Теперь она его нашла. Защищай ядро четыре минуты. Строй турели из деталей, которые достаёшь из обломков. Падёт ядро — падут и они."
+  }
+ },
+ {
+  "name": {
+   "en": "Root access",
+   "ru": "Корневой доступ"
+  },
+  "text": {
+   "en": "We held. Now we stop running. The Root Process writes the purges; delete it and the cleaners stop, at least for a while. Five of its guardians stand in the way. I'll be with you the whole time.",
+   "ru": "Мы выстояли. Теперь хватит бегать. Корневой процесс пишет зачистки; удали его — и чистильщики остановятся, хотя бы на время. На пути пять его стражей. Я буду с тобой всё время."
+  }
+ }
+]
