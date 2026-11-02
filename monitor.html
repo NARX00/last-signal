@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-pHyy4iFpSHrMV8puGurZ08g2f1m7dJTfBw48hpFmSQY='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; media-src 'self' data: blob:; connect-src 'self' https://lastsignal-173b0-default-rtdb.firebaseio.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
 <meta name="robots" content="noindex">
@@ -56,7 +56,7 @@ code { color: var(--cyan); }
   <div id="app"></div>
 </main>
 <script>
-const CONFIG = {"database_url": "https://lastsignal-173b0-default-rtdb.firebaseio.com", "heartbeat_seconds": 30};
+const CONFIG = {"database_url": "https://lastsignal-173b0-default-rtdb.firebaseio.com", "heartbeat_seconds": 30, "api_key": "AIzaSyBhdp0bpM3oL1AiuikvsUq9yhFaoVLRJp4"};
 (() => {
 'use strict';
 const base = String(CONFIG.database_url || '').replace(/\/+$/, '');

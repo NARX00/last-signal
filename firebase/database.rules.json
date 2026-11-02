@@ -4,8 +4,8 @@
     ".write": false,
     "presence": {
       ".read": true,
-      "$device": {
-        ".write": "$device.length >= 8 && $device.length <= 40",
+      "$id": {
+        ".write": "auth != null && auth.uid === $id",
         ".validate": "newData.hasChild('t') && newData.child('t').isNumber() && newData.child('t').val() <= now + 60000",
         "t": {
           ".validate": "newData.isNumber()"
@@ -32,14 +32,14 @@
       "$day": {
         ".validate": "$day.matches(/^20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]$/)",
         "devices": {
-          "$device": {
-            ".write": "$device.length >= 8 && $device.length <= 40",
+          "$id": {
+            ".write": "auth != null && auth.uid === $id",
             ".validate": "newData.val() === true"
           }
         },
         "$counter": {
-          ".write": "$counter === 'opens' || $counter === 'telegram' || $counter === 'runs' || $counter === 'finished' || $counter === 'wins' || $counter === 'secs' || $counter === 'errors'",
-          ".validate": "newData.isNumber() && newData.val() >= 0 && ((!data.exists() && newData.val() <= 1200) || (data.exists() && newData.val() >= data.val() && newData.val() <= data.val() + 1200))"
+          ".write": "auth != null && ($counter === 'opens' || $counter === 'telegram' || $counter === 'runs' || $counter === 'finished' || $counter === 'wins' || $counter === 'secs' || $counter === 'errors')",
+          ".validate": "newData.isNumber() && newData.val() >= 0 && ($counter === 'secs' ? ((!data.exists() && newData.val() <= 1200) || (data.exists() && newData.val() > data.val() && newData.val() <= data.val() + 1200)) : ((!data.exists() && newData.val() === 1) || (data.exists() && newData.val() === data.val() + 1)))"
         }
       }
     },
@@ -48,13 +48,16 @@
       "$day": {
         ".validate": "$day.matches(/^20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]$/)",
         "$error": {
-          ".write": "!data.exists()",
-          ".validate": "newData.hasChildren(['m', 't']) && newData.child('m').isString() && newData.child('m').val().length <= 260",
+          ".write": "auth != null && !data.exists()",
+          ".validate": "newData.hasChildren(['m', 't', 'u']) && newData.child('u').val() === auth.uid && newData.child('m').isString() && newData.child('m').val().length <= 260",
           "m": {
             ".validate": "newData.isString()"
           },
           "t": {
-            ".validate": "newData.isNumber()"
+            ".validate": "newData.isNumber() && newData.val() <= now + 60000"
+          },
+          "u": {
+            ".validate": "newData.isString()"
           },
           "v": {
             ".validate": "newData.isString() && newData.val().length <= 16"
@@ -73,9 +76,9 @@
       ".indexOn": [
         "score"
       ],
-      "$device": {
-        ".write": "$device.length >= 8 && $device.length <= 40",
-        ".validate": "newData.hasChildren(['name', 'score', 'secs', 'kills', 'at']) && newData.child('score').isNumber() && newData.child('score').val() >= 0 && newData.child('score').val() <= 6000000000",
+      "$id": {
+        ".write": "auth != null && auth.uid === $id",
+        ".validate": "newData.hasChildren(['name', 'score', 'secs', 'kills', 'at', 'proto']) && ((newData.child('kills').val() <= 9999 && newData.child('score').val() === newData.child('proto').val() * 1000000000 + newData.child('secs').val() * 10000 + newData.child('kills').val()) || (newData.child('kills').val() > 9999 && newData.child('score').val() === newData.child('proto').val() * 1000000000 + newData.child('secs').val() * 10000 + 9999)) && newData.child('kills').val() <= newData.child('secs').val() * 60 + 200",
         "name": {
           ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 16"
         },
@@ -83,10 +86,10 @@
           ".validate": "newData.isNumber()"
         },
         "secs": {
-          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1300"
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1300 && newData.val() % 1 === 0"
         },
         "kills": {
-          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 500000"
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 500000 && newData.val() % 1 === 0"
         },
         "won": {
           ".validate": "newData.isBoolean()"
@@ -94,17 +97,17 @@
         "at": {
           ".validate": "newData.isNumber() && newData.val() <= now + 60000"
         },
+        "$other": {
+          ".validate": false
+        },
         "level": {
           ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 500"
         },
         "proto": {
-          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 5"
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 5 && newData.val() % 1 === 0"
         },
         "prog": {
           ".validate": "newData.isString() && newData.val().length <= 160"
-        },
-        "$other": {
-          ".validate": false
         }
       }
     },
@@ -115,9 +118,9 @@
           "score"
         ],
         ".validate": "$day.matches(/^20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]$/)",
-        "$device": {
-          ".write": "$device.length >= 8 && $device.length <= 40",
-          ".validate": "newData.hasChildren(['name', 'score', 'secs', 'kills', 'at']) && newData.child('score').isNumber() && newData.child('score').val() >= 0 && newData.child('score').val() <= 6000000000",
+        "$id": {
+          ".write": "auth != null && auth.uid === $id",
+          ".validate": "newData.hasChildren(['name', 'score', 'secs', 'kills', 'at']) && ((newData.child('kills').val() <= 9999 && newData.child('score').val() === newData.child('secs').val() * 10000 + newData.child('kills').val()) || (newData.child('kills').val() > 9999 && newData.child('score').val() === newData.child('secs').val() * 10000 + 9999)) && newData.child('kills').val() <= newData.child('secs').val() * 60 + 200",
           "name": {
             ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 16"
           },
@@ -125,10 +128,10 @@
             ".validate": "newData.isNumber()"
           },
           "secs": {
-            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1300"
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1300 && newData.val() % 1 === 0"
           },
           "kills": {
-            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 500000"
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 500000 && newData.val() % 1 === 0"
           },
           "won": {
             ".validate": "newData.isBoolean()"

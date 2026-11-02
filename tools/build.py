@@ -35,7 +35,7 @@ ICONS = (
     f'<meta property="og:image" content="{SITE_URL}assets/brand/banner-640x360.png">'
 )
 TELEGRAM_HEAD = (
-    '<!doctype html><html lang="en"><head><meta charset="utf-8">'
+    '<!doctype html><html lang="en"><head><meta charset="utf-8"><!--CSP-->'
     '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">'
     '<meta name="color-scheme" content="dark">' + ICONS + '<style>body{margin:0}[hidden]{display:none!important}</style>'
     '<script src="https://telegram.org/js/telegram-web-app.js"></script></head><body>\n'
@@ -45,6 +45,28 @@ TELEGRAM_TAIL = '</body></html>\n'
 IMAGE_EXT = {'.png', '.svg', '.webp', '.jpg', '.jpeg', '.gif'}
 AUDIO_EXT = {'.mp3', '.ogg', '.m4a', '.wav'}
 MARKER = '/*@@BUILD_DATA@@*/'
+
+
+def csp(page, game=True):
+    """Content-Security-Policy for a published page: scripts only the page's own (by their sha256 hash) and,
+    for the game, Telegram's; network only to the Firebase database and Google's sign-in service."""
+    import re
+    hashes = ' '.join("'sha256-" + base64.b64encode(hashlib.sha256(m.encode()).digest()).decode() + "'"
+                      for m in re.findall(r'<script>(.*?)</script>', page, re.S))
+    tele = json.loads((DATA / 'telemetry.json').read_text(encoding='utf-8')) if (DATA / 'telemetry.json').exists() else {}
+    db = str(tele.get('database_url', '')).rstrip('/')
+    connect = ' '.join(x for x in ("'self'", db, 'https://identitytoolkit.googleapis.com https://securetoken.googleapis.com' if tele.get('api_key') else '') if x)
+    parts = [
+        "default-src 'self'",
+        f"script-src {hashes}" + (' https://telegram.org' if game else ''),
+        "style-src 'self' 'unsafe-inline'" + (' https://fonts.googleapis.com' if game else ''),
+        "font-src 'self' data:" + (' https://fonts.gstatic.com' if game else ''),
+        "img-src 'self' data: blob:",
+        "media-src 'self' data: blob:",
+        f'connect-src {connect}',
+        "object-src 'none'", "base-uri 'none'", "form-action 'none'",
+    ]
+    return '<meta http-equiv="Content-Security-Policy" content="' + '; '.join(parts) + '">'
 
 
 def read_parts(folder, pattern):
@@ -124,7 +146,8 @@ def build_monitor():
     """monitor.html: the live dashboard, reading the same database the game reports to."""
     tele = load_data().get('telemetry', {})
     page = (SRC / 'monitor.html').read_text(encoding='utf-8')
-    return page.replace('/*@@MONITOR_CONFIG@@*/', 'const CONFIG = ' + json.dumps(tele) + ';', 1)
+    page = page.replace('/*@@MONITOR_CONFIG@@*/', 'const CONFIG = ' + json.dumps(tele) + ';', 1)
+    return page.replace('<meta charset="utf-8">', '<meta charset="utf-8">' + csp(page, game=False), 1)
 
 
 def main():
@@ -132,7 +155,8 @@ def main():
     ap.add_argument('--check', action='store_true', help='fail if index.html is out of date')
     ap.add_argument('--sim', action='store_true', help='also build dist/sim.html for tools/sim.py')
     args = ap.parse_args()
-    site = TELEGRAM_HEAD + build_game() + TELEGRAM_TAIL
+    game = build_game()
+    site = TELEGRAM_HEAD.replace('<!--CSP-->', csp(game)) + game + TELEGRAM_TAIL
     if args.check:
         current = (ROOT / 'index.html').read_text(encoding='utf-8') if (ROOT / 'index.html').exists() else ''
         mon = (ROOT / 'monitor.html').read_text(encoding='utf-8') if (ROOT / 'monitor.html').exists() else ''
@@ -154,7 +178,7 @@ def main():
     print(f'dist/claude-artifact.html  {len(artifact.encode()) / 1024:6.0f} KB  Claude artifact')
     if args.sim:
         hook = (ROOT / 'tools' / 'sim_hook.js').read_text(encoding='utf-8')
-        sim = TELEGRAM_HEAD.replace('<script src="https://telegram.org/js/telegram-web-app.js"></script>', '') + build_game(sim_hook=hook) + TELEGRAM_TAIL
+        sim = TELEGRAM_HEAD.replace('<!--CSP-->', '').replace('<script src="https://telegram.org/js/telegram-web-app.js"></script>', '') + build_game(sim_hook=hook) + TELEGRAM_TAIL
         (DIST / 'sim.html').write_text(sim, encoding='utf-8')
         print('dist/sim.html                         test build for tools/sim.py')
     return 0

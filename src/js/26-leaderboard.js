@@ -6,13 +6,12 @@ renderLocal();
 // ---- shared board on the Firebase database (GitHub Pages and Telegram; the Claude artifact keeps its own) ----
 const FBB = { base: String((BUILD.data.telemetry || {}).database_url || '').replace(/\/+$/, ''), timer: 0 };
 FBB.on = () => !!FBB.base && !window.claude;
-const fbReq = (method, path, body, query = '') => fetch(`${FBB.base}/${path}.json${query}`, { method, cache: 'no-store', headers: { 'Content-Type': 'application/json' }, body: body === undefined ? undefined : JSON.stringify(body) }).then(r => r.ok ? r.json() : null).catch(() => null);
+const fbReq = (method, path, body, query = '') => FB.fetch(method, path, body, query).then(r => r && r.ok ? r.json() : null).catch(() => null);
 const topQ = n => `?orderBy=${encodeURIComponent('"score"')}&limitToLast=${n}`;
 const fbRows = o => Object.entries(o || {}).map(([id, v]) => Object.assign({ id }, v)).filter(r => typeof r.score === 'number').sort((a, b) => b.score - a.score);
 const cleanName = s => String(s || '').replace(/[\u0000-\u001f\u007f<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 16);
 function lbName() {
   const own = cleanName(SET.lbName); if (own) return own;
-  try { const u = TG && TG.initDataUnsafe && TG.initDataUnsafe.user; const n = cleanName(u && u.first_name); if (n) return n; } catch (_) {}
   return 'Player ' + TELE.id.slice(-4).toUpperCase();
 }
 async function fbLoad() {
@@ -20,11 +19,13 @@ async function fbLoad() {
   NET.board = fbRows(all); renderBoard();
   NET.daily = fbRows(day); renderDailyBoard();
   NET.myScore = mine && typeof mine.score === 'number' ? mine.score : 0;
+  // signed in under a new id (first time after sign-in was switched on): bring this device's best run across
+  if (FB.signed && !mine && localBest.score > 0 && SET.lbShow !== false && !FBB.moved) { FBB.moved = true; fbSubmit(localBest.score, localBest.secs, localBest.kills, undefined, false, localBest.proto || 0, ''); }
 }
-async function fbSubmit(score, secs, kills, level, won, proto) {
+async function fbSubmit(score, secs, kills, level, won, proto, prog) {
   if (SET.lbShow === false) return { note: 'Saved. You chose not to appear on the leaderboard (Settings).' };
   if (score <= NET.myScore) { const i = NET.board.findIndex(r => r.id === NET.uid); return { rank: i >= 0 ? i + 1 : 0, note: 'Your leaderboard best still stands.' }; }
-  const ok = await fbReq('PUT', `scores/${NET.uid}`, { name: lbName(), score, secs, kills, level, won: !!won, proto, prog: progText(true), at: { '.sv': 'timestamp' } });
+  const ok = await fbReq('PUT', `scores/${NET.uid}`, { name: lbName(), score, secs, kills, level, won: !!won, proto, prog: prog === undefined ? progText(true) : prog || undefined, at: { '.sv': 'timestamp' } });
   if (!ok) return { note: "Saved on this device. The leaderboard couldn't be reached right now." };
   await fbLoad();
   const i = NET.board.findIndex(r => r.id === NET.uid);
@@ -56,7 +57,7 @@ async function initBoard() {
     NET.sync = false; syncLabel(); $('board').hidden = true;
     if (TGC.ok) tgSyncLoad();
     if (FBB.on()) {
-      NET.fb = true; NET.uid = TELE.id; $('board').hidden = false;
+      await TELE.ready; NET.fb = true; NET.uid = TELE.id; $('board').hidden = false; $('lbNameIn').value = lbName();
       $('boardEmpty').textContent = 'No runs on the board yet. Survive as long as you can and yours will be the first.';
       fbLoad(); clearInterval(FBB.timer); FBB.timer = setInterval(() => { if (state === 'title' || state === 'over') fbLoad(); }, 60000);
       return;

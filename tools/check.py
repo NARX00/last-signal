@@ -112,6 +112,11 @@ def main():
         err('telemetry.database_url: expected a Firebase Realtime Database address like https://<name>-default-rtdb.firebaseio.com')
     if url.endswith('.json') or '?' in url:
         err('telemetry.database_url: use the bare database address, without a path, ".json" or "?"')
+    key = tele.get('api_key', '')
+    if key and not (isinstance(key, str) and key.startswith('AIza') and 30 <= len(key) <= 50):
+        err('telemetry.api_key: expected the Firebase Web API key (Project settings → General), which starts with "AIza"')
+    if url and not key:
+        warn('telemetry: no "api_key", so players are not signed in and anyone can change any leaderboard entry (see docs/MONITORING.md → Security)')
     if 'heartbeat_seconds' in tele and not (num(tele['heartbeat_seconds']) and 15 <= tele['heartbeat_seconds'] <= 300):
         err('telemetry.heartbeat_seconds: use a number between 15 and 300')
 
