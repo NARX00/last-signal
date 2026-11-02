@@ -88,7 +88,8 @@ function renderPowers() {
   updatePowers();
 }
 // the Relay box and pop-ups stop short of the round buttons, however many there are
-function fitPowers() { const w = $('powers').offsetWidth || 0; document.documentElement.style.setProperty('--pw-w', w + 'px'); }
+// the Relay box ends before the power buttons, however many there are (measured only while they're on screen)
+function fitPowers() { const w = $('powers').offsetWidth || 0; if (w) document.documentElement.style.setProperty('--pw-w', w + 'px'); }
 function updatePowers() {
   if (!G) return;
   G.pw.forEach((p, i) => {

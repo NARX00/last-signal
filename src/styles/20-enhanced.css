@@ -88,7 +88,7 @@ body:has(#levelup:not([hidden]), #editor:not([hidden]), #discoveryChoice:not([hi
   .banner .k { font-size: 9px; }
   .banner .t { font-size: 26px; opacity: .9; }
   /* Relay: a small subtitle in the corner */
-  .relay { width: min(250px, calc(100% - 170px)); padding: 6px 8px; background: rgba(4,14,20,.42); border-color: rgba(120,200,190,.12); border-left-width: 2px; }
+  .relay { width: min(250px, calc(100% - var(--pw-w, 190px) - 32px)); padding: 6px 8px; background: rgba(4,14,20,.42); border-color: rgba(120,200,190,.12); border-left-width: 2px; }
   .relay .who { font-size: 8px; margin-bottom: 2px; }
   .relay p { font-size: 10px; line-height: 1.35; color: rgba(232,248,240,.9); }
   /* pop-ups: a small line */

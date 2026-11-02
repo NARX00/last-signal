@@ -10,7 +10,7 @@ function nextRelay() {
   clearTimeout(relayTimer); clearInterval(relayType);
   const m = relayQ.shift(), box = $('relay'), el = $('relayText');
   if (!m) { relayBusy = false; box.classList.remove('show'); placeToast(); return; }
-  relayBusy = true; box.classList.toggle('urgent', !!m.urgent); box.classList.add('show');
+  relayBusy = true; fitPowers(); box.classList.toggle('urgent', !!m.urgent); box.classList.add('show');
   if (reduced) { el.textContent = m.text; placeToast(); relayTimer = setTimeout(nextRelay, 5200); return; }
   let i = 0; el.textContent = '';
   relayType = setInterval(() => { i += 2; el.textContent = m.text.slice(0, i); placeToast(); if (i >= m.text.length) { clearInterval(relayType); relayTimer = setTimeout(nextRelay, 4200); } }, 28);
