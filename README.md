@@ -45,3 +45,8 @@ The game is JavaScript and ships as a single `index.html`. Python tools build an
 - `assets/brand/` the game icon (`icon.svg`; `python tools/render_icon.py` renders the PNGs)
 
 Pushing to `main` checks, builds and publishes the site through GitHub Actions.
+
+## License and privacy
+
+Copyright (c) 2026 NARX00. All rights reserved; see [LICENSE](LICENSE). The game's privacy page is
+`src/privacy.html`, published as `privacy.html` next to the game and linked from Settings → Privacy.

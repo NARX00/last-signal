@@ -104,7 +104,7 @@ const ACH = [
   { id: 'k100k',    name: 'The great purge',   reward: 300, desc: 'Purge 100,000 in total.',                          test: () => META.totalKills >= 100000 },
   { id: 'bosses',   name: 'Four for four',     reward: 150, desc: 'Defeat each of the four bosses at least once.',    test: () => ['auditor', 'boss', 'collector', 'mirror'].every(k => (META.bossSeen || {})[k]) },
   { id: 'mirror0',  name: 'No reflection',     reward: 250, desc: 'Beat the Mirror without taking damage during the fight.', test: R => R && R.clean.mirror },
-  { id: 'agent0',   name: 'Untouchable',       reward: 200, desc: 'Beat the Agent without taking damage during the fight.',  test: R => R && R.clean.boss },
+  { id: 'agent0',   name: 'Untouchable',       reward: 200, desc: 'Beat the Enforcer without taking damage during the fight.',  test: R => R && R.clean.boss },
   { id: 'evo2',     name: 'Signature',         reward: 60,  desc: 'Evolve two weapons in one run.',                   test: R => R && R.evos >= 2 },
   { id: 'evoall',   name: 'Full catalogue',    reward: 500, desc: 'Evolve every weapon at least once.',               test: () => Object.keys(EVO).every(k => (META.evoSeen || {})[k]) },
   { id: 'lv40',     name: 'Overclocked',       reward: 100, desc: 'Reach level 40.',                                  test: R => R && R.level >= 40 },

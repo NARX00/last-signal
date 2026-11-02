@@ -41,3 +41,11 @@ for (const id of ['fbText', 'fbName']) $(id).addEventListener('keydown', e => { 
 $('fbSetBtn').addEventListener('click', () => openFeedback('settings'));
 $('fbPauseBtn').addEventListener('click', () => openFeedback('pause'));
 $('fbOverBtn').addEventListener('click', () => openFeedback('over'));
+
+// privacy page, in the player's language; in Telegram it opens in Telegram's browser so the game stays open
+document.querySelectorAll('.privacy-only').forEach(el => { el.hidden = !!window.claude || location.protocol === 'file:'; });
+$('privacyBtn').addEventListener('click', () => {
+  const url = new URL('privacy.html#' + LANG, location.href).href;
+  try { if (TG && TG.openLink) { TG.openLink(url); return; } } catch (_) {}
+  window.open(url, '_blank', 'noopener');
+});

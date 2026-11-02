@@ -54,7 +54,7 @@
   "threat": "You're clearing them too fast. The system is sending sturdier code. Take a hit and it eases off.",
   "warn": {
     "auditor": "Something is auditing this sector. When the ground under you turns red, move.",
-    "boss": "An Agent is coming. It lunges. Watch for the white line.",
+    "boss": "The Enforcer is coming. It lunges. Watch for the white line.",
     "collector": "The Collector feeds on loose data. Kill it before it eats your shards.",
     "mirror": "The Mirror learns your weapons. The stronger you are, the harder it hits back.",
     "phantom": "A Phantom. It walks through walls and through your fire. Hit it when it turns solid.",

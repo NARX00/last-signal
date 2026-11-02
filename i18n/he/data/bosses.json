@@ -12,12 +12,12 @@
   },
   "boss": {
    "name": {
-    "en": "The Agent",
-    "he": "הסוכן"
+    "en": "The Enforcer",
+    "he": "האוכף"
    },
    "sub": {
-    "en": "Enforcer of the purge",
-    "he": "אוכף הטיהור"
+    "en": "Hand of the purge",
+    "he": "היד של הטיהור"
    }
   },
   "collector": {

@@ -1,7 +1,7 @@
 {
   "info": {
     "auditor": { "name": "The Auditor", "sub": "It marks where you stand" },
-    "boss": { "name": "The Agent", "sub": "Enforcer of the purge" },
+    "boss": { "name": "The Enforcer", "sub": "Hand of the purge" },
     "collector": { "name": "The Collector", "sub": "It eats what you leave behind" },
     "mirror": { "name": "The Mirror", "sub": "Your weapons, turned on you" },
     "phantom": { "name": "The Phantom", "sub": "Only solid for a moment" },

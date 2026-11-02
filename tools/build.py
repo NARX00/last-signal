@@ -140,6 +140,7 @@ def write_site(site):
     for p in sorted((ASSETS / 'brand').glob('*.png')):
         shutil.copy2(p, out / 'assets' / 'brand' / p.name)
     (out / 'monitor.html').write_text(build_monitor(), encoding='utf-8')
+    shutil.copy2(SRC / 'privacy.html', out / 'privacy.html')
 
 
 def build_monitor():

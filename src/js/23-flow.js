@@ -58,7 +58,7 @@ function pauseGame() {
   renderRouteStatus();
   const ready = Object.keys(EVO).filter(evoReady).map(id => EVO[id].name);
   const want = Object.keys(P.W).filter(id => !P.evo[id]).map(id => `${WDEF[id].name} → ${EVO[id].name} (max it, own ${PDEF[EVO[id].need].name})`);
-  $('pauseHint').textContent = ready.length ? `Ready to evolve: ${ready.join(', ')}. Open a Cache from an elite or Agent.` : want.length ? 'Evolutions: ' + want.join(' · ') : '';
+  $('pauseHint').textContent = ready.length ? `Ready to evolve: ${ready.join(', ')}. Open a Cache from an elite or the Enforcer.` : want.length ? 'Evolutions: ' + want.join(' · ') : '';
   $('pause').hidden = false;
   setTimeout(() => $('resumeBtn').focus({ preventScroll: true }), 30);
 }

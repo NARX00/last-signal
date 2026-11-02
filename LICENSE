@@ -1,0 +1,15 @@
+Last Signal: Rewrite
+Copyright (c) 2026 NARX00. All rights reserved.
+
+This repository is published so the game can be played and its source read. No license is granted: you may not
+copy, modify, distribute, sublicense, host or sell this software or its content (code, data, texts, translations,
+artwork, icons and generated music), in whole or in part, without the copyright holder's written permission.
+Viewing and forking on GitHub are allowed only as GitHub's Terms of Service require for public repositories; a fork
+grants no further rights.
+
+Third-party components keep their own licenses and are not covered by this notice:
+- Fonts Share Tech Mono, VT323, PT Mono and Noto Sans Hebrew, loaded from Google Fonts (SIL Open Font License 1.1).
+- telegram-web-app.js, loaded from telegram.org by the Telegram Mini App (Telegram's terms).
+- Firebase Realtime Database and Firebase Authentication by Google, used as online services (Google's terms).
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.

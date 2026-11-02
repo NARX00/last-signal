@@ -12,12 +12,12 @@
   },
   "boss": {
    "name": {
-    "en": "The Agent",
-    "ru": "Агент"
+    "en": "The Enforcer",
+    "ru": "Каратель"
    },
    "sub": {
-    "en": "Enforcer of the purge",
-    "ru": "Исполнитель зачистки"
+    "en": "Hand of the purge",
+    "ru": "Рука зачистки"
    }
   },
   "collector": {
