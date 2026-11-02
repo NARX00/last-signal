@@ -60,3 +60,42 @@ body.bannering #signalStatus { opacity: .08; }
 /* while a choice of cards is open, pop-up messages wait out of the way instead of covering the cards */
 body:has(#levelup:not([hidden]), #discoveryChoice:not([hidden]), #sectorChoice:not([hidden]), #opcall:not([hidden]), #trade:not([hidden])) .toast { opacity: 0; }
 .hud .lv { white-space: nowrap; }
+
+/* ===== Phones: a quiet HUD. Small, see-through, and nothing over the middle of the field. ===== */
+@media (max-width: 760px) {
+  .hud { gap: 4px; padding: env(safe-area-inset-top, 0px) 10px 0; }
+  .hudrow { background: rgba(4,14,20,.32); border-color: rgba(120,200,190,.14); padding: 4px 10px; border-radius: 8px; }
+  .hud .timer { font-size: 22px; }
+  .hud .lv { font-size: 10px; } .hud .lv b { font-size: 18px; } .hud .xpn { font-size: 9px; margin-left: 6px; }
+  .hud .kills b { font-size: 18px; } .hud .kills { margin-right: 36px; }
+  .pausebtn { width: 28px; height: 28px; top: calc(8px + env(safe-area-inset-top, 0px)); right: 10px; font-size: 12px; background: rgba(0,10,4,.35); }
+  #hud .vitality { font-size: 9px; color: rgba(166,197,206,.75); gap: 6px; }
+  #hud .vitality div { height: 3px; }
+  .slots { opacity: .6; }
+  .slot { background: transparent; }
+  /* route and quest lines live on the pause screen on phones */
+  #sectorReadout, #questReadout { display: none; }
+  /* signal hunt: one small see-through line instead of a card */
+  #signalStatus { width: auto; max-width: 62%; background: rgba(4,14,20,.3); border-color: rgba(120,200,190,.14); padding: 4px 8px; border-radius: 8px; }
+  #signalStatus small { display: none; }
+  #signalStatus strong { font-size: 10px; margin: 0; color: rgba(228,251,255,.85); }
+  #signalStatus .signal-track { margin-top: 3px; height: 2px; }
+  #signalStatus p { font-size: 9px; margin-top: 2px; line-height: 1.3; color: rgba(153,183,193,.8); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #overloadBtn { margin-top: 4px; padding: 3px 6px; font-size: 9px; }
+  #overloadBtn span { display: none !important; }
+  /* titles: short and light, high up */
+  .banner { top: 24%; }
+  .banner .k { font-size: 9px; }
+  .banner .t { font-size: 26px; opacity: .9; }
+  /* Relay: a small subtitle in the corner */
+  .relay { width: min(250px, calc(100% - 170px)); padding: 6px 8px; background: rgba(4,14,20,.42); border-color: rgba(120,200,190,.12); border-left-width: 2px; }
+  .relay .who { font-size: 8px; margin-bottom: 2px; }
+  .relay p { font-size: 10px; line-height: 1.35; color: rgba(232,248,240,.9); }
+  /* pop-ups: a small line */
+  .toast { font-size: 10px; padding: 5px 9px; border-radius: 6px; background: rgba(20,12,0,.55); max-width: min(300px, calc(100vw - 40px)); line-height: 1.35; }
+  /* power buttons: smaller and see-through */
+  .pw { width: 54px; height: 54px; background: rgba(0,14,6,.3); font-size: 22px; box-shadow: none; }
+  .pw .sec { font-size: 14px; } .pw.op .sec { font-size: 11px; }
+  .powers { gap: 8px; right: 10px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
+  .toast { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+}
