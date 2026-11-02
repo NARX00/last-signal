@@ -16,7 +16,7 @@ function updateHud(force) {
   const et = G.exitTxt || G.evtTxt || G.goalTxt || '';
   if (force || lastHud.ev !== et) { lastHud.ev = et; const el = $('evt'); el.hidden = !et; el.textContent = et; }
   const th = G.threat.toFixed(1);
-  if (force || lastHud.th !== th) { lastHud.th = th; const el = $('threat'); el.hidden = G.threat < 1.1; el.textContent = 'Threat ×' + th; el.classList.toggle('hot', G.threat >= 1.35); }
+  if (force || lastHud.th !== th) { lastHud.th = th; const el = $('threat'); el.hidden = G.threat < 1.1; el.textContent = 'Threat ×' + th; el.classList.toggle('hot', G.threat >= 1.6); }
   if (G.boss) $('bossfill').style.width = clamp(G.boss.hp / G.boss.max * 100, 0, 100) + '%';
 }
 function slotEl(id, kind) {

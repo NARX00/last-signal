@@ -1,3 +1,5 @@
+// adaptive threat tuning: from (run time, s), rise (per second when the screen is clear), max (enemy toughness ×), dmg (share of it added to enemy damage)
+const THREAT = { from: 150, rise: 0.03, max: 2, dmg: 0.3 };
 // ================= spawning =================
 function spawnPos(extra = 60) {
   // spawn just past the edge of the visible rectangle (not a circle), so on tall phones enemies arrive from the sides quickly too
@@ -11,7 +13,7 @@ function spawn(type, x, y, elite) {
   const hs = (1 + t / 60 * 0.32 + Math.pow(t / 250, 2.3)) * PM.hp;
   const isBoss = BOSSES.has(type);
   const th = G.threat || 1;
-  const e = { id: ++eid, type, x, y, r: D.r, hp: D.hp * (isBoss ? (1 + t / 400) * PM.hp * Math.sqrt(th) : hs * th), spd: D.spd * (1 + t / 900 * 0.35) * PM.spd, dmg: D.dmg * (1 + t / 900 * 1.8) * PM.dmg * (1 + (th - 1) * 0.12),
+  const e = { id: ++eid, type, x, y, r: D.r, hp: D.hp * (isBoss ? (1 + t / 400) * PM.hp * Math.sqrt(th) : hs * th), spd: D.spd * (1 + t / 900 * 0.35) * PM.spd, dmg: D.dmg * (1 + t / 900 * 1.8) * PM.dmg * (1 + (th - 1) * THREAT.dmg),
               xp: D.xp, hitsAt: G.hits, kbr: 1 / (1 + (th - 1) * 0.6), kx: 0, ky: 0, hf: 0, ph: rand(0, TAU), st: rand(1.5, 3), st2: 9, mode: 0, ch: pick(), orbHit: 0, slowT: 0, inWell: -9, elite: !!elite };
   if (G.mods.haste) e.spd *= 1.15;
   if(G.contract && !isBoss) e.spd*=1.1;
@@ -60,11 +62,12 @@ function director(dt) {
   if (state === 'over' || state === 'exiting') return;
   if (G.core && G.CH && G.CH.goal === 'core' && G.t >= G.CH.need) return;
   if (G.opCharge < 100 && G.gate >= 1) { G.opCharge = Math.min(100, G.opCharge + dt * 100 / 150); if (G.opCharge >= 100) opReady(); }
-  // Adaptive threat: if your build clears the screen, the system sends tougher code; if you're in trouble, it backs off
+  // Adaptive threat: if your build clears the screen, the system sends tougher code; if you're in trouble, it backs off.
+  // Strong builds (a well-upgraded Kernel) used to cruise through Protocol 0: it now starts sooner, rises faster and goes higher.
   G.thrT += dt;
   if (G.thrT >= 0.5) {
     const step = G.thrT; G.thrT = 0;
-    if (t > 240 && !G.boss) {
+    if (t > THREAT.from && !G.boss) {
       // count what reaches the inner part of the screen around you; enemies held at the edge don't count
       let on = 0; const R2 = Math.pow(Math.min(VW, VH) * 0.4, 2);
       // enemies already on screen and walking in count partly, so threat doesn't overshoot while they're still on their way
@@ -72,9 +75,9 @@ function director(dt) {
       const target = Math.min(28, 6 + t / 30), hurtRecent = t - (P.lastHit || -99) < 4;
       if (hurtRecent && P.hp < STAT.maxHp * 0.5) G.threat -= 0.25 * step;
       else if (hurtRecent && P.hp < STAT.maxHp * 0.75) { /* hold steady while you're under pressure */ }
-      else if (on < target * 0.5) G.threat += 0.015 * (1 - on / (target * 0.5)) * step;
+      else if (on < target * 0.5) G.threat += THREAT.rise * (1 - on / (target * 0.5)) * step;
       else if (on > target * 1.3) G.threat -= 0.03 * step;
-      G.threat = clamp(G.threat, 1, 1.5); G.threatPeak = Math.max(G.threatPeak, G.threat);
+      G.threat = clamp(G.threat, 1, THREAT.max); G.threatPeak = Math.max(G.threatPeak, G.threat);
       if (!G.thrSeen && G.threat > 1.3) { G.thrSeen = true; relay(RELAY.threat); }
     }
   }
