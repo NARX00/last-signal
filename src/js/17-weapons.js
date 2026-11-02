@@ -46,7 +46,11 @@ function fireWeapons(dt) {
         let tgt = null, best = -1;
         for (let j = 0; j < Math.min(8, pool.length); j++) { const c = pool[(Math.random() * pool.length) | 0], n = crowd(c); if (n > best) { best = n; tgt = c; } }
         const x = tgt ? tgt.x : P.x + P.fx * 140 + rand(-60, 60), y = tgt ? tgt.y : P.y + P.fy * 140 + rand(-60, 60);
-        wells.push({ x, y, R: D.r[i] * STAT.area * (evo ? 1.3 : 1), dmg: D.dmg[i] * (evo ? 1.3 : 1), t: 0, dur: D.dur[i] * STAT.dur, tick: 0, blast: i >= 5, evo });
+        // at most 2 wells at once (3 evolved): a new one makes the oldest collapse early, so black holes never swallow
+        // the whole screen; area bonuses grow a well to 1.6x its size at most
+        const live = wells.filter(w => w.t < w.dur);
+        if (live.length >= (evo ? 3 : 2)) { const old = live.reduce((a, b) => (a.t / a.dur >= b.t / b.dur ? a : b)); old.t = old.dur; }
+        wells.push({ x, y, R: D.r[i] * Math.min(STAT.area, 1.6) * (evo ? 1.3 : 1), dmg: D.dmg[i] * (evo ? 1.3 : 1), t: 0, dur: D.dur[i] * STAT.dur, tick: 0, blast: i >= 5, evo });
       }
     } else if (id === 'spread') {
       const n = evo ? 10 : D.n[i], base = Math.atan2(P.fy, P.fx), sp = 0.12 + n * 0.045;
