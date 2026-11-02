@@ -1,0 +1,202 @@
+{
+ "sectors": {
+  "foundry": {
+   "name": {
+    "en": "The Foundry",
+    "he": "בית היציקה"
+   },
+   "desc": {
+    "en": "Crowded industrial network. +25% regular enemy spawn rate; +20% shard XP. Earn upgrades faster, but leave room to escape.",
+    "he": "רשת תעשייתית צפופה. ‎+25% הופעת אויבים רגילים; ‎+20% ניסיון מרסיסים. שדרוגים מהר יותר, אבל השאר מקום לברוח."
+   }
+  },
+  "blackout": {
+   "name": {
+    "en": "Blackout",
+    "he": "האפלה"
+   },
+   "desc": {
+    "en": "Distant ordinary enemies are dimmed; shard pickup range −25%. On entry: one trigger + one effect for your code editor. Bosses, elites and attack warnings stay visible.",
+    "he": "אויבים רגילים רחוקים מעומעמים; טווח איסוף רסיסים ‎−25%. בכניסה: טריגר אחד + אפקט אחד לעורך הקוד. בוסים, אויבי עילית ואזהרות התקפה נשארים גלויים."
+   }
+  },
+  "sanctuary": {
+   "name": {
+    "en": "Sanctuary",
+    "he": "מקלט"
+   },
+   "desc": {
+    "en": "A quieter repair network. −15% regular enemy spawn rate and repair 0.75 integrity per second; −15% shard XP. A recovery route with slower growth.",
+    "he": "רשת תיקון שקטה יותר. ‎−15% הופעת אויבים רגילים ותיקון של 0.75 שלמות בשנייה; ‎−15% ניסיון מרסיסים. מסלול התאוששות עם צמיחה איטית יותר."
+   }
+  }
+ },
+ "boss_abilities": {
+  "auditor": {
+   "name": {
+    "en": "Audit Mark",
+    "he": "סימון ביקורת"
+   },
+   "desc": {
+    "en": "Every 6 seconds, mark up to 3 nearby enemies for 4 seconds. Marked enemies take 35% more damage.",
+    "he": "כל 6 שניות, מסמן עד 3 אויבים קרובים ל־4 שניות. אויבים מסומנים סופגים 35% יותר נזק."
+   }
+  },
+  "boss": {
+   "name": {
+    "en": "Purge Echo",
+    "he": "הד טיהור"
+   },
+   "desc": {
+    "en": "Every 8 seconds, emit a 160m pulse dealing 28 base damage and pushing enemies away.",
+    "he": "כל 8 שניות, פולט פעימה ברדיוס 160 מ' שגורמת 28 נזק בסיסי והודפת אויבים."
+   }
+  },
+  "collector": {
+   "name": {
+    "en": "Shard Siphon",
+    "he": "שאיבת רסיסים"
+   },
+   "desc": {
+    "en": "Every 10 seconds, pull all shards within 500m toward you.",
+    "he": "כל 10 שניות, מושך אליך את כל הרסיסים ברדיוס 500 מ'."
+   }
+  },
+  "mirror": {
+   "name": {
+    "en": "Mirror Lance",
+    "he": "רומח מראה"
+   },
+   "desc": {
+    "en": "Every 7 seconds, strike the nearest enemy within 420m for 45 base damage.",
+    "he": "כל 7 שניות, מכה באויב הקרוב ביותר בטווח 420 מ' ב־45 נזק בסיסי."
+   }
+  },
+  "phantom": {
+   "name": {
+    "en": "Phase Step",
+    "he": "צעד מעבר"
+   },
+   "desc": {
+    "en": "Every 12 seconds while moving, phase through enemies and firewalls for 1 second. Enemy shots can still hit you.",
+    "he": "כל 12 שניות בזמן תנועה, עובר דרך אויבים וחומות אש למשך שנייה. יריות אויב עדיין פוגעות בך."
+   }
+  }
+ },
+ "mutations": {
+  "return": {
+   "name": {
+    "en": "Return Protocol",
+    "he": "פרוטוקול חזרה"
+   },
+   "desc": {
+    "en": "Glyph Bolt and Slow Rounds projectiles return once and may hit the same target again. Each pass deals 70% normal damage. Other weapons are unchanged.",
+    "he": "קליעי בורג הגליף והקליעים המאטים חוזרים פעם אחת ויכולים לפגוע שוב באותה מטרה. כל מעבר גורם 70% מהנזק הרגיל. שאר הנשקים לא משתנים."
+   }
+  },
+  "mines": {
+   "name": {
+    "en": "Orbital Mines",
+    "he": "מוקשים במסלול"
+   },
+   "desc": {
+    "en": "Three proximity mines orbit you. Each detonates for 32 base damage, then re-arms after 6 seconds. Tradeoff: movement speed −8%.",
+    "he": "שלושה מוקשי קרבה חגים סביבך. כל אחד מתפוצץ ב־32 נזק בסיסי ונדרך מחדש אחרי 6 שניות. המחיר: מהירות תנועה ‎−8%."
+   }
+  },
+  "clone": {
+   "name": {
+    "en": "Afterimage",
+    "he": "בבואה"
+   },
+   "desc": {
+    "en": "Using a power leaves a clone at your old position. After 1 second it blasts a 120m area for 70 base damage. Tradeoff: power cooldowns +20%.",
+    "he": "שימוש ביכולת משאיר שיבוט במקום הקודם שלך. אחרי שנייה הוא מתפוצץ ברדיוס 120 מ' ב־70 נזק בסיסי. המחיר: זמני טעינה של יכולות ‎+20%."
+   }
+  }
+ },
+ "specializations": {
+  "gunslinger": {
+   "name": {
+    "en": "Gunslinger",
+    "he": "קלע"
+   },
+   "desc": {
+    "en": "Weapon damage +15%, but power cooldowns +10% and code damage −15%. A specialist in direct fire.",
+    "he": "נזק נשק ‎+15%, אבל זמני טעינה של יכולות ‎+10% ונזק קוד ‎−15%. מומחה לאש ישירה."
+   }
+  },
+  "codebreaker": {
+   "name": {
+    "en": "Codebreaker",
+    "he": "פורץ קוד"
+   },
+   "desc": {
+    "en": "Code damage +25%, but weapon damage −10% and shard pickup range −10%. Receive one trigger/effect kit on selection.",
+    "he": "נזק קוד ‎+25%, אבל נזק נשק ‎−10% וטווח איסוף רסיסים ‎−10%. מקבל ערכת טריגר/אפקט אחת בבחירה."
+   }
+  },
+  "phantom": {
+   "name": {
+    "en": "Phantom",
+    "he": "פנטום"
+   },
+   "desc": {
+    "en": "Movement speed +10%, but maximum integrity −10%. Built for evasion and positioning. This reduces current integrity proportionally too.",
+    "he": "מהירות תנועה ‎+10%, אבל שלמות מרבית ‎−10%. בנוי להתחמקות ומיקום. גם השלמות הנוכחית יורדת באופן יחסי."
+   }
+  }
+ },
+ "quests": {
+  "kills": {
+   "name": {
+    "en": "Purge contract",
+    "he": "חוזה טיהור"
+   },
+   "desc": {
+    "en": "Purge 200 enemies",
+    "he": "טהר 200 אויבים"
+   }
+  },
+  "shards": {
+   "name": {
+    "en": "Data recovery",
+    "he": "שחזור נתונים"
+   },
+   "desc": {
+    "en": "Collect 250 raw shard XP",
+    "he": "אסוף 250 ניסיון גולמי מרסיסים"
+   }
+  },
+  "clean": {
+   "name": {
+    "en": "Ghost signal",
+    "he": "אות רפאים"
+   },
+   "desc": {
+    "en": "Survive 30 consecutive seconds without being hit",
+    "he": "שרוד 30 שניות ברצף בלי להיפגע"
+   }
+  }
+ },
+ "halos": {
+  "cyan": {
+   "name": {
+    "en": "Ion halo",
+    "he": "הילת יונים"
+   }
+  },
+  "amber": {
+   "name": {
+    "en": "Solar halo",
+    "he": "הילה סולארית"
+   }
+  },
+  "violet": {
+   "name": {
+    "en": "Void halo",
+    "he": "הילת ריק"
+   }
+  }
+ }
+}

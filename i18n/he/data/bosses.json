@@ -1,0 +1,64 @@
+{
+ "info": {
+  "auditor": {
+   "name": {
+    "en": "The Auditor",
+    "he": "המבקר"
+   },
+   "sub": {
+    "en": "It marks where you stand",
+    "he": "מסמן את המקום שבו אתה עומד"
+   }
+  },
+  "boss": {
+   "name": {
+    "en": "The Agent",
+    "he": "הסוכן"
+   },
+   "sub": {
+    "en": "Enforcer of the purge",
+    "he": "אוכף הטיהור"
+   }
+  },
+  "collector": {
+   "name": {
+    "en": "The Collector",
+    "he": "האספן"
+   },
+   "sub": {
+    "en": "It eats what you leave behind",
+    "he": "אוכל את מה שאתה משאיר מאחור"
+   }
+  },
+  "mirror": {
+   "name": {
+    "en": "The Mirror",
+    "he": "המראה"
+   },
+   "sub": {
+    "en": "Your weapons, turned on you",
+    "he": "הנשקים שלך, מופנים נגדך"
+   }
+  },
+  "phantom": {
+   "name": {
+    "en": "The Phantom",
+    "he": "הפנטום"
+   },
+   "sub": {
+    "en": "Only solid for a moment",
+    "he": "מוחשי רק לרגע"
+   }
+  },
+  "root": {
+   "name": {
+    "en": "The Root Process",
+    "he": "תהליך השורש"
+   },
+   "sub": {
+    "en": "Delete it to win",
+    "he": "מחק אותו כדי לנצח"
+   }
+  }
+ }
+}

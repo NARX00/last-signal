@@ -1,0 +1,278 @@
+{
+ "start": [
+  {
+   "en": "You're awake. Good. The system has noticed you too. Keep moving.",
+   "he": "התעוררת. יופי. גם המערכת שמה לב אליך. תמשיך לזוז."
+  },
+  {
+   "en": "This is the Relay. I can't fight for you, but I can see what's coming.",
+   "he": "כאן הממסר. אני לא יכול להילחם בשבילך, אבל אני רואה מה מתקרב."
+  },
+  {
+   "en": "Signal acquired. They'll come in waves. Don't stand still.",
+   "he": "האות נקלט. הם יבואו בגלים. אל תעמוד במקום."
+  }
+ ],
+ "level": [
+  {
+   "en": "Every shard you take makes you stronger. Take all of it.",
+   "he": "כל רסיס שאתה לוקח מחזק אותך. קח הכול."
+  }
+ ],
+ "wave": [
+  {
+   "en": "Purge wave. They're closing a ring around you. Don't get boxed in.",
+   "he": "גל טיהור. הם סוגרים עליך טבעת. אל תיתן להם לכתר אותך."
+  },
+  {
+   "en": "Another ring is forming. Break through the thinnest side.",
+   "he": "עוד טבעת נוצרת. פרוץ דרך הצד הדק ביותר."
+  }
+ ],
+ "elite": [
+  {
+   "en": "Gold outline means it's carrying a Cache. Red outline means it's just tough. Pick your fights.",
+   "he": "מתאר זהוב אומר שהוא נושא מטמון. מתאר אדום אומר שהוא פשוט קשוח. בחר את הקרבות שלך."
+  }
+ ],
+ "meet": {
+  "patcher": {
+   "en": "Patcher. It has read your code and patched against your best line. Anything near it resists that effect. Your weapons still hurt it.",
+   "he": "מטליא. הוא קרא את הקוד שלך והתקין תיקון נגד השורה הכי טובה שלך. כל מה שלידו עמיד לאפקט הזה. הנשקים שלך עדיין פוגעים בו."
+  },
+  "scrubber": {
+   "en": "Scrubber. It eats code: pools, pull fields, shards. Kill it before it feeds.",
+   "he": "מנקה. הוא אוכל קוד: שלוליות, שדות משיכה, רסיסים. הרוג אותו לפני שהוא אוכל."
+  },
+  "lancer": {
+   "en": "Lancer. It stops, aims, then charges in a straight line. When it freezes and the white line appears, step sideways.",
+   "he": "רומח. הוא עוצר, מכוון ואז מסתער בקו ישר. כשהוא קופא והקו הלבן מופיע — צעד הצידה."
+  },
+  "watcher": {
+   "en": "Watcher. It hangs back and fires down a red line. Break the line before it fires.",
+   "he": "צופה. הוא נשאר מאחור ויורה לאורך קו אדום. שבור את הקו לפני שהוא יורה."
+  },
+  "ghost": {
+   "en": "Ghost process. You'll barely see it. Code Sight shows it plainly, but your weapons hit it either way.",
+   "he": "תהליך רוח. בקושי תראה אותו. ראיית קוד מראה אותו בבירור, אבל הנשקים שלך פוגעים בו בכל מקרה."
+  },
+  "leaker": {
+   "en": "Leaker. It bleeds corrupted data. Don't stand in the red pools, and kill it away from where you need to be.",
+   "he": "דולף. הוא מדמם נתונים פגומים. אל תעמוד בשלוליות האדומות, והרוג אותו הרחק מהמקום שאתה צריך."
+  }
+ },
+ "operator": {
+  "ready": {
+   "en": "Operator line is open. Call me when you need something.",
+   "he": "קו המפעיל פתוח. קרא לי כשתצטרך משהו."
+  },
+  "supply": {
+   "en": "Supply drop on you. Patch up and grab the shards.",
+   "he": "הטלת אספקה עליך. התאושש ותפוס את הרסיסים."
+  },
+  "rewrite": {
+   "en": "Rewriting the floor around you. Use the cover, it won't last.",
+   "he": "משכתב את הרצפה סביבך. נצל את המחסה, הוא לא יחזיק מעמד."
+  },
+  "trace": {
+   "en": "Tracing the system. Everything worth taking is marked, and I'm pulling your shards in.",
+   "he": "מתחקה אחרי המערכת. כל מה ששווה לקחת מסומן, ואני מושך אליך את הרסיסים."
+  },
+  "strike": {
+   "en": "Override sent. I'm hitting the biggest ones for you.",
+   "he": "פקודת עקיפה נשלחה. אני מכה בגדולים בשבילך."
+  }
+ },
+ "exit": {
+  "boss": {
+   "en": "An exit just opened. Step in and hold to jack out with what you've earned, or ignore it and keep going for more.",
+   "he": "יציאה נפתחה עכשיו. היכנס והחזק כדי להתנתק עם מה שהרווחת, או התעלם והמשך בשביל עוד."
+  },
+  "root": {
+   "en": "It's done. The exit is open. Get to it and jack out.",
+   "he": "זה נגמר. היציאה פתוחה. הגע אליה והתנתק."
+  },
+  "gone": {
+   "en": "The exit closed. You're still in. Keep going.",
+   "he": "היציאה נסגרה. אתה עדיין בפנים. תמשיך."
+  }
+ },
+ "events": {
+  "purge": {
+   "en": "The system left a gap open. Purge fast and I can pull a Cache through it.",
+   "he": "המערכת השאירה פרצה פתוחה. טהר מהר ואוכל למשוך דרכה מטמון."
+  },
+  "beacon": {
+   "en": "I've dropped a beacon. Hold it so I can send you something. Stand in the gold ring.",
+   "he": "הטלתי משואה. החזק אותה כדי שאוכל לשלוח לך משהו. עמוד בטבעת הזהובה."
+  },
+  "storm": {
+   "en": "Data storm. Every shard is worth double for a while. Grab everything.",
+   "he": "סערת נתונים. לזמן מה כל רסיס שווה כפול. תפוס הכול."
+  },
+  "win": {
+   "en": "Done. The Cache is yours.",
+   "he": "בוצע. המטמון שלך."
+  },
+  "fail": {
+   "en": "Gap's closed. Next time.",
+   "he": "הפרצה נסגרה. בפעם הבאה."
+  }
+ },
+ "world": {
+  "anomaly": {
+   "stasis": {
+    "en": "The rules are breaking over there. Inside that zone everything moves slowly, you included.",
+    "he": "החוקים נשברים שם. בתוך האזור הזה הכול נע לאט, גם אתה."
+   },
+   "amplify": {
+    "en": "That zone amplifies code. Your hits land harder inside, but so do their legs.",
+    "he": "האזור הזה מגביר קוד. הפגיעות שלך חזקות יותר בפנים, אבל גם שלהם."
+   },
+   "drift": {
+    "en": "Shards inside that zone float to its center, and each one is worth double.",
+    "he": "רסיסים בתוך האזור הזה נסחפים למרכזו, וכל אחד שווה כפול."
+   }
+  },
+  "convert": {
+   "en": "That one's listening. Keep it close and I can turn it to our side.",
+   "he": "הזה מקשיב. השאר אותו קרוב ואוכל להעביר אותו לצד שלנו."
+  },
+  "converted": {
+   "en": "It's ours now. It fights with you.",
+   "he": "עכשיו הוא שלנו. הוא נלחם איתך."
+  },
+  "pod": {
+   "en": "There's a sleeper in a pod nearby. Reach it, wake it, and walk it to the exit. It will fight for you.",
+   "he": "יש ישן בתא בקרבת מקום. הגע אליו, העֵר אותו וּלווה אותו ליציאה. הוא יילחם בשבילך."
+  },
+  "awake": {
+   "en": "It's awake. Get it to the exit and keep it alive.",
+   "he": "הוא ער. הבא אותו ליציאה ושמור עליו בחיים."
+  },
+  "saved": {
+   "en": "Out safe. It's staying with you.",
+   "he": "יצא בשלום. הוא נשאר איתך."
+  },
+  "lost": {
+   "en": "We lost the sleeper.",
+   "he": "איבדנו את הישן."
+  },
+  "trader": {
+   "en": "A rogue program wants to trade. Stand next to it if you're interested.",
+   "he": "תוכנה סוררת רוצה לסחור. עמוד לידה אם זה מעניין אותך."
+  }
+ },
+ "reflex": {
+  "en": "Reflex. Everything slows; you don't. Move.",
+  "he": "רפלקס. הכול מאט; אתה לא. זוז."
+ },
+ "overdrive": {
+  "en": "Overdrive. Keep moving and you'll keep it.",
+  "he": "אוברדרייב. תמשיך לזוז והוא יישאר."
+ },
+ "hidden": {
+  "en": "Something is buried in the code near you. Code Sight would show it. Or just walk over it.",
+  "he": "משהו קבור בקוד לידך. ראיית קוד תראה אותו. או פשוט תעבור עליו."
+ },
+ "threat": {
+  "en": "You're clearing them too fast. The system is sending sturdier code. Take a hit and it eases off.",
+  "he": "אתה מנקה אותם מהר מדי. המערכת שולחת קוד עמיד יותר. ספוג פגיעה והיא תרפה."
+ },
+ "warn": {
+  "auditor": {
+   "en": "Something is auditing this sector. When the ground under you turns red, move.",
+   "he": "משהו מבקר את הגזרה הזאת. כשהקרקע מתחתיך מאדימה — זוז."
+  },
+  "boss": {
+   "en": "An Agent is coming. It lunges. Watch for the white line.",
+   "he": "סוכן בדרך. הוא מזנק. שים לב לקו הלבן."
+  },
+  "collector": {
+   "en": "The Collector feeds on loose data. Kill it before it eats your shards.",
+   "he": "האספן ניזון מנתונים שזרוקים. הרוג אותו לפני שהוא אוכל את הרסיסים שלך."
+  },
+  "mirror": {
+   "en": "The Mirror learns your weapons. The stronger you are, the harder it hits back.",
+   "he": "המראה לומדת את הנשקים שלך. ככל שאתה חזק יותר, כך היא מחזירה חזק יותר."
+  },
+  "phantom": {
+   "en": "A Phantom. It walks through walls and through your fire. Hit it when it turns solid.",
+   "he": "פנטום. עובר דרך קירות ודרך האש שלך. פגע בו כשהוא נעשה מוחשי."
+  },
+  "root": {
+   "en": "The Root Process is coming for you itself. This is the end of the run. End it.",
+   "he": "תהליך השורש בא בעצמו לקחת אותך. זה סוף הריצה. סיים אותה."
+  }
+ },
+ "phase": [
+  {
+   "en": "It's adapting. Stay out of its line.",
+   "he": "הוא מסתגל. התרחק מהקו שלו."
+  },
+  {
+   "en": "It's changing patterns. Watch first, then move.",
+   "he": "הוא משנה דפוסים. קודם תסתכל, אחר כך תזוז."
+  },
+  {
+   "en": "Half its code is gone. It's getting desperate.",
+   "he": "חצי מהקוד שלו נעלם. הוא נואש."
+  }
+ ],
+ "rootPhase2": {
+  "en": "The arena is collapsing. Stay inside the light.",
+  "he": "הזירה קורסת. הישאר בתוך האור."
+ },
+ "rootPhase3": {
+  "en": "It's desperate. So are you. Finish it.",
+  "he": "הוא נואש. גם אתה. גמור אותו."
+ },
+ "down": [
+  {
+   "en": "It's gone. Take what it dropped.",
+   "he": "הוא איננו. קח את מה שהוא הפיל."
+  },
+  {
+   "en": "Deleted. The rain feels lighter already.",
+   "he": "נמחק. הגשם כבר מרגיש קל יותר."
+  }
+ ],
+ "collectorDown": {
+  "en": "All that data it hoarded is yours now. Collect it.",
+  "he": "כל הנתונים שהוא אגר שלך עכשיו. אסוף אותם."
+ },
+ "evolve": [
+  {
+   "en": "That's not a weapon anymore. That's a signature.",
+   "he": "זה כבר לא נשק. זו חתימה."
+  },
+  {
+   "en": "Evolution complete. They won't recognise you.",
+   "he": "האבולוציה הושלמה. הם לא יזהו אותך."
+  }
+ ],
+ "low": [
+  {
+   "en": "Your signal is breaking up. Find integrity or get distance.",
+   "he": "האות שלך מתפרק. מצא שלמות או התרחק."
+  },
+  {
+   "en": "You're fading. Use a power, now.",
+   "he": "אתה דועך. השתמש ביכולת, עכשיו."
+  }
+ ],
+ "win": {
+  "en": "Root deleted. For a moment, the rain is quiet. Then it starts again, and so do you.",
+  "he": "השורש נמחק. לרגע הגשם שקט. ואז הוא מתחיל שוב, וגם אתה."
+ },
+ "lose": [
+  {
+   "en": "Signal lost. I'll keep listening for you.",
+   "he": "האות אבד. אמשיך להאזין לך."
+  },
+  {
+   "en": "You were close. The system remembers you now. So do I.",
+   "he": "היית קרוב. המערכת זוכרת אותך עכשיו. גם אני."
+  }
+ ]
+}

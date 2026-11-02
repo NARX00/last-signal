@@ -8,10 +8,12 @@ const LANG = (() => {
   try { pref = (JSON.parse(localStorage.getItem('last-signal-settings') || '{}') || {}).lang || null; } catch (_) {}
   if (!pref) { try { const u = window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe && window.Telegram.WebApp.initDataUnsafe.user; if (u && u.language_code) pref = u.language_code; } catch (_) {} }
   if (!pref) pref = navigator.language || 'en';
-  pref = String(pref).slice(0, 2).toLowerCase();
+  pref = String(pref).slice(0, 2).toLowerCase(); if (pref === 'iw') pref = 'he';   // older Android/Telegram code for Hebrew
   return BUILD.i18n && BUILD.i18n[pref] ? pref : 'en';
 })();
 document.documentElement.lang = LANG;
+const RTL = LANG === 'he';
+if (RTL) document.documentElement.dir = 'rtl';
 if (LANG !== 'en') {
   const merge = (dst, t) => {
     for (const k in t) {
@@ -34,7 +36,12 @@ const tr = (() => {
     return { re: new RegExp('^' + src + '$'), order, out: v, fixed: k.replace(/\{#?\d+\}/g, '').length, tail: /\{#?\d+\}\.?$/.test(k) };
   }).sort((a, b) => b.fixed - a.fixed);
   const FRAG = Object.entries(UI.fragments || {}).filter(([, v]) => v).sort((a, b) => b[0].length - a[0].length);
-  const plural = (n, f) => { n = Math.abs(parseInt(String(n).replace(/[^\d-]/g, ''), 10) || 0); const [one, few, many] = f; return n % 10 === 1 && n % 100 !== 11 ? one : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? few : many; };
+  // plural forms as written in the translation: Russian one|few|many, Hebrew one|other
+  const plural = (n, f) => {
+    n = Math.abs(parseInt(String(n).replace(/[^\d-]/g, ''), 10) || 0);
+    if (LANG === 'ru') { const [one, few, many] = f; return n % 10 === 1 && n % 100 !== 11 ? one : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? few : many; }
+    return n === 1 ? f[0] : f[f.length - 1];
+  };
   const cache = new Map();
   function core(t) {
     const hit = TXT.get(t); if (hit) return hit;

@@ -1,0 +1,192 @@
+{
+ "warden": [
+  {
+   "en": "Warden",
+   "he": "משגיח"
+  },
+  {
+   "en": "Blue armor absorbs 55% damage for 3 seconds, followed by an exposed amber rush for 1.5 seconds. Keep your escape route open.",
+   "he": "שריון כחול סופג 55% מהנזק למשך 3 שניות, ואחריו הסתערות ענברית חשופה למשך 1.5 שניות. השאר לעצמך דרך מילוט פתוחה."
+  }
+ ],
+ "bug": [
+  {
+   "en": "Bug",
+   "he": "באג"
+  },
+  {
+   "en": "The most common process. Weak alone, dangerous in a swarm.",
+   "he": "התהליך הנפוץ ביותר. חלש לבד, מסוכן בנחיל."
+  }
+ ],
+ "daemon": [
+  {
+   "en": "Daemon",
+   "he": "דמון"
+  },
+  {
+   "en": "Faster and sturdier than a bug. Keep moving and it never catches you.",
+   "he": "מהיר וחזק יותר מבאג. תמשיך לזוז והוא לעולם לא ישיג אותך."
+  }
+ ],
+ "drone": [
+  {
+   "en": "Drone",
+   "he": "רחפן"
+  },
+  {
+   "en": "Circles at range and fires slow shots. Firewalls block them.",
+   "he": "חג מרחוק ויורה יריות איטיות. חומות אש חוסמות אותן."
+  }
+ ],
+ "lancer": [
+  {
+   "en": "Lancer",
+   "he": "רומח"
+  },
+  {
+   "en": "Freezes, shows a white line, then charges along it. Step sideways.",
+   "he": "קופא, מציג קו לבן ואז מסתער לאורכו. צעד הצידה."
+  }
+ ],
+ "split": [
+  {
+   "en": "Splitter",
+   "he": "מפצל"
+  },
+  {
+   "en": "Breaks into three bugs when destroyed. Kill it away from your path.",
+   "he": "מתפרק לשלושה באגים כשהוא מושמד. הרוג אותו הרחק מהדרך שלך."
+  }
+ ],
+ "watcher": [
+  {
+   "en": "Watcher",
+   "he": "צופה"
+  },
+  {
+   "en": "Hangs back and fires down a red line. Break the line or hide behind a firewall.",
+   "he": "נשאר מאחור ויורה לאורך קו אדום. שבור את הקו או התחבא מאחורי חומת אש."
+  }
+ ],
+ "brute": [
+  {
+   "en": "Brute",
+   "he": "בריון"
+  },
+  {
+   "en": "A slow, armored block of code that hits hard.",
+   "he": "גוש קוד איטי ומשוריין שמכה חזק."
+  }
+ ],
+ "leaker": [
+  {
+   "en": "Leaker",
+   "he": "דולף"
+  },
+  {
+   "en": "Leaves pools of corrupted data that hurt while you stand in them.",
+   "he": "משאיר שלוליות של נתונים פגומים שפוגעות בך כל עוד אתה עומד בהן."
+  }
+ ],
+ "patcher": [
+  {
+   "en": "Patcher",
+   "he": "מטליא"
+  },
+  {
+   "en": "Reads your strongest code line and patches against it. It and everything near it shrug off that effect. Kill it with your weapons.",
+   "he": "קורא את שורת הקוד החזקה שלך ומתקין נגדה תיקון. הוא וכל מה שלידו עמידים לאפקט הזה. הרוג אותו עם הנשקים שלך."
+  }
+ ],
+ "scrubber": [
+  {
+   "en": "Scrubber",
+   "he": "מנקה"
+  },
+  {
+   "en": "Hunts your code: it eats pools and pull fields and deletes shards that fly past it. It heals on every bite.",
+   "he": "צד את הקוד שלך: אוכל שלוליות ושדות משיכה ומוחק רסיסים שעוברים לידו. מתרפא עם כל נגיסה."
+  }
+ ],
+ "eel": [
+  {
+   "en": "Eel",
+   "he": "צלופח"
+  },
+  {
+   "en": "A long chain that weaves toward you. Every segment hurts.",
+   "he": "שרשרת ארוכה שמתפתלת לעברך. כל מקטע פוגע."
+  }
+ ],
+ "auditor": [
+  {
+   "en": "The Auditor",
+   "he": "המבקר"
+  },
+  {
+   "en": "Marks the ground where you stand, then strikes it. Keep moving.",
+   "he": "מסמן את הקרקע שבה אתה עומד ואז מכה בה. אל תעצור."
+  }
+ ],
+ "boss": [
+  {
+   "en": "The Agent",
+   "he": "הסוכן"
+  },
+  {
+   "en": "Freezes, aims, then lunges along a white line. From phase 2 it lunges twice.",
+   "he": "קופא, מכוון ואז מזנק לאורך קו לבן. משלב 2 הוא מזנק פעמיים."
+  }
+ ],
+ "collector": [
+  {
+   "en": "The Collector",
+   "he": "האספן"
+  },
+  {
+   "en": "Eats the shards you leave behind and grows stronger. Collect fast.",
+   "he": "אוכל את הרסיסים שאתה משאיר ומתחזק. אסוף מהר."
+  }
+ ],
+ "mirror": [
+  {
+   "en": "The Mirror",
+   "he": "המראה"
+  },
+  {
+   "en": "Fires a fan that grows with every weapon you carry, plus expanding rings.",
+   "he": "יורה מניפה שגדלה עם כל נשק שלך, וגם טבעות מתרחבות."
+  }
+ ],
+ "ghost": [
+  {
+   "en": "Ghost",
+   "he": "רוח"
+  },
+  {
+   "en": "Nearly invisible: only a faint shimmer, unless you use Code Sight. Your weapons still hit it.",
+   "he": "כמעט בלתי נראה: רק הבהוב קלוש, אלא אם תשתמש בראיית קוד. הנשקים שלך עדיין פוגעים בו."
+  }
+ ],
+ "phantom": [
+  {
+   "en": "The Phantom",
+   "he": "הפנטום"
+  },
+  {
+   "en": "Phases out of reach, then turns solid and fires rings. Damage only lands while it is solid.",
+   "he": "נעלם מהישג יד, ואז הופך למוחשי ויורה טבעות. נזק נספג רק כשהוא מוחשי."
+  }
+ ],
+ "root": [
+  {
+   "en": "The Root Process",
+   "he": "תהליך השורש"
+  },
+  {
+   "en": "The end of the run. It summons purges, collapses the arena, and strikes the ground in phase 3.",
+   "he": "סוף הריצה. מזמן טיהורים, מכווץ את הזירה ומכה בקרקע בשלב 3."
+  }
+ ]
+}

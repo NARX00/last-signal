@@ -13,8 +13,8 @@
   --cyan: #7ff7ff;
   --orange: #ff7a3b;
   --white: #effff5;
-  --mono: "Share Tech Mono", "PT Mono", ui-monospace, Menlo, Consolas, monospace;
-  --display: "VT323", "Share Tech Mono", "PT Mono", ui-monospace, monospace;
+  --mono: "Share Tech Mono", "PT Mono", "Noto Sans Hebrew", ui-monospace, Menlo, Consolas, monospace;
+  --display: "VT323", "Share Tech Mono", "PT Mono", "Noto Sans Hebrew", ui-monospace, monospace;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }

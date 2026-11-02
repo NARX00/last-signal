@@ -1,0 +1,102 @@
+{
+ "bolt": {
+  "name": {
+   "en": "Sync Storm",
+   "he": "סערת סנכרון"
+  },
+  "desc": {
+   "en": "Six homing glyphs, firing nonstop.",
+   "he": "שישה גליפים מונחים, ירי בלי הפסקה."
+  }
+ },
+ "pulse": {
+  "name": {
+   "en": "Event Horizon",
+   "he": "אופק אירועים"
+  },
+  "desc": {
+   "en": "Huge rings that slow everything they touch.",
+   "he": "טבעות ענקיות שמאטות כל מה שהן נוגעות בו."
+  }
+ },
+ "orbit": {
+  "name": {
+   "en": "Firewall Halo",
+   "he": "הילת חומת אש"
+  },
+  "desc": {
+   "en": "Two counter-rotating rings of burning glyphs.",
+   "he": "שתי טבעות של גליפים בוערים שמסתובבות זו נגד זו."
+  }
+ },
+ "bolt2": {
+  "name": {
+   "en": "Storm Uplink",
+   "he": "ערוץ סערה"
+  },
+  "desc": {
+   "en": "Eight strikes at once, each chaining three times.",
+   "he": "שמונה פגיעות בבת אחת, כל אחת קופצת שלוש פעמים."
+  }
+ },
+ "well": {
+  "name": {
+   "en": "Singularity",
+   "he": "סינגולריות"
+  },
+  "desc": {
+   "en": "Twin wells. Every kill inside repairs you.",
+   "he": "שתי בארות. כל הריגה בתוכן מתקנת אותך."
+  }
+ },
+ "spread": {
+  "name": {
+   "en": "Time Dilation",
+   "he": "האטת זמן"
+  },
+  "desc": {
+   "en": "Ten rounds that pierce everything and slow it.",
+   "he": "עשרה קליעים שחודרים הכול ומאטים אותו."
+  }
+ },
+ "mine": {
+  "name": {
+   "en": "Minefield",
+   "he": "שדה מוקשים"
+  },
+  "desc": {
+   "en": "Four bombs at a time, huge blasts that slow survivors.",
+   "he": "ארבע פצצות בבת אחת, פיצוצים ענקיים שמאטים את השורדים."
+  }
+ },
+ "boomer": {
+  "name": {
+   "en": "Recursion",
+   "he": "רקורסיה"
+  },
+  "desc": {
+   "en": "Six big glyphs that fly far and come back twice as hard.",
+   "he": "שישה גליפים גדולים שעפים רחוק וחוזרים חזקים פי שניים."
+  }
+ },
+ "drone": {
+  "name": {
+   "en": "Swarm Protocol",
+   "he": "פרוטוקול נחיל"
+  },
+  "desc": {
+   "en": "Five drones with piercing shots.",
+   "he": "חמישה רחפנים עם יריות חודרות."
+  }
+ },
+ "kata": {
+  "name": {
+   "en": "Perfect Form",
+   "he": "צורה מושלמת"
+  },
+  "desc": {
+   "en": "Strikes everything in reach; the combo climbs higher.",
+   "he": "מכה בכל מה שבהישג יד; הקומבו מטפס גבוה יותר."
+  }
+ }
+}

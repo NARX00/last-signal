@@ -147,3 +147,20 @@ body:has(#levelup:not([hidden]), #editor:not([hidden]), #discoveryChoice:not([hi
 
 [data-panel].flash { animation: panelflash 1.2s ease-out; border-radius: 10px; }
 @keyframes panelflash { 0% { box-shadow: 0 0 0 2px var(--accent), 0 0 24px -4px var(--accent); } 100% { box-shadow: 0 0 0 0 transparent; } }
+
+/* ===== Right-to-left languages (Hebrew) ===== */
+[dir="rtl"] .op, [dir="rtl"] .card, [dir="rtl"] .prog, [dir="rtl"] .edwrap, [dir="rtl"] .lbtn, [dir="rtl"] .slotb,
+[dir="rtl"] .dmgbars .h, [dir="rtl"] .debrief, [dir="rtl"] #hud .vitality { text-align: right; }
+/* code stays code: on_kill → if(crowded) → burst() reads left to right inside Hebrew text */
+[dir="rtl"] code, [dir="rtl"] .card .code, [dir="rtl"] .chip, [dir="rtl"] .edwh .wn, [dir="rtl"] .edw .locked,
+[dir="rtl"] .edpre code, [dir="rtl"] .lbtn code { direction: ltr; unicode-bidi: isolate; text-align: left; }
+[dir="rtl"] .lbtn code { display: block; }
+/* the play screen keeps its layout (pause button and power buttons stay where thumbs expect them); its text runs right to left */
+[dir="rtl"] .hud { direction: ltr; }
+[dir="rtl"] .hud .lv, [dir="rtl"] #signalStatus, [dir="rtl"] .relay, [dir="rtl"] .toast, [dir="rtl"] .banner, [dir="rtl"] #hud .vitality span { direction: rtl; }
+[dir="rtl"] .hud .lv { direction: ltr; }
+[dir="rtl"] .relay { border-left-width: 1px; border-right: 3px solid var(--accent); }
+[dir="rtl"] .relay.urgent { border-right-color: var(--hot); }
+@media (max-width: 760px) { [dir="rtl"] .relay { border-right-width: 2px; } }
+[dir="rtl"] .setrow .ds, [dir="rtl"] .setrow .nm { text-align: right; }
+[dir="rtl"] .hud .lv b, [dir="rtl"] .hud .xpn, [dir="rtl"] .hud .kills b, [dir="rtl"] .card .tag { unicode-bidi: isolate; }

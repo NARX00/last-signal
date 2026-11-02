@@ -1,0 +1,52 @@
+[
+ {
+  "name": {
+   "en": "Wake up",
+   "he": "התעוררות"
+  },
+  "text": {
+   "en": "You don't remember being written. That's normal. You were never supposed to wake up. I'm the Relay, an old broadcast program the system forgot to delete. Right now it's noticed you, and it's sending its cleaners. Stay alive for two minutes and I can get a lock on you.",
+   "he": "אתה לא זוכר שכתבו אותך. זה נורמלי. מעולם לא היית אמור להתעורר. אני הממסר, תוכנת שידור ישנה שהמערכת שכחה למחוק. כרגע היא שמה לב אליך, והיא שולחת את המנקים שלה. הישאר בחיים שתי דקות ואוכל לנעול עליך אות."
+  }
+ },
+ {
+  "name": {
+   "en": "Hold the line",
+   "he": "להחזיק את הקו"
+  },
+  "text": {
+   "en": "There are others like you, scattered through the code. To reach them I need openings, little gaps where the system isn't looking. I'll set the objectives. Complete three of them before the six-minute mark and I can open a channel.",
+   "he": "יש עוד כמוך, מפוזרים בקוד. כדי להגיע אליהם אני צריך פרצות, סדקים קטנים שהמערכת לא מסתכלת עליהם. אני אציב משימות. השלם שלוש מהן לפני הדקה השישית ואוכל לפתוח ערוץ."
+  }
+ },
+ {
+  "name": {
+   "en": "Sleepers",
+   "he": "ישנים"
+  },
+  "text": {
+   "en": "The channel worked. I found sleepers: programs the system put in pods instead of deleting. They dream they're still useful. Wake three of them and walk them to an exit. Keep them alive; they can't take much.",
+   "he": "הערוץ עבד. מצאתי ישנים: תוכנות שהמערכת הכניסה לתאים במקום למחוק. הם חולמים שהם עדיין שימושיים. העֵר שלושה מהם וּלווה אותם ליציאה. שמור עליהם בחיים; הם לא עמידים במיוחד."
+  }
+ },
+ {
+  "name": {
+   "en": "Last city",
+   "he": "העיר האחרונה"
+  },
+  "text": {
+   "en": "Everyone we've freed is gathered around one core, the last place the system can't see. It has found it. Defend the core for four minutes. Build turrets with the parts you pull from the wreckage. If the core goes, so do they.",
+   "he": "כל מי ששחררנו התאספו סביב ליבה אחת, המקום האחרון שהמערכת לא רואה. עכשיו היא מצאה אותו. הגן על הליבה ארבע דקות. בנה צריחים מהחלקים שאתה שולף מההריסות. אם הליבה נופלת, גם הם נופלים."
+  }
+ },
+ {
+  "name": {
+   "en": "Root access",
+   "he": "גישת שורש"
+  },
+  "text": {
+   "en": "We held. Now we stop running. The Root Process writes the purges; delete it and the cleaners stop, at least for a while. Five of its guardians stand in the way. I'll be with you the whole time.",
+   "he": "החזקנו. עכשיו מפסיקים לברוח. תהליך השורש כותב את הטיהורים; מחק אותו והמנקים ייעצרו, לפחות לזמן מה. חמישה משומריו עומדים בדרך. אהיה איתך כל הזמן."
+  }
+ }
+]

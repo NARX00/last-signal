@@ -123,9 +123,9 @@ but not in the Claude artifact, which keeps the generated soundtrack.
 
 Numbers here change balance directly. Weapon effects themselves (what a level does) are code in `src/js/17-weapons.js`.
 
-## Translations (Russian)
+## Translations (Russian, Hebrew)
 
-English is written in the code and in `data/`. Other languages live in `i18n/<language>/`:
+English is written in the code and in `data/`. Other languages live in `i18n/<language>/` (`ru`, `he`):
 
 | File | Contents |
 |---|---|
@@ -142,6 +142,11 @@ An empty translation shows the English text, so nothing breaks while a translati
 translation marks something that isn't on-screen text (a key name, a CSS value). If you change an
 English text in `data/`, its old translation is dropped on the next `extract`, because it no longer matches.
 Code-line syntax like `on_kill → burst()` stays in English in every language.
+
+Hebrew is shown right to left (`dir="rtl"`); code lines stay left to right inside it. The play screen keeps
+its layout so the pause and power buttons stay where thumbs expect them. Hebrew plurals are `{0|שורה|שורות}`.
+To add a language: `python tools/i18n.py extract <code>`, translate, and add it to the language list in
+`src/js/24-story-goals-siege-core-and-turrets.js` (LANGS).
 
 ## Checking balance
 

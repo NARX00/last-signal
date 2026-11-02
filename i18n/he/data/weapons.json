@@ -1,0 +1,402 @@
+{
+ "bolt": {
+  "name": {
+   "en": "Glyph Bolt",
+   "he": "בורג גליף"
+  },
+  "desc": [
+   {
+    "en": "Fires a glyph at the nearest threat.",
+    "he": "יורה גליף לעבר האיום הקרוב ביותר."
+   },
+   {
+    "en": "More damage.",
+    "he": "יותר נזק."
+   },
+   {
+    "en": "Fires 2 glyphs.",
+    "he": "יורה 2 גליפים."
+   },
+   {
+    "en": "Glyphs pierce 2 targets.",
+    "he": "הגליפים חודרים 2 מטרות."
+   },
+   {
+    "en": "Fires 3 glyphs.",
+    "he": "יורה 3 גליפים."
+   },
+   {
+    "en": "4 glyphs, pierce 3, faster fire.",
+    "he": "4 גליפים, חודרים 3, ירי מהיר יותר."
+   },
+   {
+    "en": "More damage, faster fire.",
+    "he": "יותר נזק, ירי מהיר יותר."
+   },
+   {
+    "en": "Overclocked: fires 5 glyphs.",
+    "he": "מואץ: יורה 5 גליפים."
+   }
+  ]
+ },
+ "pulse": {
+  "name": {
+   "en": "Shockwave",
+   "he": "גל הדף"
+  },
+  "desc": [
+   {
+    "en": "A ring of force bursts out from you.",
+    "he": "טבעת של כוח מתפרצת ממך החוצה."
+   },
+   {
+    "en": "Wider ring.",
+    "he": "טבעת רחבה יותר."
+   },
+   {
+    "en": "More damage.",
+    "he": "יותר נזק."
+   },
+   {
+    "en": "Fires more often.",
+    "he": "יורה לעתים קרובות יותר."
+   },
+   {
+    "en": "Wider, stronger ring.",
+    "he": "טבעת רחבה וחזקה יותר."
+   },
+   {
+    "en": "Double ring, heavy knockback.",
+    "he": "טבעת כפולה, הדיפה חזקה."
+   },
+   {
+    "en": "Stronger ring.",
+    "he": "טבעת חזקה יותר."
+   },
+   {
+    "en": "Overclocked: widest, fastest ring.",
+    "he": "מואץ: הטבעת הרחבה והמהירה ביותר."
+   }
+  ]
+ },
+ "orbit": {
+  "name": {
+   "en": "Firewall Ring",
+   "he": "טבעת חומת אש"
+  },
+  "desc": [
+   {
+    "en": "Two glyphs orbit you and burn what they touch.",
+    "he": "שני גליפים חגים סביבך ושורפים את מה שהם נוגעים בו."
+   },
+   {
+    "en": "Orbit spins faster.",
+    "he": "המסלול מסתובב מהר יותר."
+   },
+   {
+    "en": "A third glyph.",
+    "he": "גליף שלישי."
+   },
+   {
+    "en": "A fourth glyph, more damage.",
+    "he": "גליף רביעי, יותר נזק."
+   },
+   {
+    "en": "A fifth glyph, wider orbit.",
+    "he": "גליף חמישי, מסלול רחב יותר."
+   },
+   {
+    "en": "Six glyphs, wide and fast.",
+    "he": "שישה גליפים, רחב ומהיר."
+   },
+   {
+    "en": "A seventh glyph.",
+    "he": "גליף שביעי."
+   },
+   {
+    "en": "Overclocked: an eighth glyph, more damage.",
+    "he": "מואץ: גליף שמיני, יותר נזק."
+   }
+  ]
+ },
+ "bolt2": {
+  "name": {
+   "en": "Lightning",
+   "he": "ברק"
+  },
+  "desc": [
+   {
+    "en": "Calls lightning down on a nearby enemy.",
+    "he": "מוריד ברק על אויב קרוב."
+   },
+   {
+    "en": "Strikes 2 enemies.",
+    "he": "פוגע ב־2 אויבים."
+   },
+   {
+    "en": "More damage.",
+    "he": "יותר נזק."
+   },
+   {
+    "en": "Strikes 3 and chains once.",
+    "he": "פוגע ב־3 וקופץ פעם אחת."
+   },
+   {
+    "en": "Strikes 4, faster.",
+    "he": "פוגע ב־4, מהר יותר."
+   },
+   {
+    "en": "Strikes 5, chains twice.",
+    "he": "פוגע ב־5, קופץ פעמיים."
+   },
+   {
+    "en": "More damage, faster.",
+    "he": "יותר נזק, מהר יותר."
+   },
+   {
+    "en": "Overclocked: strikes 6.",
+    "he": "מואץ: פוגע ב־6."
+   }
+  ]
+ },
+ "well": {
+  "name": {
+   "en": "Gravity Well",
+   "he": "באר כבידה"
+  },
+  "desc": [
+   {
+    "en": "Opens a well that drags enemies in and grinds them down.",
+    "he": "פותח באר שגוררת אויבים פנימה וטוחנת אותם."
+   },
+   {
+    "en": "Larger well.",
+    "he": "באר גדולה יותר."
+   },
+   {
+    "en": "More damage.",
+    "he": "יותר נזק."
+   },
+   {
+    "en": "Lasts longer, opens more often.",
+    "he": "נמשכת יותר, נפתחת לעתים קרובות יותר."
+   },
+   {
+    "en": "Larger and stronger.",
+    "he": "גדולה וחזקה יותר."
+   },
+   {
+    "en": "Wells collapse in a blast.",
+    "he": "הבארות קורסות בפיצוץ."
+   },
+   {
+    "en": "Larger, lasts longer.",
+    "he": "גדולה יותר, נמשכת יותר."
+   },
+   {
+    "en": "Overclocked: strongest pull and damage.",
+    "he": "מואץ: המשיכה והנזק החזקים ביותר."
+   }
+  ]
+ },
+ "spread": {
+  "name": {
+   "en": "Slow Rounds",
+   "he": "קליעים מאטים"
+  },
+  "desc": [
+   {
+    "en": "Fires a fan of rounds where you are heading.",
+    "he": "יורה מניפת קליעים לכיוון שאליו אתה נע."
+   },
+   {
+    "en": "More damage.",
+    "he": "יותר נזק."
+   },
+   {
+    "en": "Four rounds.",
+    "he": "ארבעה קליעים."
+   },
+   {
+    "en": "Rounds pierce 2 targets.",
+    "he": "הקליעים חודרים 2 מטרות."
+   },
+   {
+    "en": "Six rounds, faster.",
+    "he": "שישה קליעים, מהר יותר."
+   },
+   {
+    "en": "Eight rounds, pierce 3.",
+    "he": "שמונה קליעים, חודרים 3."
+   },
+   {
+    "en": "Nine rounds.",
+    "he": "תשעה קליעים."
+   },
+   {
+    "en": "Overclocked: ten rounds, pierce 4.",
+    "he": "מואץ: עשרה קליעים, חודרים 4."
+   }
+  ]
+ },
+ "mine": {
+  "name": {
+   "en": "Logic Bomb",
+   "he": "פצצה לוגית"
+  },
+  "desc": [
+   {
+    "en": "Drops a bomb where you stand. It arms, then blows up when something steps close.",
+    "he": "מטיל פצצה במקום שבו אתה עומד. היא נדרכת ומתפוצצת כשמשהו מתקרב."
+   },
+   {
+    "en": "Bigger blast.",
+    "he": "פיצוץ גדול יותר."
+   },
+   {
+    "en": "More damage.",
+    "he": "יותר נזק."
+   },
+   {
+    "en": "Drops two at once.",
+    "he": "מטיל שתיים בבת אחת."
+   },
+   {
+    "en": "Drops more often.",
+    "he": "מטיל לעתים קרובות יותר."
+   },
+   {
+    "en": "Three at once, biggest blast.",
+    "he": "שלוש בבת אחת, הפיצוץ הגדול ביותר."
+   },
+   {
+    "en": "More damage, faster drops.",
+    "he": "יותר נזק, הטלה מהירה יותר."
+   },
+   {
+    "en": "Overclocked: four at once.",
+    "he": "מואץ: ארבע בבת אחת."
+   }
+  ]
+ },
+ "boomer": {
+  "name": {
+   "en": "Return Glyph",
+   "he": "גליף חוזר"
+  },
+  "desc": [
+   {
+    "en": "Throws a glyph that flies out and comes back, cutting through everything both ways.",
+    "he": "זורק גליף שעף החוצה וחוזר, חותך כל דבר בשני הכיוונים."
+   },
+   {
+    "en": "Flies farther.",
+    "he": "עף רחוק יותר."
+   },
+   {
+    "en": "Throws two.",
+    "he": "זורק שניים."
+   },
+   {
+    "en": "More damage.",
+    "he": "יותר נזק."
+   },
+   {
+    "en": "Throws three, faster.",
+    "he": "זורק שלושה, מהר יותר."
+   },
+   {
+    "en": "Four glyphs, longest throw.",
+    "he": "ארבעה גליפים, הזריקה הארוכה ביותר."
+   },
+   {
+    "en": "Hits harder, flies farther.",
+    "he": "מכה חזק יותר, עף רחוק יותר."
+   },
+   {
+    "en": "Overclocked: five glyphs.",
+    "he": "מואץ: חמישה גליפים."
+   }
+  ]
+ },
+ "kata": {
+  "name": {
+   "en": "Kata",
+   "he": "קאטה"
+  },
+  "desc": [
+   {
+    "en": "Fast strikes on the closest enemies. Every hit in a row hits harder.",
+    "he": "מכות מהירות באויבים הקרובים ביותר. כל מכה ברצף חזקה יותר."
+   },
+   {
+    "en": "Faster strikes.",
+    "he": "מכות מהירות יותר."
+   },
+   {
+    "en": "Hits three at once.",
+    "he": "פוגע בשלושה בבת אחת."
+   },
+   {
+    "en": "More damage, longer reach.",
+    "he": "יותר נזק, טווח ארוך יותר."
+   },
+   {
+    "en": "Hits four at once.",
+    "he": "פוגע בארבעה בבת אחת."
+   },
+   {
+    "en": "Five at once, fastest.",
+    "he": "חמישה בבת אחת, הכי מהיר."
+   },
+   {
+    "en": "Six at once.",
+    "he": "שישה בבת אחת."
+   },
+   {
+    "en": "Overclocked: fastest, hardest strikes.",
+    "he": "מואץ: המכות המהירות והחזקות ביותר."
+   }
+  ]
+ },
+ "drone": {
+  "name": {
+   "en": "Helper Drone",
+   "he": "רחפן עוזר"
+  },
+  "desc": [
+   {
+    "en": "A drone follows you and fires at the nearest enemy.",
+    "he": "רחפן עוקב אחריך ויורה באויב הקרוב ביותר."
+   },
+   {
+    "en": "Fires faster.",
+    "he": "יורה מהר יותר."
+   },
+   {
+    "en": "A second drone.",
+    "he": "רחפן שני."
+   },
+   {
+    "en": "More damage.",
+    "he": "יותר נזק."
+   },
+   {
+    "en": "A third drone.",
+    "he": "רחפן שלישי."
+   },
+   {
+    "en": "Drones fire twice as fast.",
+    "he": "הרחפנים יורים מהר פי שניים."
+   },
+   {
+    "en": "A fourth drone.",
+    "he": "רחפן רביעי."
+   },
+   {
+    "en": "Overclocked: hardest-hitting drones.",
+    "he": "מואץ: הרחפנים החזקים ביותר."
+   }
+  ]
+ }
+}

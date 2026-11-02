@@ -1,0 +1,72 @@
+[
+ {
+  "name": {
+   "en": "Surge",
+   "he": "נחשול"
+  },
+  "desc": {
+   "en": "+6% damage. Stacks without limit.",
+   "he": "‎+6% נזק. מצטבר בלי הגבלה."
+  }
+ },
+ {
+  "name": {
+   "en": "Spillover",
+   "he": "גלישה"
+  },
+  "desc": {
+   "en": "+6% area. Stacks without limit.",
+   "he": "‎+6% שטח. מצטבר בלי הגבלה."
+  }
+ },
+ {
+  "name": {
+   "en": "Burst Mode",
+   "he": "מצב צרורות"
+  },
+  "desc": {
+   "en": "Weapons recharge 3% faster. Stacks.",
+   "he": "הנשקים נטענים מהר יותר ב־3%. מצטבר."
+  }
+ },
+ {
+  "name": {
+   "en": "Mirror",
+   "he": "מראה"
+  },
+  "desc": {
+   "en": "+15 max integrity and restore 15. Stacks.",
+   "he": "‎+15 שלמות מרבית ומשחזר 15. מצטבר."
+  }
+ },
+ {
+  "name": {
+   "en": "Slipstream",
+   "he": "זרם"
+  },
+  "desc": {
+   "en": "+4% movement speed. Stacks.",
+   "he": "‎+4% מהירות תנועה. מצטבר."
+  }
+ },
+ {
+  "name": {
+   "en": "Compression",
+   "he": "דחיסה"
+  },
+  "desc": {
+   "en": "+8% data from shards. Stacks.",
+   "he": "‎+8% נתונים מרסיסים. מצטבר."
+  }
+ },
+ {
+  "name": {
+   "en": "Restore",
+   "he": "שחזור"
+  },
+  "desc": {
+   "en": "Restore 50 integrity now.",
+   "he": "משחזר מיד 50 שלמות."
+  }
+ }
+]

@@ -9,7 +9,8 @@
   (balance bot; deaths vary a lot run to run, so compare 6+ runs).
 - Hosting: GitHub Pages (Actions workflow in .github/workflows/pages.yml) and a Telegram Mini App;
   the Telegram layer is inert outside Telegram. `dist/claude-artifact.html` is the Claude artifact build.
-- Texts: English lives in code and data/; Russian in i18n/ru/ (see docs/CONTENT.md). After changing English text run
-  `python tools/i18n.py extract ru`, translate the new entries, and `python tools/i18n_scan.py ru` to find leftovers.
+- Texts: English lives in code and data/; Russian in i18n/ru/, Hebrew (RTL) in i18n/he/ (see docs/CONTENT.md). After
+  changing English text run `python tools/i18n.py extract ru` and `... extract he`, translate the new entries, and
+  `python tools/i18n_scan.py <lang>` to find leftovers.
 - Content must stay original: no characters, creatures or iconic names from The Matrix films or the Animatrix.
 - Balance targets and design history: keep difficulty changes small and measured with tools/sim.py.

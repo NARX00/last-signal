@@ -1,0 +1,125 @@
+{
+ "powers": {
+  "blink": {
+   "name": {
+    "en": "Blink",
+    "he": "הבזק"
+   },
+   "desc": {
+    "en": "Dash through enemies, untouchable, scorching everything on the way.",
+    "he": "זינוק דרך האויבים, בלתי פגיע, שורף את כל מה שבדרך."
+   }
+  },
+  "shell": {
+   "name": {
+    "en": "Shell",
+    "he": "מעטפת"
+   },
+   "desc": {
+    "en": "A firewall bubble: 5 s of immunity. It burns what touches it and reflects shots.",
+    "he": "בועת חומת אש: 5 שניות של חסינות. שורפת את מה שנוגע בה ומחזירה יריות."
+   }
+  },
+  "halt": {
+   "name": {
+    "en": "Halt",
+    "he": "עצירה"
+   },
+   "desc": {
+    "en": "Freeze every enemy and shot for 4 s. Frozen enemies take 30% more damage.",
+    "he": "מקפיא את כל האויבים והיריות ל־4 שניות. אויבים קפואים סופגים 30% יותר נזק."
+   }
+  },
+  "nova": {
+   "name": {
+    "en": "Nova",
+    "he": "נובה"
+   },
+   "desc": {
+    "en": "Overload: a blast that sweeps the whole screen and hurls enemies back.",
+    "he": "עומס יתר: פיצוץ שסוחף את כל המסך והודף את האויבים לאחור."
+   }
+  },
+  "slow": {
+   "name": {
+    "en": "Slowdown",
+    "he": "האטה"
+   },
+   "desc": {
+    "en": "Enemies and their shots crawl at 30% speed for 6 s. Your weapons fire 50% faster.",
+    "he": "האויבים והיריות שלהם זוחלים ב־30% מהירות למשך 6 שניות. הנשקים שלך יורים מהר יותר ב־50%."
+   }
+  },
+  "decoy": {
+   "name": {
+    "en": "Decoy",
+    "he": "פיתיון"
+   },
+   "desc": {
+    "en": "Drop a fake signal. Enemies chase it for 6 s, then it detonates.",
+    "he": "הטל אות מזויף. האויבים רודפים אחריו 6 שניות, ואז הוא מתפוצץ."
+   }
+  },
+  "sight": {
+   "name": {
+    "en": "Code Sight",
+    "he": "ראיית קוד"
+   },
+   "desc": {
+    "en": "See the world as code for 6 s: invisible ghosts and buried Caches show up, and everything takes +20% damage.",
+    "he": "ראה את העולם כקוד למשך 6 שניות: רוחות בלתי נראות ומטמונים קבורים נחשפים, והכול סופג ‎+20% נזק."
+   }
+  },
+  "phase": {
+   "name": {
+    "en": "Phase",
+    "he": "מעבר"
+   },
+   "desc": {
+    "en": "For 4 s you walk through firewalls and enemies. Contact cannot hurt you; shots still can.",
+    "he": "למשך 4 שניות אתה עובר דרך חומות אש ואויבים. מגע לא פוגע בך; יריות כן."
+   }
+  },
+  "leap": {
+   "name": {
+    "en": "Leap",
+    "he": "קפיצה"
+   },
+   "desc": {
+    "en": "Jump far in the direction you move and land with a shockwave.",
+    "he": "קפוץ רחוק לכיוון התנועה ונחת עם גל הדף."
+   }
+  },
+  "emp": {
+   "name": {
+    "en": "EMP",
+    "he": "EMP"
+   },
+   "desc": {
+    "en": "Wipes enemy shots and jams every shooter for 6 s. Your own drones and powers go dark for 3 s.",
+    "he": "מוחק את יריות האויב ומשבש כל יורה ל־6 שניות. הרחפנים והיכולות שלך כבים ל־3 שניות."
+   }
+  },
+  "hijack": {
+   "name": {
+    "en": "Hijack",
+    "he": "השתלטות"
+   },
+   "desc": {
+    "en": "Rewrite nearby enemies to fight for you for 8 s, then they self-delete.",
+    "he": "שכתב את האויבים הקרובים כך שילחמו בשבילך 8 שניות, ואז הם מוחקים את עצמם."
+   }
+  }
+ },
+ "levels": [
+  null,
+  {
+   "en": "Recharges 15% faster and hits harder.",
+   "he": "נטענת מהר יותר ב־15% ומכה חזק יותר."
+  },
+  {
+   "en": "Overclocked: recharges 30% faster, lasts longer, hits hardest.",
+   "he": "מואצת: נטענת מהר יותר ב־30%, נמשכת יותר, מכה הכי חזק."
+  }
+ ]
+}

@@ -8,7 +8,8 @@ i18n/<lang>/data/<file>.json   the same shape as data/<file>.json, holding only 
 i18n/<lang>/ui.json            "html": whole paragraphs from src/body.html (inline tags kept)
                                "text": exact strings (screen labels, messages)
                                "patterns": messages with values in them; {0}, {1} mark the values.
-                                 Russian plurals: {0|строка|строки|строк} picks the form for the number in {0}.
+                                 Plural forms pick by the number in {0}: Russian {0|строка|строки|строк} (one|few|many),
+                                 Hebrew {0|שורה|שורות} (one|other).
                                "fragments": pieces of sentences the code glues together; replaced inside
                                  longer texts when nothing above matched
 An empty string means "not translated yet": the game shows the English text.
@@ -32,6 +33,9 @@ def translatable(s):
     return isinstance(s, str) and re.search(r'[A-Za-z]{2}', s) and not ID_LIKE.match(s)
 
 
+LANG = 'ru'
+
+
 def data_skeleton(v, old):
     """Same shape as v with only translatable strings; keep any translation already in old."""
     if isinstance(v, dict):
@@ -45,7 +49,7 @@ def data_skeleton(v, old):
         out = [data_skeleton(x, old[i] if isinstance(old, list) and i < len(old) else None) for i, x in enumerate(v)]
         return out if any(x is not None for x in out) else None
     if translatable(v):
-        return {'en': v, 'ru': old['ru'] if isinstance(old, dict) and old.get('en') == v else ''}
+        return {'en': v, LANG: old[LANG] if isinstance(old, dict) and old.get('en') == v and LANG in old else ''}
     return None
 
 
@@ -224,8 +228,8 @@ def missing(lang):
     base = ROOT / 'i18n' / lang
     out = []
     def walk(v, path):
-        if isinstance(v, dict) and set(v) == {'en', 'ru'}:
-            if v['ru'] == '':
+        if isinstance(v, dict) and 'en' in v and lang in v and len(v) == 2:
+            if v[lang] == '':
                 out.append(f'{path}: {v["en"]}')
         elif isinstance(v, dict):
             for k, x in v.items(): walk(x, f'{path}.{k}')
@@ -244,6 +248,7 @@ def missing(lang):
 if __name__ == '__main__':
     if len(sys.argv) < 3 or sys.argv[1] not in ('extract', 'check'):
         print(__doc__); sys.exit(2)
+    LANG = sys.argv[2]
     if sys.argv[1] == 'extract':
         extract(sys.argv[2])
     else:

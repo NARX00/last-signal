@@ -1,0 +1,32 @@
+{
+ "kana": {
+  "name": {
+   "en": "Katakana",
+   "he": "קטקנה"
+  }
+ },
+ "binary": {
+  "name": {
+   "en": "Binary",
+   "he": "בינארי"
+  }
+ },
+ "hex": {
+  "name": {
+   "en": "Hex dump",
+   "he": "הקסדצימלי"
+  }
+ },
+ "sigil": {
+  "name": {
+   "en": "Sigils",
+   "he": "סמלים"
+  }
+ },
+ "greek": {
+  "name": {
+   "en": "Greek",
+   "he": "יווני"
+  }
+ }
+}

@@ -1,0 +1,87 @@
+{
+ "modes": [
+  [
+   null,
+   {
+    "en": "Full · 15:00",
+    "he": "מלא · 15:00"
+   }
+  ],
+  [
+   null,
+   {
+    "en": "Short · 8:00",
+    "he": "קצר · 8:00"
+   }
+  ],
+  [
+   null,
+   {
+    "en": "Siege · 10:00",
+    "he": "מצור · 10:00"
+   }
+  ],
+  [
+   null,
+   {
+    "en": "Story",
+    "he": "עלילה"
+   }
+  ],
+  [
+   null,
+   {
+    "en": "Training",
+    "he": "אימון"
+   }
+  ]
+ ],
+ "notes": {
+  "full": {
+   "en": "The full run: five bosses, then the Root Process at 15:00. Ranked on the leaderboard.",
+   "he": "הריצה המלאה: חמישה בוסים, ואז תהליך השורש ב־15:00. נכנסת לטבלת המובילים."
+  },
+  "short": {
+   "en": "The same run, compressed: bosses at 1:36, 2:40, 4:00, 5:20 and 6:40, the Root Process at 8:00. Not ranked.",
+   "he": "אותה ריצה, מכווצת: בוסים ב־1:36, 2:40, 4:00, 5:20 ו־6:40, תהליך השורש ב־8:00. לא נכנסת לדירוג."
+  },
+  "siege": {
+   "en": "Defend the core in the middle of the map. Enemies go for whichever is closer, you or the core. Every 15 kills earns a part: press T or tap ▲ to build a turret. The Root Process comes at 10:00. Not ranked.",
+   "he": "הגן על הליבה במרכז המפה. האויבים הולכים למי שקרוב יותר — אליך או אל הליבה. כל 15 הריגות מעניקות חלק: לחץ T או ▲ כדי לבנות צריח. תהליך השורש מגיע ב־10:00. לא נכנסת לדירוג."
+  },
+  "story": {
+   "en": "Five chapters narrated by the Relay, each with its own goal. Finish one to unlock the next.",
+   "he": "חמישה פרקים בקריינות הממסר, לכל אחד מטרה משלו. סיים פרק כדי לפתוח את הבא."
+  },
+  "training": {
+   "en": "A sandbox. You cannot be hurt, nothing spawns on its own, and nothing is earned. Use the bar at the top to level up, spawn enemies and bosses, and jump ahead in time.",
+   "he": "ארגז חול. אי אפשר לפגוע בך, שום דבר לא מופיע מעצמו ושום דבר לא נצבר. השתמש בסרגל למעלה כדי לעלות רמה, לזמן אויבים ובוסים ולקפוץ קדימה בזמן."
+  }
+ },
+ "daily": {
+  "glass": {
+   "en": "Glass: −40% integrity, +25% damage",
+   "he": "זכוכית: ‎−40% שלמות, ‎+25% נזק"
+  },
+  "haste": {
+   "en": "Haste: enemies move 15% faster",
+   "he": "חיפזון: האויבים מהירים ב־15%"
+  },
+  "swarm": {
+   "en": "Swarm: 35% more enemies, each 20% weaker",
+   "he": "נחיל: 35% יותר אויבים, כל אחד חלש ב־20%"
+  },
+  "drought": {
+   "en": "Drought: no repairs drop",
+   "he": "בצורת: לא נופלים תיקונים"
+  },
+  "overcharged": {
+   "en": "Overcharged: powers recharge twice as fast",
+   "he": "טעינת יתר: יכולות נטענות פי שניים מהר יותר"
+  },
+  "elites": {
+   "en": "Elite rush: elites come twice as often",
+   "he": "גל עילית: אויבי עילית מגיעים פי שניים יותר"
+  }
+ }
+}

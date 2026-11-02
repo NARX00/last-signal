@@ -23,7 +23,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC, DATA, ASSETS, DIST = ROOT / 'src', ROOT / 'data', ROOT / 'assets', ROOT / 'dist'
 
 TITLE = 'Last Signal: Rewrite'
-FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=PT+Mono&display=swap">'
+FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=PT+Mono&family=Noto+Sans+Hebrew:wght@400;600&display=swap">'
 SITE_URL = 'https://narx00.github.io/last-signal/'
 ICONS = (
     '<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/icon-32.png">'
