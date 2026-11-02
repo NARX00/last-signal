@@ -28,12 +28,23 @@ const TELE = (() => {
   }
   document.addEventListener('visibilitychange', () => { if (document.hidden) leave(); else beat(); });
   addEventListener('pagehide', leave);
-  addEventListener('error', e => {
+  // what was going on when it broke: Telegram or not, which screen, how far into a run
+  const ctxNote = () => { let c = TG ? 'tg' : 'web'; try { c += ' · ' + state; if (G && (state === 'play' || state === 'pause' || state === 'level')) c += ' ' + Math.floor(G.t / 60) + ':' + String(Math.floor(G.t % 60)).padStart(2, '0'); } catch (_) {} return c; };
+  const report = (m, where) => {
     if (!on() || errorsSent >= 3) return; errorsSent++;
     inc('errors');
-    const m = String((e && e.message) || 'error').slice(0, 200), where = e && e.lineno ? ` @${e.lineno}:${e.colno}` : '';
-    req('POST', `errors/${day()}`, { m: m + where, v: BUILD.version, t: { '.sv': 'timestamp' }, ua: /iPhone|iPad/.test(navigator.userAgent) ? 'ios' : /Android/.test(navigator.userAgent) ? 'android' : 'desktop' });
+    m = `${m}${where ? ' ' + where : ''} [${ctxNote()}]`.slice(0, 250);
+    req('POST', `errors/${day()}`, { m, v: BUILD.version, t: { '.sv': 'timestamp' }, ua: /iPhone|iPad/.test(navigator.userAgent) ? 'ios' : /Android/.test(navigator.userAgent) ? 'android' : 'desktop' });
+  };
+  addEventListener('error', e => {
+    const m = String((e && e.message) || 'error').slice(0, 160);
+    // browsers hide errors from scripts on other sites (here: Telegram's telegram-web-app.js) as "Script error."
+    if (!e || !e.lineno) return report(m, '(outside script: Telegram SDK or browser)');
+    const frame = e.error && e.error.stack ? String(e.error.stack).split('\n').find(l => /:\d+:\d+/.test(l)) : '';
+    const fn = frame ? (frame.trim().match(/^at (\S+) \(/) || frame.trim().match(/^(\w+)@/) || [])[1] : '';
+    report(m, `@${e.lineno}:${e.colno}${fn ? ' in ' + fn : ''}`);
   });
+  addEventListener('unhandledrejection', e => { const r = e && e.reason; report('Promise: ' + String((r && r.message) || r || 'rejected').slice(0, 140), ''); });
   return {
     id,
     start,
