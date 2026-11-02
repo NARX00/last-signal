@@ -144,3 +144,6 @@ body:has(#levelup:not([hidden]), #editor:not([hidden]), #discoveryChoice:not([hi
   .edwrap .actions { position: sticky; bottom: -8px; margin: 6px -8px -8px; padding: 10px 8px calc(10px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(rgba(4,14,23,0), rgba(4,14,23,.96) 35%); }
   .edwrap .actions .btn.primary { padding: 10px 26px; min-height: 0; }
 }
+
+[data-panel].flash { animation: panelflash 1.2s ease-out; border-radius: 10px; }
+@keyframes panelflash { 0% { box-shadow: 0 0 0 2px var(--accent), 0 0 24px -4px var(--accent); } 100% { box-shadow: 0 0 0 0 transparent; } }

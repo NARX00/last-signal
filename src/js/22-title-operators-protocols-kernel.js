@@ -50,7 +50,7 @@ function renderTitle() {
   lo.appendChild(document.createTextNode(' · '));
   if (names[1]) { const b2 = document.createElement('b'); b2.textContent = 'E: ' + names[1]; lo.appendChild(b2); } else lo.appendChild(document.createTextNode('second slot locked'));
   lo.appendChild(document.createTextNode(' · '));
-  const lk = document.createElement('button'); lk.type = 'button'; lk.className = 'linkish'; lk.textContent = 'Change powers'; lk.addEventListener('click', () => setTab('exploits')); lo.appendChild(lk);
+  const lk = document.createElement('button'); lk.type = 'button'; lk.className = 'linkish'; lk.textContent = 'Change powers'; lk.addEventListener('click', () => showTab('exploits')); lo.appendChild(lk);
   const xb = $('exploits'); xb.textContent = '';
   for (const id in XDEF) {
     const D = XDEF[id], own = !!META.xown[id];
@@ -132,4 +132,13 @@ function setTab(name) {
   document.querySelectorAll('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== name);
 }
 document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => setTab(t.dataset.tab)));
+// open a tab from elsewhere on the title screen: switch to it, bring it into view and flash it so the change is seen
+function showTab(name) {
+  setTab(name);
+  const tab = document.querySelector(`.tab[data-tab="${name}"]`), panel = document.querySelector(`[data-panel="${name}"]`);
+  const bar = tab && tab.closest('[role="tablist"]') || tab;
+  if (bar) bar.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  if (panel) { panel.classList.remove('flash'); void panel.offsetWidth; panel.classList.add('flash'); }
+  if (tab) tab.focus({ preventScroll: true });
+}
 
