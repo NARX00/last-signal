@@ -22,7 +22,7 @@ function frame(now) {
   }
   render(state === 'play' || state === 'title' ? dt : 0);
 }
-addEventListener('resize', resize);
+addEventListener('resize', resize); addEventListener('resize', () => typeof fitPowers === 'function' && fitPowers());
 resize();
 applyStyle();
 setTimeout(metaAch, 1500);

@@ -64,7 +64,7 @@ function updateOpBtn() {
   if (sec.textContent !== txt) sec.textContent = txt;
 }
 function renderPowers() {
-  const box = $('powers'); box.textContent = '';
+  const box = $('powers'); box.textContent = ''; requestAnimationFrame(fitPowers);
   if (!G) return;
   G.pw.forEach((p, i) => {
     const D = XDEF[p.id];
@@ -87,6 +87,8 @@ function renderPowers() {
   $('trainbar').hidden = !G.training;
   updatePowers();
 }
+// the Relay box and pop-ups stop short of the round buttons, however many there are
+function fitPowers() { const w = $('powers').offsetWidth || 0; document.documentElement.style.setProperty('--pw-w', w + 'px'); }
 function updatePowers() {
   if (!G) return;
   G.pw.forEach((p, i) => {

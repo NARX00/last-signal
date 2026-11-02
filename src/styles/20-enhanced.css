@@ -164,3 +164,7 @@ body:has(#levelup:not([hidden]), #editor:not([hidden]), #discoveryChoice:not([hi
 @media (max-width: 760px) { [dir="rtl"] .relay { border-right-width: 2px; } }
 [dir="rtl"] .setrow .ds, [dir="rtl"] .setrow .nm { text-align: right; }
 [dir="rtl"] .hud .lv b, [dir="rtl"] .hud .xpn, [dir="rtl"] .hud .kills b, [dir="rtl"] .card .tag { unicode-bidi: isolate; }
+
+/* the Relay box ends before the round buttons (2 or 3 of them, F / Q / E) */
+.relay { width: min(380px, calc(100% - var(--pw-w, 150px) - 48px)); }
+@media (max-width: 760px) { .relay { width: min(250px, calc(100% - var(--pw-w, 130px) - 32px)); } }
