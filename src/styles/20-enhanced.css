@@ -46,3 +46,17 @@ h1 { font-family:Impact,'Arial Narrow',sans-serif; font-size:clamp(64px,8vw,104p
 @media(max-width:760px) { .screen { padding:14px 10px; } .panel { padding:22px 18px; border-radius:16px; } .title-grid { grid-template-columns:1fr; gap:24px; } h1 { max-width:none; font-size:64px; } .signal-art { height:220px; } #signalStatus { width:210px; padding:8px 10px; } #signalStatus.idle { display:none; } #signalStatus p { margin-top:4px; } #sectorReadout, #questReadout { font-size:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:calc(100vw - 32px); margin:0; } .vitality { right:16px; top:105px; width:100px; } }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
 #continueBtn small { display: block; font-size: 11px; font-weight: normal; letter-spacing: .06em; opacity: .75; margin-top: 3px; text-transform: none; }
+
+/* HUD layout: the integrity meter is a row of its own under the timer, and boss titles never sit on the signal card */
+#hud .vitality { position: static; align-self: flex-end; width: min(240px, 60%); display: flex; align-items: center; gap: 8px; text-align: left; white-space: nowrap; }
+#hud .vitality div { flex: 1; margin-top: 0; }
+body.bannering #signalStatus { opacity: .08; }
+#signalStatus { transition: opacity .25s; }
+@media (max-width: 760px) {
+  #hud .vitality { width: 100%; align-self: stretch; font-size: 10px; }
+  /* pop-up messages stay above the round power buttons */
+  .toast { bottom: calc(112px + env(safe-area-inset-bottom, 0px)); }
+}
+/* while a choice of cards is open, pop-up messages wait out of the way instead of covering the cards */
+body:has(#levelup:not([hidden]), #discoveryChoice:not([hidden]), #sectorChoice:not([hidden]), #opcall:not([hidden]), #trade:not([hidden])) .toast { opacity: 0; }
+.hud .lv { white-space: nowrap; }

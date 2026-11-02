@@ -1,7 +1,8 @@
 // ================= state =================
 let ghosts = [];
 let toastT = 0;
-function toast(t) { const el = $('toast'); el.textContent = t; el.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('show'), 3200); }
+function placeToast() { const el = $('toast'), r = $('relay'); el.style.bottom = r && r.classList.contains('show') ? Math.max(0, innerHeight - r.getBoundingClientRect().top + 10) + 'px' : ''; }
+function toast(t) { const el = $('toast'); el.textContent = t; el.classList.add('show'); placeToast(); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('show'), 3200); }
 let G = null, P, STAT, cam = { x: 0, y: 0 }, enemies = [], shots = [], eshots = [], gems = [], pickups = [], rings = [], wells = [], zaps = [], sparks = [], texts = [];
 let state = 'title', eid = 0, shake = 0;
 const ROOT_T = 900;

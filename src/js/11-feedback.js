@@ -2,7 +2,7 @@
 let bannerT = 0;
 function banner(k, t, cls = '') {
   const b = $('banner'); $('bannerK').textContent = k; $('bannerT').textContent = t;
-  b.className = 'banner show ' + cls; clearTimeout(bannerT); bannerT = setTimeout(() => b.classList.remove('show'), 2200);
+  b.className = 'banner show ' + cls; document.body.classList.add('bannering'); clearTimeout(bannerT); bannerT = setTimeout(() => { b.classList.remove('show'); document.body.classList.remove('bannering'); }, 2200);
 }
 function addText(x, y, v, crit) { if (texts.length > 70) texts.shift(); texts.push({ x: x + rand(-6, 6), y, v, crit, t: 0 }); }
 function burst(x, y, n, col, spd = 160) {

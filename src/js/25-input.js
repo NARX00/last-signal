@@ -329,7 +329,7 @@ function updateSignalHunt(dt) {
   if (!h.node) {
     $('signalStatus').classList.toggle('idle', true);
     setTxt($('huntTitle'), h.completed ? 'Transmission secured' : 'Stay alive. Get stronger.');
-    setTxt($('huntDesc'), G.t < 18 ? 'Move with WASD. Auto-fire is on. Collect glowing shards to upgrade.' : 'Next signal in ' + Math.ceil(Math.max(0,h.next-G.t)) + 's · reward: cache + repair');
+    setTxt($('huntDesc'), G.t < 18 ? 'Move with WASD. Auto-fire is on. Collect glowing shards to upgrade.' : `Next signal in ${Math.ceil(Math.max(0,h.next-G.t))}s · reward: cache + repair`);
     setW($('huntFill'), '0%'); return;
   }
   if (G.boss) h.until += dt;
@@ -339,7 +339,7 @@ function updateSignalHunt(dt) {
   setHidden($('overloadBtn'), h.overloaded || d > 110 || !!G.boss);
   h.charge = d < 65 ? Math.min(hold,h.charge+dt) : Math.max(0,h.charge-dt*.5);
   setTxt($('huntTitle'), (h.overloaded ? 'OVERLOADED · ' : '') + 'Recover signal ' + (h.n+1) + ' / 3');
-  setTxt($('huntDesc'), Math.round(d) + 'm · ' + (G.boss ? 'timer held during boss' : Math.ceil(Math.max(0,h.until-G.t))+'s left') + ' · Hold '+hold+'s' + (h.overloaded ? ' · 2 caches at 3/3' : ' · 1 cache at 3/3'));
+  setTxt($('huntDesc'), `${Math.round(d)}m · ${G.boss ? 'timer held during boss' : Math.ceil(Math.max(0,h.until-G.t)) + 's left'} · Hold ${hold}s · ${h.overloaded ? '2 caches' : '1 cache'} at 3/3`);
   setW($('huntFill'), (h.charge/hold*100).toFixed(1)+'%');
   if (h.charge >= hold) {
     burst(h.node.x,h.node.y,24,CYAN); sfx.pickup(); h.n++; h.node=null; h.next=G.t+7;

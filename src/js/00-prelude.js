@@ -20,7 +20,7 @@ const load = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k) || '
 const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) {} };
 
 
-{ const hs = $('signalStatus'), qr = $('questReadout'); qr.after(hs); }
+{ const hs = $('signalStatus'), qr = $('questReadout'); qr.after(hs); document.querySelector('#hud .hudrow').after(document.querySelector('#hud .vitality')); }
 const launch = $('startBtn').parentElement;
 launch.classList.add('launch-actions');
 document.querySelector('.title-grid > div > div').appendChild(launch);
