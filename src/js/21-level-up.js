@@ -22,17 +22,41 @@ function offers() {
   return out;
 }
 let curOffers = [];
-function openLevelUp() {
-  G.pending--;
-  const peek = offers();
-  if (peek.every(o => o.kind === 'o')) {
-    // build is complete: no screen, just bank a stat and keep playing
-    let o = peek.find(x => x.id !== 'oheal') || peek[0];
-    if (o.id !== 'oheal' && P.hp < STAT.maxHp * 0.4) o = { kind: 'o', id: 'oheal' };
-    curOffers = [o]; state = 'level'; choose(0);
-    const D = OVER.find(x => x.id === o.id); banner('Overflow', D.name + ' · ' + D.desc.split('.')[0]); sfx.pickup();
-    return;
+// A level-up is only worth stopping the game for when it holds a real choice: a new weapon or system, an early weapon
+// level, a code piece. Later weapon levels, rank-ups (code line, power, system) and overflow are taken automatically.
+const minorOffer = o => o.kind === 'o' || o.kind === 'x' || (o.kind === 'c' && (o.up || o.spare)) || (o.kind === 'p' && o.l > 0 && o.wt < 2) || (o.kind === 'w' && o.l >= 4);
+function peekOffers() { return G.peek || (G.peek = offers()); }
+function autoPick(peek) {
+  // a weapon about to evolve first, then other weapon levels, code, powers, systems, overflow
+  const rank = o => o.kind === 'w' ? (o.l + 1 >= WMAX ? 6 : 5) : o.kind === 'c' ? (o.up ? 4 : 2.5) : o.kind === 'x' ? 3 : o.kind === 'p' ? 2 : o.id === 'oheal' ? 0 : 1;
+  let o = peek.slice().sort((a, b) => rank(b) - rank(a))[0];
+  if (P.hp < STAT.maxHp * 0.4 && peek.every(x => x.kind === 'o')) o = { kind: 'o', id: 'oheal' };
+  if (o.kind === 'c' && !o.up) {   // a spare code piece goes to the inventory; it's used from Pause → editor
+    if (o.piece === 'k') addPiece('k', o.k); else addPiece(o.piece, o.piece === 't' ? o.t : o.f);
+    toast(`▲ ${G.level} · ${o.piece === 'k' ? condTxt(o.k) : o.piece === 't' ? trigTxt(o.t, 0) : FX[o.f].fn + '()'} → ${tr('Code editor')}`); sfx.pickup(); return;
   }
+  const name = o.kind === 'w' ? WDEF[o.id].name : o.kind === 'c' ? FX[o.f].name : o.kind === 'x' ? XDEF[o.id].name : o.kind === 'p' ? PDEF[o.id].name : (OVER.find(x => x.id === o.id) || {}).name;
+  curOffers = [o]; state = 'level'; choose(0);
+  toast(`▲ ${G.level} · ${name} +1`); sfx.pickup();
+}
+// a real choice waits for a calm moment (nothing close, no shots coming) or for a tap on the ▲ badge; at most 2.5 s
+function levelCalm(dt) {
+  G.lvWait = (G.lvWait || 0) + dt;
+  if (G.training || G.level <= 6 || G.lvWait >= 2.5) return true;
+  for (const e of enemies) if (!e.dead && !(e.ally > G.t) && (e.x - P.x) ** 2 + (e.y - P.y) ** 2 < 120 * 120) return false;
+  for (const s of eshots) if ((s.x - P.x) ** 2 + (s.y - P.y) ** 2 < 110 * 110) return false;
+  return true;
+}
+function levelTick(dt) {
+  if (!(G.pending > 0 && state === 'play')) { if (!G.pending) G.lvWait = 0; return; }
+  const peek = peekOffers();
+  if (peek.every(minorOffer)) { G.pending--; G.peek = null; autoPick(peek); return; }
+  if (levelCalm(dt)) openLevelUp();
+}
+function openLevelUp() {
+  G.pending--; G.lvWait = 0;
+  const peek = peekOffers(); G.peek = null;
+  if (peek.every(minorOffer)) { autoPick(peek); return; }
   state = 'level'; G.banMode = false;
   if (G.level === 2) relay(RELAY.level[0]);
   sfx.level(); haptic('impact', 'soft', 300);

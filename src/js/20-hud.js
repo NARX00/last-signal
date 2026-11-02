@@ -13,6 +13,7 @@ function updateHud(force) {
   if (force || lastHud.tm !== tm) { $('timer').textContent = tm; lastHud.tm = tm; }
   if (force || lastHud.k !== G.kills) { $('kills').textContent = G.kills; lastHud.k = G.kills; }
   if (force || lastHud.lv !== G.level) { $('lv').textContent = G.level; lastHud.lv = G.level; }
+  { const n = state === 'play' ? G.pending : 0; if (force || lastHud.pend !== n) { lastHud.pend = n; const b = $('lvBadge'); b.hidden = !n; b.textContent = '▲ ' + n; } }
   const et = G.exitTxt || G.evtTxt || G.goalTxt || '';
   if (force || lastHud.ev !== et) { lastHud.ev = et; const el = $('evt'); el.hidden = !et; el.textContent = et; }
   const th = G.threat.toFixed(1);

@@ -190,10 +190,10 @@ function codeOffers() {
   const out = [], nT = invN('t'), nF = invN('f'), room = freeSlots() > Math.min(nT, nF);
   if (room && !nT && !nF) out.push({ kind: 'c', piece: 'b', t: rndKey(TRIG, 't'), f: rndKey(FX, 'f'), wt: 1.5 });
   else if (room) { const pc = nT < nF ? 't' : nF < nT ? 'f' : Math.random() < 0.5 ? 't' : 'f'; out.push({ kind: 'c', piece: pc, t: rndKey(TRIG, 't'), f: rndKey(FX, 'f'), wt: 1.4 }); }
-  else if (nT + nF < 2 && Object.values(P.code).some(l => l.length)) out.push({ kind: 'c', piece: Math.random() < 0.5 ? 't' : 'f', t: rndKey(TRIG, 't'), f: rndKey(FX, 'f'), wt: 0.5 });
+  else if (nT + nF < 2 && Object.values(P.code).some(l => l.length)) out.push({ kind: 'c', piece: Math.random() < 0.5 ? 't' : 'f', t: rndKey(TRIG, 't'), f: rndKey(FX, 'f'), wt: 0.5, spare: true });
   const ups = [];
   for (const id in P.code) P.code[id].forEach((L, j) => { if (L.r < LINE_MAX - 1) ups.push({ kind: 'c', id, j, t: L.t, f: L.f, r: L.r, up: true, wt: 1.0 }); });
-  if (codeLines() >= 2 && invN('k') < 2 && Object.values(P.code).some(l => l.some(L => !L.k))) { const k = rndKey(COND, 'k'); if (k) out.push({ kind: 'c', piece: 'k', k, t: 'hit', f: 'burst', wt: 0.8 }); }
+  if (codeLines() >= 2 && invN('k') < 2 && Object.values(P.code).some(l => l.some(L => !L.k))) { const k = rndKey(COND, 'k'); if (k) out.push({ kind: 'c', piece: 'k', k, t: 'hit', f: 'burst', wt: 0.8, spare: !room }); }
   if (ups.length) out.push(ups[(Math.random() * ups.length) | 0]);
   return out;
 }

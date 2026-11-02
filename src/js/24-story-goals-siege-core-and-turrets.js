@@ -80,6 +80,7 @@ $('dailyBtn').addEventListener('click', () => { RUN_DAILY = dailyPlan(); startRu
 $('againBtn').addEventListener('click', () => { if (RUN_DAILY) RUN_DAILY = dailyPlan(); if (!RUN_DAILY && META.mode === 'story') showChapter(); else startRun(); });
 $('menuBtn').addEventListener('click', toTitle);
 $('pauseBtn').addEventListener('click', pauseGame);
+$('lvBadge').addEventListener('click', () => { if (state === 'play' && G && G.pending > 0) openLevelUp(); });
 $('resumeBtn').addEventListener('click', resume);
 $('statsRow').hidden = !(BUILD.data.telemetry && BUILD.data.telemetry.database_url) || !!window.claude;
 const syncStats = () => { $('statsT').textContent = SET.stats === false ? 'Off' : 'On'; $('statsT').setAttribute('aria-pressed', SET.stats !== false); };

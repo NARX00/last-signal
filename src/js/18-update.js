@@ -340,7 +340,7 @@ function update(dt) {
   enemies = enemies.filter(e => !e.dead);
   G.comboT -= dt; if (G.comboT <= 0) G.combo = 0;
   shake *= Math.pow(0.02, dt);
-  if (G.pending > 0 && state === 'play') openLevelUp();
+  levelTick(dt);
 }
 function gainXp(v) {
   G.shardsGathered=(G.shardsGathered||0)+v;
