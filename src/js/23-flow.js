@@ -74,7 +74,8 @@ function renderProgram(el, end) {
     c.appendChild(document.createTextNode(` {  // ${lines.length}/${lineCap(id)}\n`));
     if (!lines.length) c.appendChild(document.createTextNode('  // empty\n'));
     for (const L of lines) {
-      c.appendChild(document.createTextNode(`  ${lineTxt(L)}${L.r ? '  // rank ' + (L.r + 1) : ''}`));
+      c.appendChild(document.createTextNode(`  ${lineTxt(L)}`));
+      if (L.r) { const rk = document.createElement('span'); rk.className = 'rk'; rk.textContent = `  // rank ${L.r + 1}`; c.appendChild(rk); }
       const st = document.createElement('span'); st.className = 'st'; st.textContent = '  // ' + lineStat(L); c.appendChild(st);
       c.appendChild(document.createTextNode('\n'));
     }

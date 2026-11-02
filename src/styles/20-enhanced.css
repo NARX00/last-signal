@@ -168,3 +168,10 @@ body:has(#levelup:not([hidden]), #editor:not([hidden]), #discoveryChoice:not([hi
 /* the Relay box ends before the round buttons (2 or 3 of them, F / Q / E) */
 .relay { width: min(380px, calc(100% - var(--pw-w, 150px) - 48px)); }
 @media (max-width: 760px) { .relay { width: min(250px, calc(100% - var(--pw-w, 130px) - 32px)); } }
+
+/* code listings: each comment is an isolated left-to-right piece, even when its words are Hebrew */
+[dir="rtl"] code .st, [dir="rtl"] code .rk, [dir="rtl"] .prog { unicode-bidi: isolate; direction: ltr; }
+[dir="rtl"] .prog { text-align: left; }
+/* the Relay's last words on the end screen */
+html[lang="ru"] .quote::before { content: "РЕТРАНСЛЯТОР · "; }
+html[lang="he"] .quote::before { content: "הממסר · "; }
