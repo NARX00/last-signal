@@ -58,7 +58,7 @@ body.bannering #signalStatus { opacity: .08; }
   .toast { bottom: calc(112px + env(safe-area-inset-bottom, 0px)); }
 }
 /* while a choice of cards is open, pop-up messages wait out of the way instead of covering the cards */
-body:has(#levelup:not([hidden]), #discoveryChoice:not([hidden]), #sectorChoice:not([hidden]), #opcall:not([hidden]), #trade:not([hidden])) .toast { opacity: 0; }
+body:has(#levelup:not([hidden]), #editor:not([hidden]), #discoveryChoice:not([hidden]), #sectorChoice:not([hidden]), #opcall:not([hidden]), #trade:not([hidden])) .toast { opacity: 0; }
 .hud .lv { white-space: nowrap; }
 
 /* ===== Phones: a quiet HUD. Small, see-through, and nothing over the middle of the field. ===== */
@@ -98,4 +98,49 @@ body:has(#levelup:not([hidden]), #discoveryChoice:not([hidden]), #sectorChoice:n
   .pw .sec { font-size: 14px; } .pw.op .sec { font-size: 11px; }
   .powers { gap: 8px; right: 10px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
   .toast { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* ===== Phones: choice screens (level-up, mutations, routes, operator, trade) and the code editor fit one screen ===== */
+@media (max-width: 760px) {
+  .screen { padding: 8px 8px calc(8px + env(safe-area-inset-bottom, 0px)); }
+  .lvl.panel, .screen > .lvl { padding: 12px 10px; border-radius: 12px; }
+  .lvl .eyebrow { font-size: 9px; margin: 0 0 4px; letter-spacing: .2em; }
+  .lvl h2 { font-size: 24px; line-height: 1.1; }
+  .lvl > .note, .lvl > .lede, #discoveryNote, #sectorReward { font-size: 10px; line-height: 1.4; margin: 6px auto 0; }
+  .cards { margin-top: 10px; gap: 7px; }
+  .cards .card { padding: 8px 10px; gap: 10px; border-radius: 8px; }
+  .cards .card > div:nth-child(2) { gap: 3px !important; }
+  .card .top { flex: none; width: 44px; align-items: center; gap: 5px; }
+  .card .ic, .card.codec .ic { font-size: 24px; }
+  .card .tag { font-size: 8px; letter-spacing: .06em; padding: 2px 4px; line-height: 1.2; text-align: center; }
+  .card .kind { font-size: 8px; letter-spacing: .14em; }
+  .card .nm { font-size: 18px; line-height: 1.05; }
+  .card .ds { font-size: 11px; line-height: 1.4; }
+  .card .code { font-size: 11px; padding: 3px 6px; }
+  .card .ev { font-size: 10px; line-height: 1.35; }
+  .card .build-note { font-size: 10px; line-height: 1.35; padding: 4px 6px; }
+  .card:hover, .card:focus-visible { transform: none; }
+  /* a mutation or reward card doesn't need to repeat "recovered experiment / choose one" under the heading */
+  #discoveryCards .card .tag, #discoveryCards .card .kind { display: none; }
+  .lvl .actions { margin-top: 8px; gap: 6px; }
+  .lvl .actions .btn { min-height: 32px; padding: 5px 10px; font-size: 10px; }
+  #banishNote { font-size: 10px; margin-top: 6px !important; }
+  /* code editor */
+  .edwrap h2 { font-size: 22px; }
+  .edinv { margin-top: 8px; gap: 5px; }
+  .edlab { width: 64px; font-size: 8px; letter-spacing: .12em; }
+  .chip { font-size: 11px; padding: 4px 7px; min-height: 0; }
+  .edpre { margin: 6px 0 2px; padding: 6px 8px; font-size: 10px; gap: 2px; }
+  .edpre code { font-size: 12px; }
+  .edweps { grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
+  .edw { padding: 6px; gap: 4px; border-radius: 8px; }
+  .edwh .ic { font-size: 16px; } .edwh .wn { font-size: 11px; } .edwh .cnt { font-size: 8px; letter-spacing: .06em; }
+  .slotb { padding: 5px 6px; font-size: 10px; }
+  .lbtn { padding: 4px 6px; } .lbtn code { font-size: 10px; } .lbtn .st { font-size: 9px; }
+  .xbtn { width: 26px; }
+  .edw .locked { font-size: 9px; }
+  #edNote { font-size: 10px; margin-top: 6px !important; }
+  /* "Done" stays on screen while the list scrolls */
+  .edwrap .actions { position: sticky; bottom: -8px; margin: 6px -8px -8px; padding: 10px 8px calc(10px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(rgba(4,14,23,0), rgba(4,14,23,.96) 35%); }
+  .edwrap .actions .btn.primary { padding: 10px 26px; min-height: 0; }
 }
